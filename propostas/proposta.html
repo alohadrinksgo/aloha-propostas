@@ -264,6 +264,64 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .foot-info a{color:rgba(201,169,110,.45);text-decoration:none}
 .foot-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(201,169,110,.4);margin-top:.9rem}
 
+/* ═══ CARTA DE DRINKS ══════════════════════════════ */
+.carta{background:var(--dark3);border:.5px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:.6rem}
+.carta-header{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.1rem;cursor:pointer;user-select:none}
+.carta-h-l{display:flex;flex-direction:column;gap:3px}
+.carta-h-t{font-size:.78rem;font-weight:500;color:rgba(255,255,255,.88)}
+.carta-h-s{font-size:.58rem;color:var(--muted)}
+.carta-chevron{flex-shrink:0;color:var(--gold);transition:transform .3s;width:16px;height:16px}
+.carta.open .carta-chevron{transform:rotate(180deg)}
+.carta-body{display:none;border-top:.5px solid rgba(201,169,110,.1)}
+.carta.open .carta-body{display:block}
+.carta-nota{font-size:.62rem;color:rgba(201,169,110,.65);text-align:center;padding:.65rem 1.1rem;border-bottom:.5px solid rgba(201,169,110,.07);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:.85rem}
+.carta-grid{display:grid;grid-template-columns:1fr 1fr}
+.drink-card{padding:.65rem .75rem;border-bottom:.5px solid rgba(255,255,255,.04);border-right:.5px solid rgba(255,255,255,.04)}
+.drink-card:nth-child(odd){background:rgba(255,255,255,.015)}
+.drink-n{font-size:.68rem;font-weight:500;color:var(--gold2);margin-bottom:3px;line-height:1.25}
+.drink-d{font-size:.56rem;color:rgba(255,255,255,.38);line-height:1.5}
+.carta-brands{padding:.75rem 1.1rem;border-top:.5px solid rgba(201,169,110,.08);background:rgba(201,169,110,.02)}
+.carta-brands-t{font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,169,110,.45);margin-bottom:.5rem}
+.carta-brands-list{display:flex;flex-wrap:wrap;gap:.3rem}
+.carta-brand{background:rgba(201,169,110,.05);border:.5px solid rgba(201,169,110,.13);border-radius:10px;padding:3px 8px;font-size:.56rem;color:rgba(255,255,255,.4)}
+
+/* ═══ CARTA DE DRINKS ══════════════════════════════ */
+.carta-modal{display:none;position:fixed;inset:0;z-index:9600;background:rgba(0,0,0,.93);backdrop-filter:blur(6px);overflow-y:auto;padding:1rem 1rem 3rem;-webkit-overflow-scrolling:touch}
+.carta-modal.show{display:block}
+.carta-wrap{background:var(--dark2);border:.5px solid var(--border);border-radius:20px;max-width:430px;margin:0 auto;overflow:hidden}
+.carta-header{display:flex;justify-content:space-between;align-items:flex-start;padding:1.2rem 1.2rem .7rem;border-bottom:.5px solid var(--border)}
+.carta-pkg-label{font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.carta-title-h{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-style:italic;color:#fff;line-height:1.1}
+.carta-close{background:rgba(255,255,255,.08);border:.5px solid rgba(255,255,255,.15);color:#fff;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:.5rem;transition:background .2s}
+.carta-close:hover{background:rgba(255,255,255,.15)}
+.carta-subtitle{font-size:.67rem;color:var(--muted);padding:.65rem 1.2rem .75rem;line-height:1.6;border-bottom:.5px solid rgba(201,169,110,.07)}
+.carta-sel-bar{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1.2rem;background:rgba(201,169,110,.04);border-bottom:.5px solid rgba(201,169,110,.1);position:sticky;top:0;z-index:2}
+.carta-sel-count{font-size:.7rem;color:var(--gold);font-weight:500}
+.carta-sel-cta{background:var(--gold);color:#060c18;border:none;border-radius:8px;padding:.4rem 1rem;font-size:.7rem;font-weight:500;cursor:pointer;opacity:.35;pointer-events:none;transition:opacity .2s,transform .15s;font-family:'DM Sans',sans-serif}
+.carta-sel-cta.ready{opacity:1;pointer-events:auto}
+.carta-sel-cta.ready:active{transform:scale(.96)}
+.carta-grid{display:grid;gap:.45rem;padding:.8rem 1rem .6rem}
+.drink-card{background:var(--dark3);border:.5px solid rgba(255,255,255,.05);border-radius:12px;padding:.78rem 1rem;position:relative;transition:border-color .2s,background .2s}
+.drink-card.sel{cursor:pointer}
+.drink-card.sel:active{transform:scale(.99)}
+.drink-card.picked{border-color:rgba(201,169,110,.45);background:rgba(201,169,110,.055)}
+.drink-check{position:absolute;top:.65rem;right:.65rem;width:18px;height:18px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.4);transition:opacity .18s,transform .18s;flex-shrink:0}
+.drink-card.picked .drink-check{opacity:1;transform:scale(1)}
+.drink-check svg{width:10px;height:10px}
+.drink-nome{font-size:.81rem;font-weight:500;color:#fff;margin-bottom:3px;padding-right:1.4rem;line-height:1.25}
+.drink-base{font-size:.62rem;color:rgba(255,255,255,.42);line-height:1.5}
+.drink-vessel{display:inline-flex;align-items:center;gap:3px;background:rgba(201,169,110,.07);border:.5px solid rgba(201,169,110,.14);border-radius:10px;padding:2px 8px;font-size:.5rem;color:rgba(201,169,110,.75);margin-top:.32rem;letter-spacing:.03em}
+.carta-footer{padding:.75rem 1rem 1rem;border-top:.5px solid var(--border)}
+.carta-escolher{width:100%;background:transparent;border:.5px solid rgba(201,169,110,.2);color:rgba(255,255,255,.5);border-radius:10px;padding:.7rem;font-family:'DM Sans',sans-serif;font-size:.74rem;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+.carta-escolher:hover{border-color:rgba(201,169,110,.4);color:var(--gold)}
+.carta-escolher.on{border-color:rgba(201,169,110,.45);color:var(--gold);background:rgba(201,169,110,.04)}
+.carta-brands{padding:.5rem 1.2rem .85rem;border-top:.5px solid rgba(201,169,110,.07)}
+.carta-brands-t{font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,169,110,.45);margin-bottom:.3rem}
+.carta-brands-txt{font-size:.62rem;color:rgba(255,255,255,.25);line-height:1.75}
+/* Button inside package card */
+.btn-carta{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;background:transparent;border:.5px solid rgba(201,169,110,.2);border-radius:10px;padding:.68rem;font-family:'DM Sans',sans-serif;font-size:.74rem;color:rgba(255,255,255,.55);cursor:pointer;margin-top:.55rem;transition:border-color .25s,color .25s,background .25s}
+.btn-carta:hover{border-color:rgba(201,169,110,.4);color:var(--gold);background:rgba(201,169,110,.04)}
+
 /* ═══ PACKAGE UPGRADE ══════════════════════════════ */
 .pkg-upgrade{position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(145deg,rgba(201,169,110,.07) 0%,var(--dark3) 100%);border:.5px solid rgba(201,169,110,.35);box-shadow:0 0 36px rgba(201,169,110,.05)}
 .pkg-upgrade::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
@@ -668,6 +726,32 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
   <div class="foot-tagline">Um brinde à vida.</div>
 </div>
 
+<!-- CARTA DE DRINKS MODAL -->
+<div class="carta-modal" id="carta-modal">
+  <div class="carta-wrap">
+    <div class="carta-header">
+      <div>
+        <div class="carta-pkg-label" id="carta-pkg-label">Carta de drinks</div>
+        <div class="carta-title-h" id="carta-title-h">Nossos drinks</div>
+      </div>
+      <button class="carta-close" onclick="closeCarta()">✕</button>
+    </div>
+    <div class="carta-subtitle" id="carta-subtitle"></div>
+    <div class="carta-sel-bar" id="carta-sel-bar">
+      <span class="carta-sel-count" id="carta-sel-count">0 selecionados</span>
+      <button class="carta-sel-cta" id="carta-sel-cta" onclick="enviarSelecao()">Enviar pelo WhatsApp</button>
+    </div>
+    <div class="carta-grid" id="carta-grid"></div>
+    <div class="carta-brands" id="carta-brands">
+      <div class="carta-brands-t">Destilados utilizados</div>
+      <div class="carta-brands-txt" id="carta-brands-txt"></div>
+    </div>
+    <div class="carta-footer">
+      <button class="carta-escolher" id="carta-escolher" onclick="toggleEscolher()">✦ Escolher meus drinks</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ─── ADMIN ───────────────────────────────────────────
 const SENHA = 'aloha2024';
@@ -879,6 +963,164 @@ buildCarousel();
 // ─── LOGOS CLONE ─────────────────────────────────────
 (()=>{const t=document.getElementById('logos-track');if(t)t.innerHTML+=t.innerHTML;})();
 
+// ─── CARTA DE DRINKS DATA ────────────────────────────
+const PKG_DRINKS={
+  essence:{
+    limit:4, fixed:true,
+    subtitle:'4 opções fixas · sem álcool incluído · servidos em copo descartável.',
+    brands:'Vodka Kriskof · Gin Intencion · Cachaça 51',
+    drinks:[
+      {n:'Caipirinha Tradicional', b:'Cachaça 51, limão e simple syrup', v:'copo descartável'},
+      {n:'Aloha', b:'Cachaça ou Vodka, limão, abacaxi e simple syrup', v:'copo descartável'},
+      {n:'Gin Tropical', b:'Gin e energético tropical', v:'copo descartável'},
+      {n:'Caipiroskas', b:'Vodka, limão ou morango e simple syrup', v:'copo descartável'},
+    ],
+  },
+  gold:{
+    limit:6, fixed:false,
+    subtitle:'Escolha até 6 drinks — sendo até 2 não alcoólicos. Taças e copos de vidro inclusos.',
+    brands:'Vodka Sky · Vodka Smirnoff · Fiu-Fiu Cajazinha · Gin Intencion · Cachaça 51 · Rum Montila Ouro',
+    drinks:[
+      {n:'Moscow Mule & London Mule', b:'Vodka ou Gin, limão, hortelã, simple syrup e espuma de gengibre', v:'caneca'},
+      {n:'Caipirinha Tradicional', b:'Cachaça 51, limão e simple syrup', v:'long drink'},
+      {n:'Duquesa', b:'Vodka, morango, limão, simple syrup e espuma de gengibre', v:'taça'},
+      {n:'Aloha', b:'Cachaça ou Vodka, limão, abacaxi e simple syrup', v:'long drink'},
+      {n:'Gin Tropical', b:'Gin, energético tropical, maracujá e laranja bahia', v:'taça'},
+      {n:'Gin Tônica', b:'Gin, água tônica e limão siciliano', v:'taça'},
+      {n:'Verona', b:'Gin, xarope de maçã verde, uva thompson, limão, água com gás e manjericão', v:'taça'},
+      {n:'Sex on the Beach', b:'Vodka, licor de pêssego, suco de laranja e xarope granadine', v:'long drink'},
+      {n:'Cajalemon', b:'Fiu-Fiu Cajazinha, limão, simple syrup e água com gás', v:'taça · borda de sal'},
+      {n:'Mojito', b:'Rum, limão, hortelã, simple syrup e água com gás', v:'long drink'},
+      {n:'Verão', b:'Vodka, morango, maracujá e simple syrup', v:'long drink'},
+      {n:'Caipiroskas', b:'Vodka, frutas e simple syrup', v:'long drink'},
+      {n:'Caipiríssima', b:'Rum, limão e simple syrup', v:'long drink'},
+      {n:'Aloha Sunset', b:'Gin, maracujá, limão, simple syrup, água com gás e hortelã', v:'taça'},
+      {n:'Piña Colada', b:'Rum, abacaxi, leite de coco e leite condensado', v:'long drink'},
+      {n:'Twist', b:'Vodka, kiwi, limão e simple syrup', v:'long drink'},
+    ],
+  },
+  premium:{
+    limit:8, fixed:false,
+    subtitle:'Escolha até 8 drinks — sendo até 2 não alcoólicos. Destilados importados de linha superior.',
+    brands:'Vodka Absolut · Vodka Ketel One · Gin Beefeater · Gin Tanqueray · Gin Gordon\'s · Fiu-Fiu Cajazinha · Tequila José Cuervo · Campari · Aperol · Rum Bacardi · Vermuth Rosso & Seco · Cachaça 51 · Bitter Angostura · Espumantes Aurora / Casa Perini · Whisky Jameson · Jim Beam · Johnnie Walker Blonde',
+    drinks:[
+      {n:'Moscow Mule & London Mule', b:'Vodka ou Gin, limão, hortelã, simple syrup e espuma de gengibre', v:'caneca'},
+      {n:'Caipirinha Tradicional', b:'Cachaça 51, limão e simple syrup', v:'long drink'},
+      {n:'Duquesa', b:'Vodka, morango, limão, simple syrup e espuma de gengibre', v:'taça'},
+      {n:'Aloha', b:'Cachaça ou Vodka, limão, abacaxi e simple syrup', v:'long drink'},
+      {n:'Gin Tropical', b:'Gin, energético tropical e laranja bahia', v:'taça'},
+      {n:'Gin Tônica', b:'Gin, água tônica e limão siciliano', v:'taça'},
+      {n:'Penicillin', b:'Whisky, limão, mel, xarope de gengibre e limão siciliano', v:'copo baixo'},
+      {n:'Verona', b:'Gin, xarope de maçã verde, uva thompson, limão, água com gás e manjericão', v:'taça'},
+      {n:'Sex on the Beach', b:'Vodka, licor de pêssego, suco de laranja e xarope granadine', v:'long drink'},
+      {n:'Cajalemon', b:'Fiu-Fiu Cajazinha, limão, simple syrup e água com gás', v:'taça · borda de sal'},
+      {n:'Mojito', b:'Rum, limão, hortelã, simple syrup e água com gás', v:'long drink'},
+      {n:'Verão', b:'Vodka, morango, maracujá e simple syrup', v:'long drink'},
+      {n:'Caipiroskas', b:'Vodka, combinação de até 2 frutas e simple syrup', v:'long drink'},
+      {n:'Caipiríssima', b:'Rum, limão e simple syrup', v:'long drink'},
+      {n:'Dry Martíni', b:'Gin e vermute seco com azeitona de guarnição', v:'taça Dry'},
+      {n:'Aperol Spritz', b:'Aperol, Champanhe, água com gás e laranja bahia', v:'taça'},
+      {n:'Flor de Lis', b:'Gin, limão, xarope de amora e St. Pierre Blueberry', v:'copo baixo'},
+      {n:'Aloha Sunset', b:'Gin, maracujá, limão, simple syrup, água com gás e hortelã', v:'taça'},
+      {n:'Lemon Cofee', b:'Gin, limão, café expresso solúvel e simple syrup', v:'copo baixo'},
+      {n:'Negroni', b:'Gin, Campari, Vermouth Rosso e twist de laranja bahia', v:'copo baixo'},
+      {n:'Gin Tangerina', b:'Gin, limão, xarope de tangerina e soda limão', v:'taça'},
+      {n:'Piña Colada', b:'Rum, abacaxi, leite de coco e leite condensado', v:'long drink'},
+      {n:'Whisky Sour', b:'Whisky, limão e simple syrup', v:'copo baixo'},
+      {n:'Fitzgerald', b:'Gin, limão, simple syrup, bitter angostura e limão siciliano', v:'copo baixo'},
+      {n:'Paloma', b:'Tequila plata, limão, simple syrup, St. Pierre Paloma e crosta de sal rosa', v:'long drink'},
+    ],
+  },
+  soft:{
+    limit:5, fixed:false,
+    subtitle:'Até 5 opções — 100% sem álcool. Sucos, frutas frescas, xaropes e refrigerantes.',
+    brands:'Sucos naturais · Frutas frescas · Xaropes artesanais · Refrigerantes',
+    drinks:[
+      {n:'Doce Maria', b:'Refri de limão, maracujá, hortelã e simple syrup', v:'long drink'},
+      {n:'Flocos de Neve', b:'Abacaxi, leite condensado e leite de coco', v:'long drink · borda de coco'},
+      {n:'Soda Italiana', b:'Refri de limão, xaropes de maçã verde e frutas vermelhas', v:'long drink'},
+      {n:'Por do Sol', b:'Suco de laranja, suco de pêssego e xarope granadine', v:'taça'},
+      {n:'Melancita', b:'Melancia, limão, hortelã, simple syrup, refri de limão e espuma de gengibre', v:'long drink'},
+      {n:'Piña Fresh', b:'Abacaxi, limão, hortelã, simple syrup e refri de limão', v:'long drink'},
+      {n:'Berry', b:'Morango, limão, simple syrup e refri de limão', v:'long drink'},
+      {n:'Verona', b:'Uva verde, limão, manjericão, xarope de maçã verde e refri de limão', v:'taça'},
+      {n:'Moscow Mule', b:'Limão, simple syrup, refri de limão, hortelã e espuma de gengibre', v:'caneca'},
+      {n:'Caipifruta', b:'Morango, limão, maracujá e simple syrup', v:'long drink'},
+      {n:'Tim-Tim', b:'Morango, limão, hortelã, simple syrup, refri de limão e espuma de gengibre', v:'long drink'},
+      {n:'Sereno', b:'Abacaxi, leite condensado e suco de uva integral', v:'taça'},
+      {n:'Lagoa Azul', b:'Refri de limão, xarope blue e espuma de gengibre', v:'taça'},
+      {n:'Aurora', b:'Kiwi, refri de limão e simple syrup', v:'long drink'},
+    ],
+  },
+};
+
+// ─── CARTA DE DRINKS LOGIC ────────────────────────────
+let _cartaPkg='', _cartaSel=new Set(), _cartaMode=false;
+
+function openCarta(pkgKey){
+  _cartaPkg=pkgKey; _cartaSel=new Set(); _cartaMode=false;
+  const data=PKG_DRINKS[pkgKey]; if(!data) return;
+  document.getElementById('carta-pkg-label').textContent='Carta de drinks · '+PKG[pkgKey].nome;
+  document.getElementById('carta-title-h').textContent='Nossos drinks';
+  document.getElementById('carta-subtitle').textContent=data.subtitle;
+  document.getElementById('carta-brands-txt').textContent=data.brands;
+  // Sel bar — hidden until "Escolher" mode
+  document.getElementById('carta-sel-bar').style.display='none';
+  // Escolher btn
+  const btnE=document.getElementById('carta-escolher');
+  if(data.fixed){btnE.style.display='none';}
+  else{btnE.style.display='block';btnE.textContent='✦ Escolher meus drinks';btnE.classList.remove('on');}
+  _renderCartaGrid(false);
+  document.getElementById('carta-modal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeCarta(){
+  document.getElementById('carta-modal').classList.remove('show');
+  document.body.style.overflow='';
+  _cartaSel=new Set(); _cartaMode=false;
+}
+// Close on backdrop tap
+document.getElementById('carta-modal').addEventListener('click',function(e){if(e.target===this)closeCarta();});
+
+function _renderCartaGrid(selMode){
+  const data=PKG_DRINKS[_cartaPkg]; if(!data) return;
+  const CHECK=`<svg viewBox="0 0 12 12" fill="none" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg>`;
+  document.getElementById('carta-grid').innerHTML=data.drinks.map((d,i)=>{
+    const picked=_cartaSel.has(i);
+    return `<div class="drink-card${selMode?' sel':''}${picked?' picked':''}" ${selMode?`onclick="_pick(${i})"`:''}><div class="drink-check">${CHECK}</div><div class="drink-nome">${d.n}</div><div class="drink-base">${d.b}</div><div class="drink-vessel">${d.v}</div></div>`;
+  }).join('');
+}
+function _pick(i){
+  const data=PKG_DRINKS[_cartaPkg]; if(!data) return;
+  if(_cartaSel.has(i)){_cartaSel.delete(i);}
+  else{if(_cartaSel.size>=data.limit) return; _cartaSel.add(i);}
+  _renderCartaGrid(true); _updSel();
+}
+function _updSel(){
+  const data=PKG_DRINKS[_cartaPkg]; if(!data) return;
+  const n=_cartaSel.size, lim=data.limit;
+  document.getElementById('carta-sel-count').textContent=`${n} de ${lim} selecionados`;
+  const btn=document.getElementById('carta-sel-cta');
+  btn.classList.toggle('ready', n>0);
+}
+function toggleEscolher(){
+  _cartaMode=!_cartaMode; _cartaSel=new Set();
+  const bar=document.getElementById('carta-sel-bar');
+  bar.style.display=_cartaMode?'flex':'none';
+  _updSel(); _renderCartaGrid(_cartaMode);
+  const btn=document.getElementById('carta-escolher');
+  btn.classList.toggle('on',_cartaMode);
+  btn.textContent=_cartaMode?'✕ Cancelar':'✦ Escolher meus drinks';
+}
+function enviarSelecao(){
+  const data=PKG_DRINKS[_cartaPkg]; if(!data||!_cartaSel.size) return;
+  const nome=document.getElementById('i-nome')?.textContent||'cliente';
+  const pkgNome=PKG[_cartaPkg]?.nome||_cartaPkg;
+  const lista=[..._cartaSel].sort((a,b)=>a-b).map((i,n)=>`${n+1}. ${data.drinks[i].n}`).join('\n');
+  const msg=`Olá! Sou ${nome} e selecionei os drinks para o meu evento — Pacote ${pkgNome}:\n\n${lista}\n\nPode confirmar minha escolha?`;
+  window.open(`https://wa.me/5562981964726?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
 // ─── PACOTES ─────────────────────────────────────────
 const PKG={
   gold:    {nome:'Gold',    desc:'Até 6 opções de drinks com e sem álcool · Destilados nacionais selecionados · Copos e taças de vidro · Balcão Freijó incluso'},
@@ -983,6 +1225,7 @@ function buildPacotes(){
         </div>
       </div>
     </div>
+    <button class="btn-carta" onclick="openCarta('${mainKey}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3"/><path d="M9 13h6M12 10v6"/></svg>Ver carta de drinks</button>
     ${showUpgrade&&upgradeKey?'<div class="pkg-base-note">Quer elevar ainda mais a experiência? Veja abaixo ↓</div>':''}
   </div>`;
 
