@@ -345,6 +345,48 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 
 /* ═══ ADMIN TRIGGER ══════════════════════════════════ */
 #admin-trigger{position:fixed;bottom:0;right:0;width:50px;height:50px;background:transparent;border:none;cursor:pointer;z-index:700;opacity:0}
+
+/* ═══ REFINAMENTOS v62 ═══════════════════════════════ */
+/* About carousel — grab cursor & arrows */
+.about-car{cursor:grab}
+.about-car:active{cursor:grabbing}
+.about-arrow{position:absolute;top:110px;transform:translateY(-50%);width:32px;height:32px;background:rgba(5,12,26,.82);border:.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background .2s,border-color .2s;backdrop-filter:blur(4px)}
+.about-arrow:hover{background:rgba(201,169,110,.18);border-color:var(--gold)}
+.about-arrow svg{stroke:var(--gold)}
+.about-arrow.prev{left:4px}
+.about-arrow.next{right:4px}
+/* Team cards — perfect centering */
+.team-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+/* Client name glow in info section */
+#i-nome{text-shadow:0 0 18px rgba(201,169,110,.28)}
+/* Package & upgrade title glow */
+.pac-nome{text-shadow:0 0 22px rgba(201,169,110,.18)}
+.pkg-upg-nome{text-shadow:0 0 18px rgba(201,169,110,.13)}
+/* Typography mobile boosts */
+.about-p{font-size:.84rem}
+.g-title{font-size:.8rem}
+.deg-p{font-size:.79rem}
+.pgto-name{font-size:.82rem}
+.info-row .iv{font-size:.86rem}
+/* CTA button hover → green */
+.btn-main:hover{background:linear-gradient(135deg,#22c55e,#16a34a)!important;background-size:100% 100%!important;animation:none!important;box-shadow:0 6px 24px rgba(34,197,94,.28);transform:translateY(-1px)}
+/* Logo brightness/contrast */
+.foot-logo-img{filter:brightness(1.35) contrast(1.05);opacity:1}
+/* Carta — limit reached message */
+.carta-limit-msg{background:rgba(201,169,110,.06);border:.5px solid rgba(201,169,110,.22);border-radius:10px;padding:.6rem 1rem;margin:.2rem 1rem .5rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:var(--gold);text-align:center;line-height:1.5;display:none}
+.carta-limit-msg.show{display:block}
+/* Carta — emotional phrase */
+.carta-emotion{text-align:center;padding:.45rem 1.2rem .2rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.83rem;color:rgba(201,169,110,.52);display:none;line-height:1.5}
+.carta-emotion.show{display:block}
+/* Drinks chosen display (below package card) */
+.drinks-chosen{background:rgba(201,169,110,.04);border:.5px solid rgba(201,169,110,.16);border-radius:10px;padding:.7rem 1rem;margin-top:.45rem}
+.drinks-chosen-t{font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,169,110,.65);margin-bottom:.35rem}
+.drinks-chosen-list{font-size:.7rem;color:rgba(255,255,255,.48);line-height:1.75}
+/* Payment icons */
+.pgto-left{display:flex;align-items:flex-start;gap:.55rem}
+.pgto-icon{width:20px;height:20px;flex-shrink:0;margin-top:1px;opacity:.72}
+/* CTA brinde line */
+.cta-brinde{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:rgba(201,169,110,.38);text-align:center;margin-bottom:.4rem;letter-spacing:.04em}
 </style>
 </head>
 <body>
@@ -402,12 +444,12 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
   <!-- Textos editáveis -->
   <div class="adm-sec">
     <div class="adm-sec-t">✍️ Textos da proposta</div>
-    <div class="adm-row full"><div class="adm-lbl">Subtítulo do hero</div><input class="adm-inp" id="a-hero-desc" value="Drinks de alto padrão, estrutura profissional e zero preocupação — do início ao fim da sua festa."></div>
+    <div class="adm-row full"><div class="adm-lbl">Subtítulo do hero</div><input class="adm-inp" id="a-hero-desc" value="Drinks de alto padrão, estrutura profissional e zero preocupação — do início ao fim da sua celebração."></div>
     <div class="adm-row full" style="margin-top:.4rem"><div class="adm-lbl">Quem somos — parágrafo 1</div><textarea class="adm-ta" id="a-about1">Somos especialistas em coquetelaria para eventos em Goiás e Brasília. Mais de 300 festas realizadas, da celebração intimista ao grande evento com 1.200+ convidados.</textarea></div>
     <div class="adm-row full" style="margin-top:.4rem"><div class="adm-lbl">Quem somos — parágrafo 2</div><textarea class="adm-ta" id="a-about2">Estrutura 100% móvel, equipe uniformizada e treinada, destilados originais e atenção a cada detalhe — para você aproveitar sem preocupações.</textarea></div>
     <div class="adm-row full" style="margin-top:.4rem"><div class="adm-lbl">CTA — título</div><input class="adm-inp" id="a-cta-title" value="Pronta para fechar o negócio?"></div>
-    <div class="adm-row full" style="margin-top:.4rem"><div class="adm-lbl">CTA — subtítulo</div><textarea class="adm-ta" id="a-cta-sub">Fale agora com nossa equipe e garanta a data do seu evento. Atendemos pelo WhatsApp!</textarea></div>
-    <div class="adm-row full" style="margin-top:.4rem"><div class="adm-lbl">Texto degustação</div><textarea class="adm-ta" id="a-deg-txt">Antes de fechar seu evento, você e até 4 pessoas podem vir até nós para experimentar os drinks que vão encantar seus convidados — sem custo adicional. Uma experiência exclusiva para afinar cada detalhe e garantir que tudo fique perfeito no grande dia.</textarea></div>
+    <div class="adm-row full" style="margin-top:.4rem"><div class="adm-lbl">CTA — subtítulo</div><textarea class="adm-ta" id="a-cta-sub">Fale agora com nossa equipe e garanta a data da sua celebração. Atendemos pelo WhatsApp!</textarea></div>
+    <div class="adm-row full" style="margin-top:.4rem"><div class="adm-lbl">Texto degustação</div><textarea class="adm-ta" id="a-deg-txt">Antes de fechar sua celebração, agende uma degustação no conforto da sua casa. Você e até 5 pessoas recebem nossa equipe por cerca de 1 hora — de segunda a quinta — para experimentar os drinks e afinar cada detalhe. Taxa única: R$ 300,00. Uma experiência que transforma a decisão em certeza.</textarea></div>
   </div>
 
   <!-- Pacotes -->
@@ -499,7 +541,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
   <div class="hero-body">
     <div class="hero-eyebrow"><span>Aloha Drinks</span></div>
     <h1 class="hero-name">Uma proposta<br>feita para<br><em id="h-nome">Maria Silva</em></h1>
-    <p class="hero-desc" id="h-desc">Drinks de alto padrão, estrutura profissional e zero preocupação — do início ao fim da sua festa.</p>
+    <p class="hero-desc" id="h-desc">Drinks de alto padrão, estrutura profissional e zero preocupação — do início ao fim da sua celebração.</p>
     <div class="hero-pills">
       <span class="pill"><strong id="h-data">20/07/2026</strong></span>
       <span class="pill"><strong id="h-conv">120</strong> convidados</span>
@@ -523,7 +565,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 
 <!-- DADOS -->
 <div class="sec fade-up">
-  <div class="sec-head"><span class="sec-t">Seu evento</span><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-t">Sua celebração</span><div class="sec-line"></div></div>
   <div class="info-row"><span class="ik">Cliente</span><span class="iv" id="i-nome">Maria Silva</span></div>
   <div class="info-row"><span class="ik">Tipo</span><span class="iv" id="i-tipo">Casamento</span></div>
   <div class="info-row"><span class="ik">Data</span><span class="iv" id="i-data">20/07/2026</span></div>
@@ -536,7 +578,13 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 <div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Quem somos</span><div class="sec-line"></div></div>
   <div class="about-car-wrap">
+    <button class="about-arrow prev" id="about-prev" aria-label="Anterior">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
     <div class="about-car" id="about-car"></div>
+    <button class="about-arrow next" id="about-next" aria-label="Próximo">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
     <div class="about-dots" id="about-dots"></div>
   </div>
   <p class="about-p" id="about-p1">Somos especialistas em coquetelaria para eventos em Goiás e Brasília. Mais de 300 festas realizadas, da celebração intimista ao grande evento com 1.200+ convidados.</p>
@@ -563,7 +611,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
     <div class="deg-body">
       <div class="deg-label">Experiência exclusiva</div>
       <div class="deg-title">Agende sua<br>degustação</div>
-      <p class="deg-p" id="deg-txt">Antes de fechar seu evento, você e até 4 pessoas podem vir até nós para experimentar os drinks que vão encantar seus convidados — sem custo adicional. Uma experiência exclusiva para afinar cada detalhe e garantir que tudo fique perfeito no grande dia.</p>
+      <p class="deg-p" id="deg-txt">Antes de fechar sua celebração, agende uma degustação no conforto da sua casa. Você e até 5 pessoas recebem nossa equipe por cerca de 1 hora — de segunda a quinta — para experimentar os drinks e afinar cada detalhe. Taxa única: R$ 300,00. Uma experiência que transforma a decisão em certeza.</p>
       <a class="deg-cta" href="https://wa.me/5562981964726?text=Ol%C3%A1!%20Quero%20agendar%20uma%20degusta%C3%A7%C3%A3o!">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Agendar pelo WhatsApp
@@ -642,19 +690,31 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
   <div class="sec-head"><span class="sec-t">Formas de pagamento</span><div class="sec-line"></div></div>
   <div class="pgto">
     <div class="pgto-item">
-      <div><div class="pgto-name">Pix à vista</div><div class="pgto-sub">Pagamento integral antecipado</div></div>
+      <div class="pgto-left">
+        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 12.5L10.5 14.5L15.5 9.5"/><path d="M12 2L2 7V12C2 16.4 6.4 20.5 12 22C17.6 20.5 22 16.4 22 12V7L12 2Z"/></svg>
+        <div><div class="pgto-name">Pix à vista</div><div class="pgto-sub">Pagamento integral · desconto especial</div></div>
+      </div>
       <div class="pgto-badge gold">5% OFF</div>
     </div>
     <div class="pgto-item">
-      <div><div class="pgto-name">Parcelamento próprio</div><div class="pgto-sub">Sem juros · Sem consulta Serasa · Disponível até 5 dias antes do evento</div></div>
+      <div class="pgto-left">
+        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        <div><div class="pgto-name">Parcelamento próprio</div><div class="pgto-sub">Sem juros · Sem consulta Serasa · Até 5 dias antes</div></div>
+      </div>
       <div class="pgto-badge">Até 5x</div>
     </div>
     <div class="pgto-item">
-      <div><div class="pgto-name">Cartão de crédito</div><div class="pgto-sub">Com juros da operadora</div></div>
+      <div class="pgto-left">
+        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+        <div><div class="pgto-name">Cartão de crédito</div><div class="pgto-sub">Com juros da operadora</div></div>
+      </div>
       <div class="pgto-badge">Até 12x</div>
     </div>
     <div class="pgto-item">
-      <div><div class="pgto-name">Entrada + saldo</div><div class="pgto-sub">80% até 1 dia antes do evento</div></div>
+      <div class="pgto-left">
+        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <div><div class="pgto-name">Entrada + saldo</div><div class="pgto-sub">80% até 1 dia antes da sua celebração</div></div>
+      </div>
       <div class="pgto-badge">20% agora</div>
     </div>
   </div>
@@ -685,8 +745,9 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 
 <!-- CTA -->
 <div class="cta fade-up">
+  <div class="cta-brinde">Um brinde à vida.</div>
   <h2 class="cta-title" id="cta-title">Pronta para fechar<br>o negócio?</h2>
-  <p class="cta-sub" id="cta-sub">Fale agora com nossa equipe e garanta a data do seu evento. Atendemos pelo WhatsApp!</p>
+  <p class="cta-sub" id="cta-sub">Fale agora com nossa equipe e garanta a data da sua celebração. Atendemos pelo WhatsApp!</p>
   <a class="btn-main" href="https://wa.me/5562981964726?text=Ol%C3%A1!%20Quero%20fechar%20minha%20proposta!">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     Quero fechar negócio!
@@ -741,6 +802,8 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
       <span class="carta-sel-count" id="carta-sel-count">0 selecionados</span>
       <button class="carta-sel-cta" id="carta-sel-cta" onclick="enviarSelecao()">Enviar pelo WhatsApp</button>
     </div>
+    <div class="carta-emotion" id="carta-emotion">Você já está montando a experiência da sua celebração.</div>
+    <div class="carta-limit-msg" id="carta-limit-msg">Perfeito! Agora finalize sua escolha clicando em enviar pelo WhatsApp 👇</div>
     <div class="carta-grid" id="carta-grid"></div>
     <div class="carta-brands" id="carta-brands">
       <div class="carta-brands-t">Destilados utilizados</div>
@@ -868,15 +931,38 @@ function buildAboutCar(){
     const img=document.createElement('img');
     img.src=url;img.alt='';
     img.onerror=function(){this.style.display='none'};
+    img.addEventListener('mousedown',e=>e.preventDefault());
     c.appendChild(img);
     const dot=document.createElement('div');
     dot.className='about-dot'+(i===0?' on':'');
-    dot.onclick=()=>c.scrollTo({left:i*c.offsetWidth,behavior:'smooth'});
+    dot.onclick=()=>aboutScrollTo(i);
     d.appendChild(dot);
   });
+  function aboutScrollTo(idx){
+    if(idx<0)idx=aboutFotos.length-1;
+    if(idx>=aboutFotos.length)idx=0;
+    c.scrollTo({left:idx*c.offsetWidth,behavior:'smooth'});
+  }
   c.onscroll=()=>{
     const idx=Math.round(c.scrollLeft/Math.max(c.offsetWidth,1));
     d.querySelectorAll('.about-dot').forEach((dot,i)=>dot.classList.toggle('on',i===idx));
+  };
+  // Mouse drag
+  let isDragging=false,startX=0,scrollLeft=0;
+  c.addEventListener('mousedown',e=>{isDragging=true;startX=e.pageX-c.offsetLeft;scrollLeft=c.scrollLeft;c.style.cursor='grabbing';});
+  c.addEventListener('mouseleave',()=>{isDragging=false;c.style.cursor='';});
+  c.addEventListener('mouseup',()=>{isDragging=false;c.style.cursor='';});
+  c.addEventListener('mousemove',e=>{if(!isDragging)return;e.preventDefault();c.scrollLeft=scrollLeft-(e.pageX-c.offsetLeft-startX)*1.2;});
+  // Arrows
+  const prevBtn=document.getElementById('about-prev');
+  const nextBtn=document.getElementById('about-next');
+  if(prevBtn) prevBtn.onclick=()=>{
+    const idx=Math.round(c.scrollLeft/Math.max(c.offsetWidth,1));
+    aboutScrollTo(idx===0?aboutFotos.length-1:idx-1);
+  };
+  if(nextBtn) nextBtn.onclick=()=>{
+    const idx=Math.round(c.scrollLeft/Math.max(c.offsetWidth,1));
+    aboutScrollTo((idx+1)%aboutFotos.length);
   };
 }
 buildAboutCar();
@@ -1102,6 +1188,12 @@ function _updSel(){
   document.getElementById('carta-sel-count').textContent=`${n} de ${lim} selecionados`;
   const btn=document.getElementById('carta-sel-cta');
   btn.classList.toggle('ready', n>0);
+  // Limit reached message
+  const msg=document.getElementById('carta-limit-msg');
+  if(msg) msg.classList.toggle('show', n>=lim);
+  // Emotional phrase (shows when any selection made)
+  const emo=document.getElementById('carta-emotion');
+  if(emo) emo.classList.toggle('show', n>0);
 }
 function toggleEscolher(){
   _cartaMode=!_cartaMode; _cartaSel=new Set();
@@ -1112,12 +1204,22 @@ function toggleEscolher(){
   btn.classList.toggle('on',_cartaMode);
   btn.textContent=_cartaMode?'✕ Cancelar':'✦ Escolher meus drinks';
 }
+// ─── DRINKS CHOSEN STATE ─────────────────────────────
+let _chosenDrinks={};
+function _saveChosenDrinks(pkg,names){
+  _chosenDrinks[pkg]=names;
+  buildPacotes(); // refresh package card to show chosen drinks
+}
+
 function enviarSelecao(){
   const data=PKG_DRINKS[_cartaPkg]; if(!data||!_cartaSel.size) return;
   const nome=document.getElementById('i-nome')?.textContent||'cliente';
   const pkgNome=PKG[_cartaPkg]?.nome||_cartaPkg;
-  const lista=[..._cartaSel].sort((a,b)=>a-b).map((i,n)=>`${n+1}. ${data.drinks[i].n}`).join('\n');
-  const msg=`Olá! Sou ${nome} e selecionei os drinks para o meu evento — Pacote ${pkgNome}:\n\n${lista}\n\nPode confirmar minha escolha?`;
+  const sorted=[..._cartaSel].sort((a,b)=>a-b);
+  const lista=sorted.map((i,n)=>`${n+1}. ${data.drinks[i].n}`).join('\n');
+  const msg=`Olá! Sou ${nome} e selecionei os drinks para minha celebração — Pacote ${pkgNome}:\n\n${lista}\n\nPode confirmar minha escolha?`;
+  // Save chosen drinks for display outside modal
+  _saveChosenDrinks(_cartaPkg, sorted.map(i=>data.drinks[i].n));
   window.open(`https://wa.me/5562981964726?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
@@ -1226,6 +1328,7 @@ function buildPacotes(){
       </div>
     </div>
     <button class="btn-carta" onclick="openCarta('${mainKey}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3"/><path d="M9 13h6M12 10v6"/></svg>Ver carta de drinks</button>
+    ${_chosenDrinks&&_chosenDrinks[mainKey]?`<div class="drinks-chosen"><div class="drinks-chosen-t">✦ Seus drinks escolhidos</div><div class="drinks-chosen-list">${_chosenDrinks[mainKey].join(' · ')}</div></div>`:''}
     ${showUpgrade&&upgradeKey?'<div class="pkg-base-note">Quer elevar ainda mais a experiência? Veja abaixo ↓</div>':''}
   </div>`;
 
