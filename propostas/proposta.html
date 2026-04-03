@@ -77,9 +77,11 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,12,26,.1) 0%,rgba(5,12,26,.15) 30%,rgba(5,12,26,.82) 65%,var(--dark) 100%)}
 .hero-grad::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,169,110,.06) 0%,transparent 65%)}
 .hero-body{position:relative;z-index:2;padding:0 1.5rem 2.8rem}
-.hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:1rem}
-.hero-eyebrow span{font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
-.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:20px;height:.5px;background:var(--gold);opacity:.7}
+.hero-eyebrow{display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:1rem}
+.hero-eyebrow-line{display:flex;align-items:center;gap:8px;width:100%;justify-content:center}
+.hero-eyebrow-line::before,.hero-eyebrow-line::after{content:'';width:20px;height:.5px;background:var(--gold);opacity:.7}
+.hero-eyebrow span{font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.hero-eyebrow-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:rgba(201,169,110,.58);letter-spacing:.04em;margin-top:1px}
 .hero-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.65rem;font-weight:300;line-height:1.1;margin-bottom:.7rem}
 .hero-name em{color:var(--gold);font-style:italic;text-shadow:0 0 32px rgba(201,169,110,.3),0 0 64px rgba(201,169,110,.12)}
 .hero-desc{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:1.5rem;max-width:310px}
@@ -157,19 +159,19 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .vm-v{font-size:.87rem;font-weight:500;color:var(--gold)}
 
 /* ═══ LOGOS SOCIAL ══════════════════════════════════ */
-.logos-social{padding:1.1rem 0 .2rem}
-.logos-intro{font-size:.73rem;color:rgba(255,255,255,.48);line-height:1.65;text-align:center;padding:0 .5rem;margin-bottom:1rem}
-.logos-soc-cards{display:flex;gap:1.2rem;justify-content:center;margin-bottom:1rem}
-.logos-soc-card{display:flex;flex-direction:column;align-items:center;gap:.45rem}
-.logos-soc-img{width:88px;height:88px;border-radius:50%;object-fit:cover;border:.5px solid rgba(201,169,110,.38);filter:brightness(1.05) saturate(1.05)}
-.logos-soc-name{font-size:.6rem;color:var(--gold);letter-spacing:.05em;text-align:center}
-.logos-closing{font-size:.7rem;color:rgba(255,255,255,.35);line-height:1.6;text-align:center;font-style:italic;padding:0 .5rem .4rem}
+.logos-social{padding:1.1rem 0 .4rem}
+.logos-intro{font-size:.73rem;color:rgba(255,255,255,.48);line-height:1.65;text-align:center;padding:0 .5rem;margin-bottom:.9rem}
+.logos-artist-card{position:relative;border-radius:14px;overflow:hidden;border:.5px solid rgba(201,169,110,.3);box-shadow:0 4px 28px rgba(0,0,0,.45),0 0 0 .5px rgba(201,169,110,.1);margin:.2rem 0 .85rem}
+.logos-artist-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:2}
+.logos-artist-img{width:100%;display:block;object-fit:cover;filter:brightness(1.04) saturate(1.05)}
+.logos-closing{font-size:.7rem;color:rgba(255,255,255,.35);line-height:1.6;text-align:center;font-style:italic;padding:0 .5rem .2rem}
 
 /* ═══ DEGUSTAÇÃO ════════════════════════════════════ */
 .deg{background:linear-gradient(135deg,var(--dark3),rgba(201,169,110,.06));border:.5px solid rgba(201,169,110,.22);border-radius:16px;overflow:hidden;position:relative}
-.deg::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent)}
-.deg-img{width:100%;height:160px;object-fit:cover;display:block;opacity:.8}
-.deg-body{padding:1.2rem}
+.deg::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);z-index:3}
+.deg-bg{background-size:cover;background-position:center;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end}
+.deg-bg-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,12,26,.18) 0%,rgba(5,12,26,.52) 38%,rgba(5,12,26,.88) 62%,rgba(5,12,26,.97) 100%);z-index:1}
+.deg-body{padding:1.2rem;position:relative;z-index:2}
 .deg-label{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,169,110,.55);margin-bottom:4px}
 .deg-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--gold2);line-height:1.15;margin-bottom:.6rem}
 .deg-p{font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.8;margin-bottom:.9rem}
@@ -251,7 +253,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .cta-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-style:italic;text-align:center;margin-bottom:.5rem;line-height:1.2}
 .cta-sub{font-size:.76rem;color:var(--muted);text-align:center;margin-bottom:1.3rem;line-height:1.7}
 @keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,169,110,.35)}60%{box-shadow:0 0 0 12px rgba(201,169,110,0)}}
-.btn-main{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:linear-gradient(135deg,var(--gold),#b8915a,var(--gold));background-size:200% 100%;color:#060c18;border:none;border-radius:13px;padding:1rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;margin-bottom:.6rem;animation:ctaPulse 2.8s ease-in-out infinite;transition:opacity .2s,transform .15s}
+.btn-main{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:linear-gradient(135deg,var(--gold),#b8915a,var(--gold));background-size:200% 100%;color:#060c18;border:none;border-radius:13px;padding:.78rem 1rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;margin-bottom:.6rem;animation:ctaPulse 2.8s ease-in-out infinite;transition:opacity .2s,transform .15s}
 .btn-main:active{opacity:.88;transform:scale(.98)}
 .btn-sec{display:block;width:100%;background:transparent;color:rgba(255,255,255,.45);border:.5px solid rgba(255,255,255,.09);border-radius:12px;padding:.82rem;font-family:'DM Sans',sans-serif;font-size:.76rem;text-align:center;text-decoration:none;transition:border-color .25s,color .25s}
 .btn-sec:hover{border-color:rgba(201,169,110,.3);color:rgba(255,255,255,.7)}
@@ -349,7 +351,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .pkg-upg-diff{font-family:'Cormorant Garamond',serif;font-size:2.1rem;color:var(--gold);line-height:1;font-weight:300;margin-bottom:.25rem}
 .pkg-upg-diff sup{font-size:.95rem;vertical-align:super;margin-right:1px}
 .pkg-upg-ou{font-size:.62rem;color:rgba(255,255,255,.32);margin-bottom:1rem;line-height:1.5}
-.pkg-upg-cta{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:linear-gradient(135deg,var(--gold),#b8915a,var(--gold));background-size:200% 100%;color:#060c18;border:none;border-radius:12px;padding:.95rem;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s,transform .15s}
+.pkg-upg-cta{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:linear-gradient(135deg,var(--gold),#b8915a,var(--gold));background-size:200% 100%;color:#060c18;border:none;border-radius:12px;padding:.72rem 1rem;font-family:'DM Sans',sans-serif;font-size:.74rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s,transform .15s}
 .pkg-upg-cta:active{opacity:.88;transform:scale(.98)}
 .pkg-base-note{font-size:.8rem;color:rgba(255,255,255,.5);text-align:center;padding:.7rem 0 .4rem;letter-spacing:.02em;font-style:italic}
 
@@ -603,7 +605,10 @@ body{font-size:16px;line-height:1.6}
     alt="">
   <div class="hero-grad"></div>
   <div class="hero-body">
-    <div class="hero-eyebrow"><span>Aloha Drinks</span></div>
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"><span>Aloha Drinks</span></div>
+      <div class="hero-eyebrow-tagline">Um brinde à vida.</div>
+    </div>
     <h1 class="hero-name">Uma proposta<br>feita para<br><em id="h-nome">Maria Silva</em></h1>
     <p class="hero-desc" id="h-desc">Drinks de alto padrão, estrutura profissional e zero preocupação — do início ao fim da sua celebração.</p>
     <div class="hero-pills">
@@ -619,12 +624,6 @@ body{font-size:16px;line-height:1.6}
   <div class="proof-item"><span class="proof-n">300+</span><span class="proof-l">Eventos</span></div>
   <div class="proof-item"><span class="proof-n">1.200+</span><span class="proof-l">Convidados</span></div>
   <div class="proof-item"><span class="proof-n">2+</span><span class="proof-l">Anos</span></div>
-</div>
-
-<!-- BRINDE -->
-<div class="brinde fade-up">
-  <div class="brinde-q">Um brinde à vida.</div>
-  <div class="brinde-line"></div>
 </div>
 
 <!-- DADOS -->
@@ -675,8 +674,8 @@ body{font-size:16px;line-height:1.6}
     <button class="deg-tab" onclick="showDegTab('pre',this)">📍 Presencial</button>
   </div>
   <div id="deg-dom">
-  <div class="deg">
-    <img class="deg-img" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/5e9cb8fc-bb84-48c4-a447-9a1efab7f3bb-mCHUy4jXXaI71I3Q.jpg" alt="Degustação Aloha Drinks">
+  <div class="deg deg-bg" style="background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/5e9cb8fc-bb84-48c4-a447-9a1efab7f3bb-mCHUy4jXXaI71I3Q.jpg')">
+    <div class="deg-bg-overlay"></div>
     <div class="deg-body">
       <div class="deg-label">Experiência exclusiva</div>
       <div class="deg-title">Agende sua<br>degustação</div>
@@ -690,8 +689,8 @@ body{font-size:16px;line-height:1.6}
   </div><!-- /deg-dom -->
   <!-- Formato Presencial -->
   <div id="deg-pre" style="display:none">
-  <div class="deg">
-    <img class="deg-img" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/20-anos-Y5ZULJelYYyaiDep.JPG" alt="Degustação Presencial Aloha Drinks">
+  <div class="deg deg-bg" style="background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.36.39-7CwQc7gUlVwihlZq.jpeg')">
+    <div class="deg-bg-overlay"></div>
     <div class="deg-body">
       <div class="deg-label">Experiência presencial</div>
       <div class="deg-title">Venha nos<br>conhecer</div>
@@ -737,15 +736,8 @@ body{font-size:16px;line-height:1.6}
   </div>
   <div class="logos-social">
     <p class="logos-intro">Mais de 300 celebrações realizadas com clientes, marcas e artistas que confiaram na nossa experiência.</p>
-    <div class="logos-soc-cards">
-      <div class="logos-soc-card">
-        <img class="logos-soc-img" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/virginia-uDMhl6L4wcwzWa0j.PNG" alt="Virgínia" onerror="this.style.display='none'">
-        <span class="logos-soc-name">Virgínia</span>
-      </div>
-      <div class="logos-soc-card">
-        <img class="logos-soc-img" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.36.39-7CwQc7gUlVwihlZq.jpeg" alt="Madu Gramacho" onerror="this.style.display='none'">
-        <span class="logos-soc-name">Madu Gramacho</span>
-      </div>
+    <div class="logos-artist-card">
+      <img class="logos-artist-img" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/virginia-uDMhl6L4wcwzWa0j.PNG" alt="Artistas que confiam na Aloha Drinks">
     </div>
     <p class="logos-closing">Do intimista ao grandioso, entregamos excelência em cada detalhe.</p>
   </div>
@@ -1049,7 +1041,7 @@ function buildAboutCar(){
   aboutFotos.forEach((url,i)=>{
     const img=document.createElement('img');
     img.src=url;img.alt='';
-    img.onerror=function(){this.style.display='none'};
+    img.onerror=function(){this.style.background='linear-gradient(135deg,var(--dark3),rgba(201,169,110,.06))';this.style.visibility='hidden';};
     img.addEventListener('mousedown',e=>e.preventDefault());
     c.appendChild(img);
     const dot=document.createElement('div');
@@ -1060,10 +1052,12 @@ function buildAboutCar(){
   function aboutScrollTo(idx){
     if(idx<0)idx=aboutFotos.length-1;
     if(idx>=aboutFotos.length)idx=0;
-    c.scrollTo({left:idx*c.offsetWidth,behavior:'smooth'});
+    const w=c.clientWidth||c.offsetWidth||1;
+    c.scrollTo({left:idx*w,behavior:'smooth'});
   }
   c.onscroll=()=>{
-    const idx=Math.round(c.scrollLeft/Math.max(c.offsetWidth,1));
+    const w=c.clientWidth||c.offsetWidth||1;
+    const idx=Math.round(c.scrollLeft/w);
     d.querySelectorAll('.about-dot').forEach((dot,i)=>dot.classList.toggle('on',i===idx));
   };
   // Mouse drag
@@ -1076,11 +1070,13 @@ function buildAboutCar(){
   const prevBtn=document.getElementById('about-prev');
   const nextBtn=document.getElementById('about-next');
   if(prevBtn) prevBtn.onclick=()=>{
-    const idx=Math.round(c.scrollLeft/Math.max(c.offsetWidth,1));
+    const w=c.clientWidth||c.offsetWidth||1;
+    const idx=Math.round(c.scrollLeft/w);
     aboutScrollTo(idx===0?aboutFotos.length-1:idx-1);
   };
   if(nextBtn) nextBtn.onclick=()=>{
-    const idx=Math.round(c.scrollLeft/Math.max(c.offsetWidth,1));
+    const w=c.clientWidth||c.offsetWidth||1;
+    const idx=Math.round(c.scrollLeft/w);
     aboutScrollTo((idx+1)%aboutFotos.length);
   };
 }
