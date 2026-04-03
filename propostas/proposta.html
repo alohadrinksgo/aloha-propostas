@@ -69,6 +69,8 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 /* ── HERO ── */
 .hero{position:relative;height:100svh;min-height:580px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;display:none}
+.hero-video.active{display:block}
 .hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,12,26,.05) 0%,rgba(5,12,26,.2) 35%,rgba(5,12,26,.88) 70%,var(--dark) 100%)}
 .hero-body{position:relative;z-index:2;padding:0 1.5rem 2.5rem}
 .hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:.85rem}
@@ -81,18 +83,25 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .pill{background:rgba(255,255,255,.07);border:.5px solid rgba(255,255,255,.12);border-radius:20px;padding:5px 11px;font-size:.62rem;color:rgba(255,255,255,.65)}
 .pill strong{color:var(--gold)}
 
-/* ── PROOF ── */
+/* ── PROOF (melhorado) ── */
 .proof{display:grid;grid-template-columns:repeat(3,1fr);background:var(--dark2);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
-.proof-item{padding:.85rem .4rem;text-align:center;border-right:.5px solid var(--border)}
-.proof-item:last-child{border:none}
-.proof-n{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);display:block;line-height:1}
-.proof-l{font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-top:2px}
+.proof-item{padding:1.1rem .4rem;text-align:center;border-right:.5px solid var(--border);position:relative}
+.proof-item:last-child{border-right:none}
+.proof-n{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);display:block;line-height:1;font-weight:300;letter-spacing:-.01em;text-shadow:0 0 24px rgba(201,169,110,.3)}
+.proof-l{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-top:5px}
 
 /* ── SECTION ── */
 .sec{padding:1.6rem 1.5rem;border-bottom:.5px solid rgba(201,169,110,.08)}
 .sec-head{display:flex;align-items:center;gap:.6rem;margin-bottom:1.1rem}
 .sec-t{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
 .sec-line{flex:1;height:.5px;background:var(--border)}
+
+/* ── SCROLL ANIMATION ── */
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up.delay-1{transition-delay:.1s}
+.fade-up.delay-2{transition-delay:.2s}
+.fade-up.delay-3{transition-delay:.3s}
 
 /* ── INFO ── */
 .info-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:.5px solid rgba(255,255,255,.04);gap:1rem}
@@ -127,13 +136,20 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .vm-l{font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
 .vm-v{font-size:.86rem;font-weight:500;color:var(--gold)}
 
-/* ── CAROUSEL ── */
-.carousel{display:flex;gap:.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+/* ── CAROUSEL (com suporte desktop) ── */
+.carousel-wrap{position:relative}
+.carousel{display:flex;gap:.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab}
+.carousel.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
 .carousel::-webkit-scrollbar{display:none}
-.carousel img{width:72vw;max-width:290px;height:205px;object-fit:cover;border-radius:12px;flex-shrink:0;scroll-snap-align:start;display:block}
+.carousel img{width:72vw;max-width:290px;height:205px;object-fit:cover;border-radius:12px;flex-shrink:0;scroll-snap-align:start;display:block;pointer-events:none}
 .car-dots{display:flex;justify-content:center;gap:5px;margin-top:.6rem}
 .car-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.18);transition:.25s;cursor:pointer}
 .car-dot.on{background:var(--gold);width:14px;border-radius:2px}
+.car-arrow{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;background:rgba(5,12,26,.82);border:.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background .2s,border-color .2s;backdrop-filter:blur(6px)}
+.car-arrow:hover{background:rgba(201,169,110,.18);border-color:var(--gold)}
+.car-arrow svg{stroke:var(--gold)}
+.car-arrow.prev{left:6px}
+.car-arrow.next{right:6px}
 
 /* ── LOGOS ── */
 .logos-wrap{overflow:hidden;position:relative}
@@ -146,12 +162,14 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .logo-card img{max-height:36px;max-width:90px;object-fit:contain}
 .logo-text{font-size:.62rem;color:#555;text-align:center}
 
-/* ── GARANTIAS ── */
+/* ── GARANTIAS (com ícones SVG) ── */
 .garantias{display:grid;gap:.5rem}
-.g-item{display:flex;align-items:flex-start;gap:.8rem;background:var(--dark3);border:.5px solid rgba(255,255,255,.05);border-radius:12px;padding:.82rem .92rem}
-.g-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
-.g-title{font-size:.77rem;font-weight:500;margin-bottom:1px}
-.g-sub{font-size:.66rem;color:var(--muted)}
+.g-item{display:flex;align-items:flex-start;gap:.85rem;background:var(--dark3);border:.5px solid rgba(255,255,255,.05);border-radius:12px;padding:.85rem .92rem;transition:border-color .3s}
+.g-item:hover{border-color:rgba(201,169,110,.18)}
+.g-icon{flex-shrink:0;width:22px;height:22px;margin-top:1px;color:var(--gold);opacity:.9}
+.g-icon svg{width:100%;height:100%}
+.g-title{font-size:.77rem;font-weight:500;margin-bottom:2px}
+.g-sub{font-size:.66rem;color:var(--muted);line-height:1.5}
 
 /* ── PAYMENT ── */
 .pgto{display:grid;gap:.5rem}
@@ -159,6 +177,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .pgto-name{font-size:.77rem;margin-bottom:2px}
 .pgto-sub{font-size:.63rem;color:var(--muted)}
 .pgto-badge{background:rgba(74,222,128,.1);color:#4ade80;border:.5px solid rgba(74,222,128,.18);border-radius:14px;padding:3px 9px;font-size:.57rem;white-space:nowrap;flex-shrink:0}
+.pgto-badge.gold{background:rgba(201,169,110,.1);color:var(--gold);border-color:rgba(201,169,110,.2)}
 
 /* ── URGÊNCIA ── */
 .urgencia{background:linear-gradient(135deg,#0e0500,#1a0d00);border:.5px solid rgba(201,169,110,.22);border-radius:16px;padding:1.3rem 1.2rem;text-align:center;position:relative;overflow:hidden}
@@ -179,12 +198,15 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .cta{padding:1.7rem 1.5rem 2rem}
 .cta-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-style:italic;text-align:center;margin-bottom:.4rem;line-height:1.2}
 .cta-sub{font-size:.75rem;color:var(--muted);text-align:center;margin-bottom:1.2rem;line-height:1.65}
-.btn-main{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--gold);color:#060c18;border:none;border-radius:12px;padding:.95rem;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;margin-bottom:.55rem}
-.btn-sec{display:block;width:100%;background:transparent;color:rgba(255,255,255,.5);border:.5px solid rgba(255,255,255,.1);border-radius:12px;padding:.8rem;font-family:'DM Sans',sans-serif;font-size:.75rem;text-align:center;text-decoration:none}
+.btn-main{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--gold);color:#060c18;border:none;border-radius:12px;padding:.95rem;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;margin-bottom:.55rem;transition:opacity .2s,transform .15s}
+.btn-main:active{opacity:.85;transform:scale(.98)}
+.btn-sec{display:block;width:100%;background:transparent;color:rgba(255,255,255,.5);border:.5px solid rgba(255,255,255,.1);border-radius:12px;padding:.8rem;font-family:'DM Sans',sans-serif;font-size:.75rem;text-align:center;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-sec:hover{border-color:rgba(201,169,110,.35);color:rgba(255,255,255,.7)}
 
 /* ── FOOTER ── */
 .footer{padding:1.75rem 1.5rem 3rem;text-align:center;border-top:.5px solid var(--border)}
-.foot-logo-img{height:38px;margin-bottom:.5rem;display:inline-block}
+.foot-logo-wrap{display:inline-flex;align-items:center;justify-content:center;margin-bottom:.5rem;padding:6px 14px;background:rgba(255,255,255,.04);border:.5px solid rgba(201,169,110,.12);border-radius:8px}
+.foot-logo-img{height:36px;display:block;object-fit:contain;opacity:.9}
 .foot-div{width:24px;height:.5px;background:var(--border);margin:.65rem auto}
 .foot-info{font-size:.63rem;color:rgba(255,255,255,.27);line-height:2.2}
 .foot-info a{color:rgba(201,169,110,.48);text-decoration:none}
@@ -286,6 +308,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
   <div class="adm-sec">
     <div class="adm-sec-t">🖼️ Foto de fundo do hero</div>
     <div class="adm-row full"><div class="adm-lbl">URL da imagem</div><input class="adm-inp" id="a-hero" value="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/PgdbW9JmuFQxbVnj/duquesa-zpMfeNpvCWP33Z5I.jpeg"></div>
+    <div class="adm-row full" style="margin-top:.5rem"><div class="adm-lbl">URL do vídeo (opcional — MP4 para autoplay mudo no hero)</div><input class="adm-inp" id="a-video" placeholder="https://... .mp4" value=""></div>
   </div>
 
   <button class="adm-apply" onclick="aplicar()">✅ Aplicar alterações</button>
@@ -302,6 +325,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 
 <!-- HERO -->
 <div class="hero">
+  <video id="hero-video" class="hero-video" autoplay muted loop playsinline></video>
   <img id="hero-bg" class="hero-bg"
     src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/PgdbW9JmuFQxbVnj/duquesa-zpMfeNpvCWP33Z5I.jpeg"
     alt="">
@@ -319,14 +343,14 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 </div>
 
 <!-- PROOF -->
-<div class="proof">
+<div class="proof fade-up">
   <div class="proof-item"><span class="proof-n">300+</span><span class="proof-l">Eventos</span></div>
   <div class="proof-item"><span class="proof-n">1.200+</span><span class="proof-l">Convidados</span></div>
   <div class="proof-item"><span class="proof-n">2+</span><span class="proof-l">Anos</span></div>
 </div>
 
 <!-- DADOS -->
-<div class="sec">
+<div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Seu evento</span><div class="sec-line"></div></div>
   <div class="info-row"><span class="ik">Cliente</span><span class="iv" id="i-nome">Maria Silva</span></div>
   <div class="info-row"><span class="ik">Tipo</span><span class="iv" id="i-tipo">Casamento</span></div>
@@ -337,7 +361,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 </div>
 
 <!-- SOBRE -->
-<div class="sec">
+<div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Quem somos</span><div class="sec-line"></div></div>
   <img class="about-img" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/PgdbW9JmuFQxbVnj/verona-djLBVAF24p8qCtF4.jpeg" alt="">
   <p class="about-p">Somos especialistas em coquetelaria para eventos em Goiás e Brasília. Mais de 300 festas realizadas, da celebração intimista ao grande evento com 1.200+ convidados.</p>
@@ -345,7 +369,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 </div>
 
 <!-- EQUIPE -->
-<div class="sec">
+<div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Equipe do seu evento</span><div class="sec-line"></div></div>
   <div class="team-grid">
     <div class="team-card"><div class="team-n" id="i-bar">3</div><div class="team-l">Bartenders</div></div>
@@ -357,14 +381,22 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 <div id="pacotes-block"></div>
 
 <!-- GALERIA -->
-<div class="sec">
+<div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Nossos eventos</span><div class="sec-line"></div></div>
-  <div class="carousel" id="carousel"></div>
+  <div class="carousel-wrap">
+    <button class="car-arrow prev" id="car-prev" aria-label="Anterior">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="carousel" id="carousel"></div>
+    <button class="car-arrow next" id="car-next" aria-label="Próximo">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
   <div class="car-dots" id="car-dots"></div>
 </div>
 
 <!-- LOGOS CLIENTES -->
-<div class="sec">
+<div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Quem já confiou em nós</span><div class="sec-line"></div></div>
   <div class="logos-wrap">
     <div class="logos-track" id="logos-track">
@@ -381,30 +413,93 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 </div>
 
 <!-- GARANTIAS -->
-<div class="sec">
+<div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Nossas garantias</span><div class="sec-line"></div></div>
   <div class="garantias">
-    <div class="g-item"><span class="g-icon">🍶</span><div><div class="g-title">Destilados 100% originais</div><div class="g-sub">Fornecedores homologados, qualidade garantida</div></div></div>
-    <div class="g-item"><span class="g-icon">🥂</span><div><div class="g-title">Copos e taças de vidro</div><div class="g-sub">Canudos biodegradáveis inclusos em todos os pacotes</div></div></div>
-    <div class="g-item"><span class="g-icon">👔</span><div><div class="g-title">Equipe uniformizada</div><div class="g-sub">Profissionais treinados, apresentados e pontuais</div></div></div>
-    <div class="g-item"><span class="g-icon">🛡️</span><div><div class="g-title">Você não paga por quebras</div><div class="g-sub">Seguro contra perdas de copos e taças incluso</div></div></div>
-    <div class="g-item"><span class="g-icon">🏆</span><div><div class="g-title">Balcão Freijó incluso</div><div class="g-sub">Sem custo adicional de locação do balcão</div></div></div>
+
+    <div class="g-item delay-1 fade-up">
+      <span class="g-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 3h6M8.5 3L7 7H5.5A1.5 1.5 0 0 0 4 8.5V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5A1.5 1.5 0 0 0 18.5 7H17L15.5 3"/>
+          <path d="M9 13h6M12 10v6"/>
+        </svg>
+      </span>
+      <div><div class="g-title">Destilados 100% originais</div><div class="g-sub">Fornecedores homologados, qualidade garantida</div></div>
+    </div>
+
+    <div class="g-item delay-2 fade-up">
+      <span class="g-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3h8l-3 8H11L8 3z"/>
+          <path d="M11 11v10M13 11v10"/>
+          <path d="M7 21h10"/>
+          <line x1="9" y1="7" x2="15" y2="7"/>
+        </svg>
+      </span>
+      <div><div class="g-title">Copos e taças de vidro</div><div class="g-sub">Canudos biodegradáveis inclusos em todos os pacotes</div></div>
+    </div>
+
+    <div class="g-item delay-3 fade-up">
+      <span class="g-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="7" r="4"/>
+          <path d="M6 21v-1a6 6 0 0 1 12 0v1"/>
+          <path d="M14 13.5l1 1.5-3 1-3-1 1-1.5"/>
+        </svg>
+      </span>
+      <div><div class="g-title">Equipe uniformizada</div><div class="g-sub">Profissionais treinados, apresentados e pontuais</div></div>
+    </div>
+
+    <div class="g-item fade-up">
+      <span class="g-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+      </span>
+      <div><div class="g-title">Você não paga por quebras</div><div class="g-sub">Seguro contra perdas de copos e taças incluso</div></div>
+    </div>
+
+    <div class="g-item fade-up">
+      <span class="g-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 4l4 8h6l4-8H5z"/>
+          <line x1="3" y1="8" x2="21" y2="8"/>
+          <line x1="12" y1="12" x2="12" y2="20"/>
+          <line x1="8" y1="20" x2="16" y2="20"/>
+        </svg>
+      </span>
+      <div><div class="g-title">Balcão Freijó incluso</div><div class="g-sub">Sem custo adicional de locação do balcão</div></div>
+    </div>
+
   </div>
 </div>
 
 <!-- PAGAMENTO -->
-<div class="sec">
+<div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Formas de pagamento</span><div class="sec-line"></div></div>
   <div class="pgto">
-    <div class="pgto-item"><div><div class="pgto-name">Pix à vista</div><div class="pgto-sub">Pagamento integral antecipado</div></div><div class="pgto-badge">5% OFF</div></div>
-    <div class="pgto-item"><div><div class="pgto-name">Parcelamento próprio</div><div class="pgto-sub">Sem juros · Sem consulta Serasa</div></div><div class="pgto-badge">Até 5x</div></div>
-    <div class="pgto-item"><div><div class="pgto-name">Cartão de crédito</div><div class="pgto-sub">Com juros da operadora</div></div><div class="pgto-badge">Até 12x</div></div>
-    <div class="pgto-item"><div><div class="pgto-name">Entrada + saldo</div><div class="pgto-sub">80% até 1 dia antes do evento</div></div><div class="pgto-badge">20% agora</div></div>
+    <div class="pgto-item">
+      <div><div class="pgto-name">Pix à vista</div><div class="pgto-sub">Pagamento integral antecipado</div></div>
+      <div class="pgto-badge gold">5% OFF</div>
+    </div>
+    <div class="pgto-item">
+      <div><div class="pgto-name">Parcelamento próprio</div><div class="pgto-sub">Sem juros · Sem consulta Serasa · Disponível até 5 dias antes do evento</div></div>
+      <div class="pgto-badge">Até 5x</div>
+    </div>
+    <div class="pgto-item">
+      <div><div class="pgto-name">Cartão de crédito</div><div class="pgto-sub">Com juros da operadora</div></div>
+      <div class="pgto-badge">Até 12x</div>
+    </div>
+    <div class="pgto-item">
+      <div><div class="pgto-name">Entrada + saldo</div><div class="pgto-sub">80% até 1 dia antes do evento</div></div>
+      <div class="pgto-badge">20% agora</div>
+    </div>
   </div>
 </div>
 
 <!-- URGÊNCIA -->
-<div class="sec" style="border:none">
+<div class="sec fade-up" style="border:none">
   <div class="urgencia">
     <div class="urg-title">⏳ Esta proposta expira em</div>
     <p class="urg-sub">Reserve sua data e garanta os valores desta proposta</p>
@@ -426,7 +521,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 </div>
 
 <!-- CTA -->
-<div class="cta">
+<div class="cta fade-up">
   <h2 class="cta-title">Pronta para fechar<br>o negócio?</h2>
   <p class="cta-sub">Fale agora com nossa equipe e garanta a data do seu evento. Atendemos pelo WhatsApp!</p>
   <a class="btn-main" href="https://wa.me/5562981964726?text=Ol%C3%A1!%20Quero%20fechar%20minha%20proposta!">
@@ -437,8 +532,10 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 </div>
 
 <!-- FOOTER -->
-<div class="footer">
-  <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,fit=crop/PgdbW9JmuFQxbVnj/logo-aloha2-FbHjChv7ADZZPk5u.jpg" alt="Aloha Drinks" class="foot-logo-img" onerror="this.style.display='none'">
+<div class="footer fade-up">
+  <div class="foot-logo-wrap">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,fit=crop/PgdbW9JmuFQxbVnj/logo-aloha2-FbHjChv7ADZZPk5u.jpg" alt="Aloha Drinks" class="foot-logo-img" onerror="this.parentElement.style.display='none'">
+  </div>
   <div class="foot-div"></div>
   <div class="foot-info">
     BH Produções LTDA · CNPJ: 65.057.227/0001-19<br>
@@ -512,33 +609,94 @@ function addFoto(){
   const inp = document.getElementById('new-url');
   const v = inp.value.trim();
   if(!v) return;
-  // Se for só o nome do arquivo, adicionar base automaticamente
   const url = v.startsWith('http') ? v : BASE + v;
   fotos.push(url);
   inp.value='';
   renderFotos();
 }
 
-// ─── CAROUSEL ──────────────────────────
+// ─── CAROUSEL (com desktop drag + autoplay + arrows) ──
+let autoplayTimer = null;
+
 function buildCarousel(){
   const c = document.getElementById('carousel');
   const d = document.getElementById('car-dots');
   c.innerHTML=''; d.innerHTML='';
+
   fotos.forEach((url,i)=>{
     const img=document.createElement('img');
-    img.src=url; img.alt=''; 
+    img.src=url; img.alt='';
     img.onerror=function(){this.style.display='none'};
     c.appendChild(img);
     const dot=document.createElement('div');
     dot.className='car-dot'+(i===0?' on':'');
-    dot.onclick=()=>c.scrollTo({left:i*(c.scrollWidth/fotos.length),behavior:'smooth'});
+    dot.onclick=()=>scrollToSlide(i);
     d.appendChild(dot);
   });
+
+  // Atualiza dots no scroll
   c.onscroll=()=>{
     const idx=Math.round(c.scrollLeft/(c.scrollWidth/Math.max(fotos.length,1)));
     d.querySelectorAll('.car-dot').forEach((dot,i)=>dot.classList.toggle('on',i===idx));
   };
+
+  // Mouse drag (desktop)
+  let isDragging=false, startX=0, scrollLeft=0, hasMoved=false;
+  c.addEventListener('mousedown',e=>{
+    isDragging=true; hasMoved=false;
+    startX=e.pageX-c.offsetLeft;
+    scrollLeft=c.scrollLeft;
+    c.classList.add('dragging');
+    clearAutoplay();
+  });
+  c.addEventListener('mouseleave',()=>{ if(isDragging){ isDragging=false; c.classList.remove('dragging'); startAutoplay(); }});
+  c.addEventListener('mouseup',()=>{ isDragging=false; c.classList.remove('dragging'); if(hasMoved) startAutoplay(); });
+  c.addEventListener('mousemove',e=>{
+    if(!isDragging) return;
+    e.preventDefault();
+    hasMoved=true;
+    const x=e.pageX-c.offsetLeft;
+    const walk=(x-startX)*1.5;
+    c.scrollLeft=scrollLeft-walk;
+  });
+
+  // Arrows
+  document.getElementById('car-prev').onclick=()=>{
+    const idx=Math.round(c.scrollLeft/(c.scrollWidth/Math.max(fotos.length,1)));
+    scrollToSlide(Math.max(0,idx-1));
+    clearAutoplay(); startAutoplay();
+  };
+  document.getElementById('car-next').onclick=()=>{
+    const idx=Math.round(c.scrollLeft/(c.scrollWidth/Math.max(fotos.length,1)));
+    scrollToSlide(Math.min(fotos.length-1,idx+1));
+    clearAutoplay(); startAutoplay();
+  };
+
+  // Touch: pause/resume autoplay
+  c.addEventListener('touchstart',()=>clearAutoplay(),{passive:true});
+  c.addEventListener('touchend',()=>startAutoplay(),{passive:true});
+
+  startAutoplay();
 }
+
+function scrollToSlide(idx){
+  const c=document.getElementById('carousel');
+  const itemW=c.scrollWidth/Math.max(fotos.length,1);
+  c.scrollTo({left:idx*itemW,behavior:'smooth'});
+}
+
+function startAutoplay(){
+  clearAutoplay();
+  if(fotos.length<=1) return;
+  autoplayTimer=setInterval(()=>{
+    const c=document.getElementById('carousel');
+    const total=fotos.length;
+    const idx=Math.round(c.scrollLeft/(c.scrollWidth/Math.max(total,1)));
+    scrollToSlide((idx+1)%total);
+  },3800);
+}
+function clearAutoplay(){ if(autoplayTimer){ clearInterval(autoplayTimer); autoplayTimer=null; } }
+
 buildCarousel();
 
 // ─── LOGOS CLONE ───────────────────────
@@ -567,7 +725,7 @@ function buildPacotes(){
       const t=document.getElementById(c.t)?.value||'0,00';
       const p=document.getElementById(c.p)?.value||'0,00';
       const av=document.getElementById(c.av)?.value||'0,00';
-      return `<div class="sec">
+      return `<div class="sec fade-up visible">
         <div class="sec-head"><span class="sec-t">Proposta ${info.nome}</span><div class="sec-line"></div></div>
         <div class="pacote">
           <div class="pac-top">
@@ -592,12 +750,27 @@ buildPacotes();
 // ─── APLICAR ADMIN ─────────────────────
 function aplicar(){
   const get=id=>document.getElementById(id).value.trim();
-  // Dados
   const nome=get('a-nome'),tipo=get('a-tipo'),conv=get('a-conv');
   const data=get('a-data'),horas=get('a-horas'),local=get('a-local');
   const bar=get('a-bar'),back=get('a-back');
-  // Hero
-  document.getElementById('hero-bg').src=get('a-hero');
+  const videoUrl=get('a-video');
+
+  // Hero imagem/video
+  const heroImg=document.getElementById('hero-bg');
+  const heroVid=document.getElementById('hero-video');
+  heroImg.src=get('a-hero');
+  if(videoUrl){
+    heroVid.src=videoUrl;
+    heroVid.classList.add('active');
+    heroImg.style.opacity='0';
+    heroVid.load();
+    heroVid.play().catch(()=>{});
+  } else {
+    heroVid.classList.remove('active');
+    heroVid.src='';
+    heroImg.style.opacity='';
+  }
+
   // Textos
   ['h-nome','i-nome'].forEach(id=>document.getElementById(id).textContent=nome);
   document.getElementById('h-data').textContent=data;
@@ -634,6 +807,32 @@ tick(); setInterval(tick,1000);
 (()=>{
   const el=document.getElementById('v-gerada');
   if(el){ const d=new Date(); el.textContent=`${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`; }
+})();
+
+// ─── SCROLL ANIMATIONS ─────────────────
+(()=>{
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        // Não desobservar — permite re-animação ao scrollar de volta (opcional)
+      }
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+
+  // Observar todos os elementos fade-up presentes no DOM estático
+  document.querySelectorAll('.fade-up').forEach(el=>{
+    observer.observe(el);
+  });
+
+  // Re-observar após pacotes serem construídos (dinâmicos)
+  const pkgBlock = document.getElementById('pacotes-block');
+  const pkgObserver = new MutationObserver(()=>{
+    pkgBlock.querySelectorAll('.fade-up:not(.visible)').forEach(el=>{
+      observer.observe(el);
+    });
+  });
+  pkgObserver.observe(pkgBlock,{childList:true});
 })();
 </script>
 </body>
