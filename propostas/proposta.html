@@ -257,7 +257,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 
 /* ═══ FOOTER ════════════════════════════════════════ */
 .footer{padding:2rem 1.5rem 3.5rem;text-align:center;border-top:.5px solid var(--border)}
-.foot-logo-wrap{display:inline-flex;align-items:center;justify-content:center;margin-bottom:.6rem;padding:8px 18px;background:rgba(255,255,255,.05);border:.5px solid rgba(201,169,110,.14);border-radius:10px}
+.foot-logo-wrap{display:inline-flex;align-items:center;justify-content:center;margin-bottom:.6rem;padding:10px 22px;background:rgba(255,255,255,.08);border:.5px solid rgba(201,169,110,.2);border-radius:12px;box-shadow:0 0 28px rgba(201,169,110,.06)}
 .foot-logo-img{height:40px;display:block;object-fit:contain;mix-blend-mode:lighten;opacity:.9;filter:brightness(1.1)}
 .foot-div{width:28px;height:.5px;background:var(--border);margin:.7rem auto}
 .foot-info{font-size:.63rem;color:rgba(255,255,255,.25);line-height:2.3}
@@ -346,7 +346,67 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 /* ═══ ADMIN TRIGGER ══════════════════════════════════ */
 #admin-trigger{position:fixed;bottom:0;right:0;width:50px;height:50px;background:transparent;border:none;cursor:pointer;z-index:700;opacity:0}
 
-/* ═══ REFINAMENTOS v62 ═══════════════════════════════ */
+/* ═══ REFINAMENTOS v63 ═══════════════════════════════ */
+/* Gold glow pulse animation */
+@keyframes glowPulse{
+  0%,100%{text-shadow:0 0 20px rgba(201,169,110,.3),0 0 40px rgba(201,169,110,.08)}
+  50%{text-shadow:0 0 34px rgba(201,169,110,.52),0 0 70px rgba(201,169,110,.18)}
+}
+@keyframes glowPulseSubtle{
+  0%,100%{text-shadow:0 0 14px rgba(201,169,110,.2)}
+  50%{text-shadow:0 0 26px rgba(201,169,110,.38),0 0 52px rgba(201,169,110,.12)}
+}
+#h-nome{animation:glowPulse 3.2s ease-in-out infinite}
+#i-nome{animation:glowPulseSubtle 3.5s ease-in-out infinite .4s}
+.pac-nome{animation:glowPulseSubtle 4s ease-in-out infinite}
+.pkg-upg-nome{text-shadow:0 0 18px rgba(201,169,110,.13)}
+/* Typography scale +12% with better rhythm */
+body{font-size:16px;line-height:1.6}
+.about-p{font-size:.87rem;line-height:2}
+.g-sub{font-size:.7rem;line-height:1.65}
+.g-title{font-size:.82rem;letter-spacing:.015em}
+.deg-p{font-size:.81rem;line-height:1.9}
+.pgto-name{font-size:.84rem}
+.pgto-sub{font-size:.67rem;line-height:1.5}
+.info-row .iv{font-size:.88rem}
+.info-row .ik{font-size:.65rem}
+.pac-desc{font-size:.76rem;line-height:1.75}
+.val-mini .vm-v{font-size:.91rem}
+.hero-desc{font-size:.84rem;line-height:1.9}
+/* More breathing between sections */
+.sec{padding:1.9rem 1.5rem;border-bottom:.5px solid rgba(201,169,110,.07)}
+.garantias{gap:.55rem}
+.pgto{gap:.55rem}
+/* Confirmed button in carta */
+.carta-btn-confirmar{background:var(--gold);color:#060c18;border:none;border-radius:8px;padding:.45rem 1.1rem;font-size:.72rem;font-weight:500;cursor:pointer;opacity:.32;pointer-events:none;transition:opacity .2s,background .2s,transform .15s;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.carta-btn-confirmar.ready{opacity:1;pointer-events:auto}
+.carta-btn-confirmar.ready:hover{background:#22c55e;color:#fff;transform:scale(1.03)}
+.carta-btn-confirmar.ready:active{transform:scale(.97)}
+/* Carta confirmed state */
+.carta-confirmed{display:none;padding:1.4rem 1.2rem 1rem;text-align:center}
+.carta-conf-icon{width:54px;height:54px;background:rgba(74,222,128,.1);border:.5px solid rgba(74,222,128,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-size:1.5rem;color:#4ade80;line-height:1}
+.carta-conf-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:#4ade80;margin-bottom:.2rem}
+.carta-conf-sub{font-size:.66rem;color:rgba(255,255,255,.38);margin-bottom:.9rem;letter-spacing:.02em}
+.carta-conf-list{text-align:left;background:rgba(74,222,128,.04);border:.5px solid rgba(74,222,128,.15);border-radius:12px;padding:.75rem 1rem;margin-bottom:.85rem}
+.carta-conf-item{display:flex;align-items:flex-start;gap:.55rem;font-size:.74rem;color:rgba(255,255,255,.68);padding:.22rem 0;line-height:1.4}
+.carta-conf-item span{color:#4ade80;font-size:.58rem;margin-top:3px;flex-shrink:0}
+.carta-conf-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(74,222,128,.12);border:.5px solid rgba(74,222,128,.3);color:#4ade80;border-radius:11px;padding:.78rem 1rem;font-size:.77rem;font-weight:500;text-decoration:none;margin-bottom:.5rem;transition:background .2s}
+.carta-conf-wa:hover{background:rgba(74,222,128,.2)}
+.carta-conf-alt{display:block;width:100%;background:transparent;border:.5px solid rgba(255,255,255,.1);color:rgba(255,255,255,.38);border-radius:10px;padding:.6rem;font-family:'DM Sans',sans-serif;font-size:.74rem;cursor:pointer;transition:border-color .2s,color .2s}
+.carta-conf-alt:hover{border-color:rgba(201,169,110,.3);color:var(--gold)}
+/* Drinks chosen — confirmed green variant */
+.drinks-chosen.confirmed{border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.04);animation:none}
+.drinks-chosen.confirmed .drinks-chosen-t{color:#4ade80}
+.drinks-chosen.confirmed .drinks-chosen-list{color:rgba(255,255,255,.6)}
+.btn-alterar{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;background:transparent;border:.5px solid rgba(74,222,128,.2);color:rgba(74,222,128,.65);border-radius:8px;padding:.52rem;font-family:'DM Sans',sans-serif;font-size:.7rem;cursor:pointer;margin-top:.5rem;transition:border-color .2s,color .2s}
+.btn-alterar:hover{border-color:rgba(74,222,128,.4);color:#4ade80}
+/* Premium social proof badge */
+.pac-social-proof{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,rgba(240,216,150,.12),rgba(201,169,110,.06));border:.5px solid rgba(201,169,110,.3);border-radius:20px;padding:4px 12px;font-size:.55rem;letter-spacing:.1em;color:var(--gold2);margin-bottom:6px}
+/* Degustação tabs */
+.deg-tabs{display:flex;gap:.4rem;margin-bottom:.8rem}
+.deg-tab{flex:1;background:rgba(255,255,255,.05);border:.5px solid rgba(255,255,255,.1);border-radius:10px;padding:.6rem;font-family:'DM Sans',sans-serif;font-size:.72rem;color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s}
+.deg-tab.on{background:rgba(201,169,110,.1);border-color:rgba(201,169,110,.3);color:var(--gold)}
+/* ─── end v63 ─── */
 /* About carousel — grab cursor & arrows */
 .about-car{cursor:grab}
 .about-car:active{cursor:grabbing}
@@ -371,7 +431,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 /* CTA button hover → green */
 .btn-main:hover{background:linear-gradient(135deg,#22c55e,#16a34a)!important;background-size:100% 100%!important;animation:none!important;box-shadow:0 6px 24px rgba(34,197,94,.28);transform:translateY(-1px)}
 /* Logo brightness/contrast */
-.foot-logo-img{filter:brightness(1.35) contrast(1.05);opacity:1}
+.foot-logo-img{filter:brightness(1.5) contrast(1.1) saturate(1.05);opacity:1}
 /* Carta — limit reached message */
 .carta-limit-msg{background:rgba(201,169,110,.06);border:.5px solid rgba(201,169,110,.22);border-radius:10px;padding:.6rem 1rem;margin:.2rem 1rem .5rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:var(--gold);text-align:center;line-height:1.5;display:none}
 .carta-limit-msg.show{display:block}
@@ -472,15 +532,9 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
     </div>
     <div class="adm-row full"><div class="adm-lbl">Pix à vista (R$)</div><input class="adm-inp" id="mp-av" value="4.655,00"></div>
 
-    <!-- Upgrade / Complemento -->
-    <div style="margin-top:.9rem">
-      <label class="adm-tog">
-        <input type="checkbox" id="ck-upgrade" onchange="document.getElementById('upgrade-wrap').classList.toggle('open',this.checked)">
-        <div class="tog-track"></div>
-        <span class="adm-tog-lbl">Adicionar upgrade / complemento</span>
-      </label>
-    </div>
-    <div class="pkg-vals" id="upgrade-wrap">
+    <!-- Upgrade — exibição automática baseada no pacote + preço -->
+    <input type="hidden" id="ck-upgrade" value="on">
+    <div class="pkg-vals open" id="upgrade-wrap" style="display:block;padding:.7rem 0 .2rem;border-top:.5px solid var(--border);margin-top:.8rem">
       <div class="pkg-vals-t" style="margin-top:.3rem">Upgrade — configuração</div>
       <div class="adm-row full" style="margin-bottom:.5rem">
         <div class="adm-lbl">Tipo de upgrade</div>
@@ -606,6 +660,11 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 <!-- DEGUSTAÇÃO -->
 <div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Degustação</span><div class="sec-line"></div></div>
+  <div class="deg-tabs">
+    <button class="deg-tab on" onclick="showDegTab('dom',this)">🏠 Domicílio</button>
+    <button class="deg-tab" onclick="showDegTab('pre',this)">📍 Presencial</button>
+  </div>
+  <div id="deg-dom">
   <div class="deg">
     <img class="deg-img" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/PgdbW9JmuFQxbVnj/img_8225-c1loa9jJ9ZcgQc36.jpg" alt="Degustação Aloha Drinks">
     <div class="deg-body">
@@ -618,6 +677,22 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
       </a>
     </div>
   </div>
+  </div><!-- /deg-dom -->
+  <!-- Formato Presencial -->
+  <div id="deg-pre" style="display:none">
+  <div class="deg">
+    <img class="deg-img" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/PgdbW9JmuFQxbVnj/img_7896-WtdqUSppUMWNPeQI.jpg" alt="Degustação Presencial Aloha Drinks">
+    <div class="deg-body">
+      <div class="deg-label">Experiência presencial</div>
+      <div class="deg-title">Venha nos<br>conhecer</div>
+      <p class="deg-p">Uma vez por mês abrimos nossa casa para degustações presenciais. Experimente nossos drinks, conheça os bartenders e tire todas as suas dúvidas ao vivo. Uma forma de sentir a energia Aloha Drinks antes do grande dia.<br><br><strong>Local:</strong> Casa 1 · <strong>Frequência:</strong> 1x por mês · <strong>Data:</strong> sob consulta</p>
+      <a class="deg-cta" href="https://wa.me/5562981964726?text=Ol%C3%A1!%20Quero%20agendar%20uma%20degusta%C3%A7%C3%A3o%20presencial!">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar datas disponíveis
+      </a>
+    </div>
+  </div>
+  </div><!-- /deg-pre -->
 </div>
 
 <!-- GALERIA -->
@@ -790,6 +865,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 <!-- CARTA DE DRINKS MODAL -->
 <div class="carta-modal" id="carta-modal">
   <div class="carta-wrap">
+    <!-- Header — sempre visível -->
     <div class="carta-header">
       <div>
         <div class="carta-pkg-label" id="carta-pkg-label">Carta de drinks</div>
@@ -797,19 +873,38 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
       </div>
       <button class="carta-close" onclick="closeCarta()">✕</button>
     </div>
+    <!-- Subtítulo (modo visualização) -->
     <div class="carta-subtitle" id="carta-subtitle"></div>
+    <!-- Barra de seleção sticky (modo seleção) -->
     <div class="carta-sel-bar" id="carta-sel-bar">
       <span class="carta-sel-count" id="carta-sel-count">0 selecionados</span>
-      <button class="carta-sel-cta" id="carta-sel-cta" onclick="enviarSelecao()">Enviar pelo WhatsApp</button>
+      <button class="carta-btn-confirmar" id="carta-btn-confirmar" onclick="confirmarSelecao()">✓ Confirmar seleção</button>
     </div>
-    <div class="carta-emotion" id="carta-emotion">Você já está montando a experiência da sua celebração.</div>
-    <div class="carta-limit-msg" id="carta-limit-msg">Perfeito! Agora finalize sua escolha clicando em enviar pelo WhatsApp 👇</div>
+    <!-- Frase emocional (aparece ao selecionar) -->
+    <div class="carta-emotion" id="carta-emotion">Você já está criando a experiência da sua celebração.</div>
+    <!-- Mensagem de limite atingido (proeminente, no meio) -->
+    <div class="carta-limit-msg" id="carta-limit-msg">Perfeito! Agora confirme sua seleção abaixo 👇</div>
+    <!-- Grid de drinks -->
     <div class="carta-grid" id="carta-grid"></div>
+    <!-- Estado confirmado -->
+    <div class="carta-confirmed" id="carta-confirmed">
+      <div class="carta-conf-icon">✓</div>
+      <div class="carta-conf-title">Drinks confirmados!</div>
+      <div class="carta-conf-sub">Salvos nesta proposta · prontos para enviar</div>
+      <div class="carta-conf-list" id="carta-conf-list"></div>
+      <a class="carta-conf-wa" id="carta-conf-wa" href="#" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar lista pelo WhatsApp
+      </a>
+      <button class="carta-conf-alt" onclick="alterarSelecao()">✎ Alterar seleção</button>
+    </div>
+    <!-- Marcas dos destilados -->
     <div class="carta-brands" id="carta-brands">
       <div class="carta-brands-t">Destilados utilizados</div>
       <div class="carta-brands-txt" id="carta-brands-txt"></div>
     </div>
-    <div class="carta-footer">
+    <!-- Footer (modos: visualização / confirmado) -->
+    <div class="carta-footer" id="carta-footer">
       <button class="carta-escolher" id="carta-escolher" onclick="toggleEscolher()">✦ Escolher meus drinks</button>
     </div>
   </div>
@@ -1141,32 +1236,90 @@ const PKG_DRINKS={
 };
 
 // ─── CARTA DE DRINKS LOGIC ────────────────────────────
-let _cartaPkg='', _cartaSel=new Set(), _cartaMode=false;
+let _cartaPkg='', _cartaSel=new Set(), _cartaState='view'; // 'view' | 'selecting' | 'confirmed'
+
+// ─── DRINKS CHOSEN STATE ─────────────────────────────
+let _chosenDrinks={};
+// Restore from localStorage on init
+(()=>{
+  ['essence','gold','premium','soft'].forEach(pkg=>{
+    try{const s=localStorage.getItem('aloha_drinks_'+pkg);if(s){const d=JSON.parse(s);_chosenDrinks[pkg]={...d,confirmed:true};}}catch(e){}
+  });
+})();
 
 function openCarta(pkgKey){
-  _cartaPkg=pkgKey; _cartaSel=new Set(); _cartaMode=false;
+  _cartaPkg=pkgKey;
   const data=PKG_DRINKS[pkgKey]; if(!data) return;
   document.getElementById('carta-pkg-label').textContent='Carta de drinks · '+PKG[pkgKey].nome;
   document.getElementById('carta-title-h').textContent='Nossos drinks';
   document.getElementById('carta-subtitle').textContent=data.subtitle;
   document.getElementById('carta-brands-txt').textContent=data.brands;
-  // Sel bar — hidden until "Escolher" mode
-  document.getElementById('carta-sel-bar').style.display='none';
-  // Escolher btn
-  const btnE=document.getElementById('carta-escolher');
-  if(data.fixed){btnE.style.display='none';}
-  else{btnE.style.display='block';btnE.textContent='✦ Escolher meus drinks';btnE.classList.remove('on');}
-  _renderCartaGrid(false);
+  // Se já confirmado, abrir no estado confirmado
+  const saved=_chosenDrinks[pkgKey];
+  if(saved&&saved.confirmed){
+    _cartaSel=new Set(saved.indices);
+    _setCartaState('confirmed');
+  } else {
+    _cartaSel=new Set();
+    _setCartaState('view');
+  }
   document.getElementById('carta-modal').classList.add('show');
   document.body.style.overflow='hidden';
 }
+
 function closeCarta(){
   document.getElementById('carta-modal').classList.remove('show');
   document.body.style.overflow='';
-  _cartaSel=new Set(); _cartaMode=false;
 }
-// Close on backdrop tap
+
 document.getElementById('carta-modal').addEventListener('click',function(e){if(e.target===this)closeCarta();});
+
+function _setCartaState(state){
+  _cartaState=state;
+  const data=PKG_DRINKS[_cartaPkg]; if(!data) return;
+  const selBar=document.getElementById('carta-sel-bar');
+  const limitMsg=document.getElementById('carta-limit-msg');
+  const emotion=document.getElementById('carta-emotion');
+  const grid=document.getElementById('carta-grid');
+  const confirmedEl=document.getElementById('carta-confirmed');
+  const footer=document.getElementById('carta-footer');
+  const btnEscolher=document.getElementById('carta-escolher');
+  const subtitle=document.getElementById('carta-subtitle');
+
+  if(state==='view'){
+    selBar.style.display='none';
+    limitMsg.classList.remove('show');
+    emotion.classList.remove('show');
+    confirmedEl.style.display='none';
+    grid.style.display='grid';
+    footer.style.display='block';
+    subtitle.style.display='block';
+    if(btnEscolher){
+      if(data.fixed){btnEscolher.style.display='none';}
+      else{btnEscolher.style.display='block';btnEscolher.textContent='✦ Escolher meus drinks';btnEscolher.classList.remove('on');}
+    }
+    _renderCartaGrid(false);
+  } else if(state==='selecting'){
+    selBar.style.display='flex';
+    confirmedEl.style.display='none';
+    grid.style.display='grid';
+    footer.style.display='none';
+    subtitle.style.display='none';
+    if(btnEscolher){btnEscolher.style.display='none';}
+    _updSel();
+    _renderCartaGrid(true);
+  } else if(state==='confirmed'){
+    selBar.style.display='none';
+    limitMsg.classList.remove('show');
+    emotion.classList.remove('show');
+    grid.style.display='none';
+    confirmedEl.style.display='block';
+    footer.style.display='block';
+    subtitle.style.display='none';
+    _renderConfirmedState();
+    if(btnEscolher&&!data.fixed){btnEscolher.style.display='block';btnEscolher.textContent='✎ Alterar seleção';btnEscolher.classList.remove('on');}
+  }
+}
 
 function _renderCartaGrid(selMode){
   const data=PKG_DRINKS[_cartaPkg]; if(!data) return;
@@ -1176,52 +1329,73 @@ function _renderCartaGrid(selMode){
     return `<div class="drink-card${selMode?' sel':''}${picked?' picked':''}" ${selMode?`onclick="_pick(${i})"`:''}><div class="drink-check">${CHECK}</div><div class="drink-nome">${d.n}</div><div class="drink-base">${d.b}</div><div class="drink-vessel">${d.v}</div></div>`;
   }).join('');
 }
+
 function _pick(i){
   const data=PKG_DRINKS[_cartaPkg]; if(!data) return;
   if(_cartaSel.has(i)){_cartaSel.delete(i);}
   else{if(_cartaSel.size>=data.limit) return; _cartaSel.add(i);}
   _renderCartaGrid(true); _updSel();
 }
+
 function _updSel(){
   const data=PKG_DRINKS[_cartaPkg]; if(!data) return;
   const n=_cartaSel.size, lim=data.limit;
   document.getElementById('carta-sel-count').textContent=`${n} de ${lim} selecionados`;
-  const btn=document.getElementById('carta-sel-cta');
-  btn.classList.toggle('ready', n>0);
-  // Limit reached message
+  const btnConf=document.getElementById('carta-btn-confirmar');
+  if(btnConf) btnConf.classList.toggle('ready',n>0);
   const msg=document.getElementById('carta-limit-msg');
-  if(msg) msg.classList.toggle('show', n>=lim);
-  // Emotional phrase (shows when any selection made)
+  if(msg) msg.classList.toggle('show',n>=lim);
   const emo=document.getElementById('carta-emotion');
-  if(emo) emo.classList.toggle('show', n>0);
-}
-function toggleEscolher(){
-  _cartaMode=!_cartaMode; _cartaSel=new Set();
-  const bar=document.getElementById('carta-sel-bar');
-  bar.style.display=_cartaMode?'flex':'none';
-  _updSel(); _renderCartaGrid(_cartaMode);
-  const btn=document.getElementById('carta-escolher');
-  btn.classList.toggle('on',_cartaMode);
-  btn.textContent=_cartaMode?'✕ Cancelar':'✦ Escolher meus drinks';
-}
-// ─── DRINKS CHOSEN STATE ─────────────────────────────
-let _chosenDrinks={};
-function _saveChosenDrinks(pkg,names){
-  _chosenDrinks[pkg]=names;
-  buildPacotes(); // refresh package card to show chosen drinks
+  if(emo) emo.classList.toggle('show',n>0);
 }
 
-function enviarSelecao(){
+function toggleEscolher(){
+  if(_cartaState==='confirmed'){
+    const saved=_chosenDrinks[_cartaPkg];
+    _cartaSel=new Set(saved?saved.indices:[]);
+    _setCartaState('selecting');
+  } else if(_cartaState==='view'){
+    _setCartaState('selecting');
+  } else {
+    _cartaSel=new Set();
+    _setCartaState('view');
+  }
+}
+
+function confirmarSelecao(){
   const data=PKG_DRINKS[_cartaPkg]; if(!data||!_cartaSel.size) return;
+  const sorted=[..._cartaSel].sort((a,b)=>a-b);
+  const names=sorted.map(i=>data.drinks[i].n);
+  // Salvar estado
+  _chosenDrinks[_cartaPkg]={names,indices:sorted,confirmed:true};
+  // Persistir no localStorage
+  try{localStorage.setItem('aloha_drinks_'+_cartaPkg,JSON.stringify({names,indices:sorted}));}catch(e){}
+  // Atualizar card do pacote
+  buildPacotes();
+  // Mostrar estado confirmado
+  _setCartaState('confirmed');
+}
+
+function alterarSelecao(){
+  const saved=_chosenDrinks[_cartaPkg];
+  if(saved) _cartaSel=new Set(saved.indices);
+  _setCartaState('selecting');
+}
+
+function _renderConfirmedState(){
+  const data=PKG_DRINKS[_cartaPkg]; if(!data) return;
+  const sorted=[..._cartaSel].sort((a,b)=>a-b);
+  const names=sorted.map(i=>data.drinks[i].n);
+  const listEl=document.getElementById('carta-conf-list');
+  if(listEl) listEl.innerHTML=names.map(n=>`<div class="carta-conf-item"><span>✦</span>${n}</div>`).join('');
   const nome=document.getElementById('i-nome')?.textContent||'cliente';
   const pkgNome=PKG[_cartaPkg]?.nome||_cartaPkg;
-  const sorted=[..._cartaSel].sort((a,b)=>a-b);
   const lista=sorted.map((i,n)=>`${n+1}. ${data.drinks[i].n}`).join('\n');
-  const msg=`Olá! Sou ${nome} e selecionei os drinks para minha celebração — Pacote ${pkgNome}:\n\n${lista}\n\nPode confirmar minha escolha?`;
-  // Save chosen drinks for display outside modal
-  _saveChosenDrinks(_cartaPkg, sorted.map(i=>data.drinks[i].n));
-  window.open(`https://wa.me/5562981964726?text=${encodeURIComponent(msg)}`,'_blank');
+  const msg=`Olá! Sou ${nome} e confirmei os drinks para minha celebração — Pacote ${pkgNome}:\n\n${lista}\n\nPode confirmar minha escolha?`;
+  const waEl=document.getElementById('carta-conf-wa');
+  if(waEl) waEl.href=`https://wa.me/5562981964726?text=${encodeURIComponent(msg)}`;
 }
+
 
 // ─── PACOTES ─────────────────────────────────────────
 const PKG={
@@ -1296,17 +1470,28 @@ function syncUpgradeOptions(){
   if(!sel) return;
   const opts=UPGRADE_OPTS[main]||[];
   sel.innerHTML=opts.map(o=>`<option value="${o.v}">${o.l}</option>`).join('');
+  // Auto-exibir seção de preço do upgrade
+  const wrap=document.getElementById('upgrade-wrap');
+  if(wrap) wrap.style.display=opts.length>0?'block':'none';
 }
 
 function buildPacotes(){
   const horas=document.getElementById('i-horas').textContent;
   const mainKey=document.getElementById('a-main-pkg')?.value||'gold';
-  const showUpgrade=document.getElementById('ck-upgrade')?.checked;
-  const upgradeKey=document.getElementById('a-upgrade-pkg')?.value||'';
+  // Auto-upgrade: sempre mostrar se há opção de upgrade e preço preenchido
+  const autoUpgradeKey=(UPGRADE_OPTS[mainKey]||[])[0]?.v||'';
+  const upgradeKey=document.getElementById('a-upgrade-pkg')?.value||autoUpgradeKey;
+  const upgradePrice=parseBRL(document.getElementById('up-t')?.value||'0');
+  const showUpgrade=upgradeKey.length>0&&upgradePrice>0;
   const mt=document.getElementById('mp-t')?.value||'0,00';
   const mp=document.getElementById('mp-p')?.value||'0,00';
   const mav=document.getElementById('mp-av')?.value||'0,00';
   const mainInfo=PKG[mainKey];
+  // Drinks confirmados
+  const chosenData=_chosenDrinks&&_chosenDrinks[mainKey]&&_chosenDrinks[mainKey].confirmed;
+  const chosenNames=chosenData?_chosenDrinks[mainKey].names:null;
+  // Badge de prova social (Premium)
+  const socialProof=mainKey==='premium'?'<div class="pac-social-proof">⭐ Mais escolhido por quem quer impressionar os convidados</div>':'';
   let html='';
 
   // ── Pacote principal ──────────────────────────────
@@ -1314,6 +1499,7 @@ function buildPacotes(){
     <div class="sec-head"><span class="sec-t">Proposta ${mainInfo.nome}</span><div class="sec-line"></div></div>
     <div class="pacote">
       <div class="pac-top">
+        ${socialProof}
         <div class="pac-badge">Pacote selecionado para você</div>
         <div class="pac-nome">${mainInfo.nome}</div>
         <div class="pac-desc">${mainInfo.desc}</div>
@@ -1327,13 +1513,19 @@ function buildPacotes(){
         </div>
       </div>
     </div>
-    <button class="btn-carta" onclick="openCarta('${mainKey}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3"/><path d="M9 13h6M12 10v6"/></svg>Ver carta de drinks</button>
-    ${_chosenDrinks&&_chosenDrinks[mainKey]?`<div class="drinks-chosen"><div class="drinks-chosen-t">✦ Seus drinks escolhidos</div><div class="drinks-chosen-list">${_chosenDrinks[mainKey].join(' · ')}</div></div>`:''}
-    ${showUpgrade&&upgradeKey?'<div class="pkg-base-note">Quer elevar ainda mais a experiência? Veja abaixo ↓</div>':''}
+    ${chosenNames?
+      `<div class="drinks-chosen confirmed">
+        <div class="drinks-chosen-t">✦ Drinks confirmados para sua celebração</div>
+        <div class="drinks-chosen-list">${chosenNames.join(' · ')}</div>
+        <button class="btn-alterar" onclick="openCarta('${mainKey}')">✎ Ver ou alterar seleção</button>
+      </div>`:
+      `<button class="btn-carta" onclick="openCarta('${mainKey}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3"/><path d="M9 13h6M12 10v6"/></svg>Ver carta de drinks</button>`
+    }
+    ${showUpgrade?'<div class="pkg-base-note">Quer elevar ainda mais a experiência? Veja abaixo ↓</div>':''}
   </div>`;
 
   // ── Upgrade / complemento ─────────────────────────
-  if(showUpgrade && upgradeKey){
+  if(showUpgrade){
     const relKey=`${mainKey}→${upgradeKey}`;
     const rel=UPGRADE_REL[relKey];
     if(rel){
@@ -1426,6 +1618,14 @@ function aplicar(){
   const btn=document.querySelector('.adm-apply');
   btn.textContent='✅ Salvo!';
   setTimeout(()=>btn.textContent='✅ Aplicar alterações',2000);
+}
+
+// ─── DEGUSTAÇÃO TABS ─────────────────────────────────
+function showDegTab(id,btn){
+  document.getElementById('deg-dom').style.display=id==='dom'?'block':'none';
+  document.getElementById('deg-pre').style.display=id==='pre'?'block':'none';
+  document.querySelectorAll('.deg-tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
 }
 
 // ─── COUNTDOWN ───────────────────────────────────────
