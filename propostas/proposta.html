@@ -218,12 +218,15 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 
 /* ═══ GARANTIAS ═════════════════════════════════════ */
 .garantias{display:grid;gap:.5rem}
-.g-item{display:flex;align-items:flex-start;gap:.9rem;background:var(--dark3);border:.5px solid rgba(255,255,255,.04);border-radius:13px;padding:.9rem 1rem;transition:border-color .3s,background .3s}
+.g-item{display:flex;align-items:flex-start;gap:.9rem;background:var(--dark3);border:.5px solid rgba(255,255,255,.04);border-radius:13px;padding:.9rem 1rem;transition:border-color .3s,background .3s;flex-wrap:wrap}
 .g-item:hover{border-color:rgba(201,169,110,.2);background:rgba(201,169,110,.03)}
 .g-icon{flex-shrink:0;width:22px;height:22px;margin-top:1px;color:var(--gold);opacity:.88}
 .g-icon svg{width:100%;height:100%}
 .g-title{font-size:.77rem;font-weight:500;margin-bottom:2px;letter-spacing:.01em}
 .g-sub{font-size:.66rem;color:var(--muted);line-height:1.55}
+.g-photos{display:flex;gap:.4rem;margin-top:.7rem;width:100%}
+.g-photo{flex:1;height:72px;border-radius:8px;object-fit:cover;border:.5px solid rgba(201,169,110,.2);opacity:.88;transition:opacity .2s}
+.g-photo:hover{opacity:1}
 
 /* ═══ PAYMENT ════════════════════════════════════════ */
 .pgto{display:grid;gap:.5rem}
@@ -268,13 +271,20 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .social-btn svg{flex-shrink:0}
 
 /* ═══ FOOTER ════════════════════════════════════════ */
-.footer{padding:2rem 1.5rem 3.5rem;text-align:center;border-top:.5px solid var(--border)}
-.foot-logo-wrap{display:inline-flex;align-items:center;justify-content:center;margin-bottom:.6rem;padding:10px 22px;background:rgba(255,255,255,.08);border:.5px solid rgba(201,169,110,.2);border-radius:12px;box-shadow:0 0 28px rgba(201,169,110,.06)}
-.foot-logo-img{height:40px;display:block;object-fit:contain;mix-blend-mode:lighten;opacity:.9;filter:brightness(1.1)}
+.footer{padding:2.5rem 1.5rem 3.5rem;text-align:center;border-top:.5px solid var(--border)}
+.foot-brand{display:flex;flex-direction:column;align-items:center;gap:.3rem;margin-bottom:.9rem}
+.foot-brand-eyebrow{display:flex;align-items:center;gap:10px;width:100%;justify-content:center}
+.foot-brand-eyebrow::before,.foot-brand-eyebrow::after{content:'';flex:1;max-width:40px;height:.5px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.45))}
+.foot-brand-eyebrow::after{background:linear-gradient(270deg,transparent,rgba(201,169,110,.45))}
+.foot-brand-star{font-size:.5rem;color:rgba(201,169,110,.5);letter-spacing:.3em}
+.foot-brand-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:2rem;letter-spacing:.05em;background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,var(--gold2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.foot-brand-sub{font-size:.44rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,169,110,.38);margin-top:1px}
 .foot-div{width:28px;height:.5px;background:var(--border);margin:.7rem auto}
 .foot-info{font-size:.63rem;color:rgba(255,255,255,.25);line-height:2.3}
 .foot-info a{color:rgba(201,169,110,.45);text-decoration:none}
 .foot-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(201,169,110,.4);margin-top:.9rem}
+/* Legacy – hide old logo box if still present */
+.foot-logo-wrap{display:none}
 
 /* ═══ CARTA DE DRINKS ══════════════════════════════ */
 .carta{background:var(--dark3);border:.5px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:.6rem}
@@ -661,8 +671,9 @@ body{font-size:16px;line-height:1.6}
     </button>
     <div class="about-dots" id="about-dots"></div>
   </div>
-  <p class="about-p" id="about-p1">Somos especialistas em coquetelaria para eventos em Goiás e Brasília. Mais de 300 festas realizadas, da celebração intimista ao grande evento com 1.200+ convidados.</p>
-  <p class="about-p" id="about-p2" style="margin-top:.7rem">Estrutura 100% móvel, equipe uniformizada e treinada, destilados originais e atenção a cada detalhe — para você aproveitar sem preocupações.</p>
+  <p class="about-p" id="about-p1">Somos especialistas em coquetelaria para eventos em Goiás e Brasília. Com mais de 2 anos de atuação e mais de 300 celebrações realizadas, atendemos desde comemorações intimistas até grandes eventos com 1.200+ convidados — sempre com a mesma dedicação e atenção a cada detalhe.</p>
+  <p class="about-p" id="about-p2" style="margin-top:.7rem">Já tivemos o prazer de atender artistas como <strong style="color:rgba(201,169,110,.8)">Murilo Huff, Zé Felipe, Virgínia Fonseca, Jorge &amp; Mateus e Henrique &amp; Juliano</strong>, além de grandes marcas como Toyota, Sicoob, JBS e Grupo Mauá — reforçando nosso compromisso com qualidade e profissionalismo.</p>
+  <p class="about-p" style="margin-top:.7rem">Estrutura 100% móvel, equipe uniformizada e treinada, destilados originais e processo organizado — para você aproveitar sua celebração do início ao fim sem nenhuma preocupação. <em style="color:rgba(201,169,110,.65)">Você aproveita. A gente cuida de tudo.</em></p>
 </div>
 
 <!-- EQUIPE -->
@@ -781,7 +792,11 @@ body{font-size:16px;line-height:1.6}
 
     <div class="g-item fade-up">
       <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l4 8h6l4-8H5z"/><line x1="3" y1="8" x2="21" y2="8"/><line x1="12" y1="12" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg></span>
-      <div><div class="g-title">Balcão Freijó incluso</div><div class="g-sub">Sem taxa extra de locação. O balcão já faz parte do pacote.</div></div>
+      <div style="flex:1"><div class="g-title">Balcão Freijó incluso</div><div class="g-sub">Sem taxa extra de locação. O balcão já faz parte do pacote.</div></div>
+      <div class="g-photos">
+        <img class="g-photo" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2025-08-07-at-12.20.33-FjVYoiEJP10U20Y0.jpeg" alt="Balcão Freijó Aloha Drinks">
+        <img class="g-photo" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/111-cvGNwzEVvuIjljWb.jpg" alt="Modelo do balcão">
+      </div>
     </div>
 
   </div>
@@ -874,10 +889,10 @@ body{font-size:16px;line-height:1.6}
 
 <!-- FOOTER -->
 <div class="footer fade-up">
-  <div class="foot-logo-wrap">
-    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,fit=crop/PgdbW9JmuFQxbVnj/logo-aloha2-FbHjChv7ADZZPk5u.jpg"
-      alt="Aloha Drinks" class="foot-logo-img"
-      onerror="this.parentElement.style.display='none'">
+  <div class="foot-brand">
+    <div class="foot-brand-eyebrow"><span class="foot-brand-star">✦ ✦ ✦</span></div>
+    <div class="foot-brand-name">Aloha Drinks</div>
+    <div class="foot-brand-sub">Coquetelaria para eventos</div>
   </div>
   <div class="foot-div"></div>
   <div class="foot-info">
@@ -1095,6 +1110,16 @@ function buildAboutCar(){
     const idx=Math.round(c.scrollLeft/w);
     aboutScrollTo((idx+1)%aboutFotos.length);
   };
+  // Autoplay — avança a cada 3.5s, pausa ao interagir
+  let aboutAutoTimer=setInterval(()=>{
+    const w=c.clientWidth||c.offsetWidth||1;
+    const idx=Math.round(c.scrollLeft/w);
+    aboutScrollTo((idx+1)%aboutFotos.length);
+  },3500);
+  const pauseAbout=()=>{clearInterval(aboutAutoTimer);aboutAutoTimer=setTimeout(()=>{aboutAutoTimer=setInterval(()=>{const w=c.clientWidth||c.offsetWidth||1;const idx=Math.round(c.scrollLeft/w);aboutScrollTo((idx+1)%aboutFotos.length);},3500);},5000);};
+  c.addEventListener('touchstart',pauseAbout,{passive:true});
+  if(prevBtn) prevBtn.addEventListener('click',pauseAbout);
+  if(nextBtn) nextBtn.addEventListener('click',pauseAbout);
 }
 buildAboutCar();
 
