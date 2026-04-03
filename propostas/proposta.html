@@ -171,6 +171,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .deg::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);z-index:3}
 .deg-bg{background-size:cover;background-position:center;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end}
 .deg-bg-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,12,26,.18) 0%,rgba(5,12,26,.52) 38%,rgba(5,12,26,.88) 62%,rgba(5,12,26,.97) 100%);z-index:1}
+.deg-bg-overlay.blue{background:linear-gradient(to bottom,rgba(4,10,40,.28) 0%,rgba(5,14,48,.6) 38%,rgba(4,12,42,.9) 62%,rgba(3,9,36,.97) 100%)}
 .deg-body{padding:1.2rem;position:relative;z-index:2}
 .deg-label{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,169,110,.55);margin-bottom:4px}
 .deg-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--gold2);line-height:1.15;margin-bottom:.6rem}
@@ -330,9 +331,19 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .carta-brands-t{font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,169,110,.45);margin-bottom:.3rem}
 .carta-brands-txt{font-size:.62rem;color:rgba(255,255,255,.25);line-height:1.75}
 /* Button inside package card */
-.btn-carta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:linear-gradient(135deg,rgba(201,169,110,.1),rgba(201,169,110,.04));border:.5px solid rgba(201,169,110,.35);border-radius:12px;padding:.82rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;color:var(--gold);cursor:pointer;margin-top:.6rem;transition:all .25s;letter-spacing:.03em}
-.btn-carta:hover{border-color:var(--gold);background:rgba(201,169,110,.12);transform:translateY(-1px);box-shadow:0 4px 16px rgba(201,169,110,.12)}
-.btn-carta:active{transform:scale(.98)}
+@keyframes cartaWiggle{
+  0%,72%,100%{transform:rotate(0)}
+  74%{transform:rotate(-2.5deg) translateX(-2px)}
+  76%{transform:rotate(2.5deg) translateX(2px)}
+  78%{transform:rotate(-2deg) translateX(-1px)}
+  80%{transform:rotate(2deg) translateX(1px)}
+  82%{transform:rotate(-1deg)}
+  84%{transform:rotate(1deg)}
+  86%{transform:rotate(0)}
+}
+.btn-carta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:linear-gradient(135deg,rgba(201,169,110,.1),rgba(201,169,110,.04));border:.5px solid rgba(201,169,110,.35);border-radius:12px;padding:.82rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;color:var(--gold);cursor:pointer;margin-top:.6rem;transition:border-color .25s,background .25s,box-shadow .25s;letter-spacing:.03em;animation:cartaWiggle 4s ease-in-out 2s infinite;transform-origin:center}
+.btn-carta:hover{border-color:var(--gold);background:rgba(201,169,110,.12);transform:translateY(-1px)!important;box-shadow:0 4px 16px rgba(201,169,110,.12);animation:none}
+.btn-carta:active{transform:scale(.98)!important;animation:none}
 
 /* ═══ PACKAGE UPGRADE ══════════════════════════════ */
 .pkg-upgrade{position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(145deg,rgba(201,169,110,.07) 0%,var(--dark3) 100%);border:.5px solid rgba(201,169,110,.35);box-shadow:0 0 36px rgba(201,169,110,.05)}
@@ -674,8 +685,8 @@ body{font-size:16px;line-height:1.6}
     <button class="deg-tab" onclick="showDegTab('pre',this)">📍 Presencial</button>
   </div>
   <div id="deg-dom">
-  <div class="deg deg-bg" style="background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/5e9cb8fc-bb84-48c4-a447-9a1efab7f3bb-mCHUy4jXXaI71I3Q.jpg')">
-    <div class="deg-bg-overlay"></div>
+  <div class="deg deg-bg" style="background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.35.23-9rixvz8IkBUqtCFt.jpeg');background-position:center top">
+    <div class="deg-bg-overlay blue"></div>
     <div class="deg-body">
       <div class="deg-label">Experiência exclusiva</div>
       <div class="deg-title">Agende sua<br>degustação</div>
@@ -963,16 +974,21 @@ function toggleVals(id,chk){
 
 // ─── FOTOS GALERIA ────────────────────────────────────
 const BASE='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/PgdbW9JmuFQxbVnj/';
+const BASE2='https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/';
 let fotos=[
-  BASE+'img_6677-2beOzzcS258jqtDQ.jpg',
-  BASE+'img_8225-c1loa9jJ9ZcgQc36.jpg',
-  BASE+'bsl-c-amp-b-1363-CNSLd1NUh0p4ZLta.jpg',
-  BASE+'img_7896-WtdqUSppUMWNPeQI.jpg',
-  BASE+'whatsapp-image-2026-03-07-at-10.07.36-nVMozACRWYyKzCOx.jpeg',
-  BASE+'img_6646-b6XRY4KaxBYfnir4.jpg',
+  BASE2+'img_6646-BVpG0S2pSZWZpn4p.jpg',
+  BASE2+'img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg',
+  BASE2+'bsl-j-r-147-AHwol5cxySPL413y.jpg',
+  BASE2+'bsl-j-r-151-KuntWC35HLjWcLWB.jpg',
+  BASE2+'bsl-j-r-311-msr6vaoLuhxu0rMA.jpg',
+  BASE2+'2222-LZA68iZ0Kbb2PvKL.jpg',
+  BASE2+'img_3537-iP1gtErrtgYO1yaY.jpg',
+  BASE2+'img_3618-us3ybjFBq3LVDvRi.jpg',
+  BASE2+'5e9cb8fc-bb84-48c4-a447-9a1efab7f3bb-6ex0epwlzC8kxYzB.jpg',
+  BASE2+'bsl-c-b-966-VdlHOeTwEo0iBlKK.jpg',
 ];
 let aboutFotos=[
-  'https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-jr-147-AHwol5cxySPL413y.jpg',
+  'https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bendita-dica-CUd0FdNAj435RlaZ.jpeg',
   'https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg',
   'https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img_6646-BVpG0S2pSZWZpn4p.jpg',
 ];
