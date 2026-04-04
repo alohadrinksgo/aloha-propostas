@@ -127,7 +127,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .about-car-wrap{position:relative;margin-bottom:1.1rem}
 .about-car{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:var(--radius);gap:0}
 .about-car::-webkit-scrollbar{display:none}
-.about-car img{width:100%;flex-shrink:0;height:220px;object-fit:cover;scroll-snap-align:start;border-radius:var(--radius);display:block}
+.about-car img{width:100%;flex-shrink:0;height:260px;object-fit:contain;background:var(--dark2);scroll-snap-align:start;border-radius:var(--radius);display:block}
 .about-dots{display:flex;justify-content:center;gap:5px;margin-top:.5rem}
 .about-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.18);transition:.25s;cursor:pointer}
 .about-dot.on{background:var(--gold);width:14px;border-radius:2px}
@@ -225,8 +225,13 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .g-title{font-size:.77rem;font-weight:500;margin-bottom:2px;letter-spacing:.01em}
 .g-sub{font-size:.66rem;color:var(--muted);line-height:1.55}
 .g-photos{display:flex;gap:.4rem;margin-top:.7rem;width:100%}
-.g-photo{flex:1;height:72px;border-radius:8px;object-fit:cover;border:.5px solid rgba(201,169,110,.2);opacity:.88;transition:opacity .2s}
-.g-photo:hover{opacity:1}
+.g-photo{flex:1;height:72px;border-radius:8px;object-fit:cover;border:.5px solid rgba(201,169,110,.2);opacity:.88;transition:opacity .2s,transform .2s;cursor:zoom-in}
+.g-photo:hover{opacity:1;transform:scale(1.02)}
+/* Simple single-image lightbox */
+.slb{display:none;position:fixed;inset:0;z-index:9700;background:rgba(0,0,0,.94);align-items:center;justify-content:center;cursor:zoom-out;padding:1rem}
+.slb.show{display:flex}
+.slb img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:10px;pointer-events:none}
+.slb-close{position:absolute;top:14px;right:14px;width:36px;height:36px;background:rgba(255,255,255,.1);border:.5px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1.1rem;z-index:1}
 
 /* ═══ PAYMENT ════════════════════════════════════════ */
 .pgto{display:grid;gap:.5rem}
@@ -272,19 +277,12 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 
 /* ═══ FOOTER ════════════════════════════════════════ */
 .footer{padding:2.5rem 1.5rem 3.5rem;text-align:center;border-top:.5px solid var(--border)}
-.foot-brand{display:flex;flex-direction:column;align-items:center;gap:.3rem;margin-bottom:.9rem}
-.foot-brand-eyebrow{display:flex;align-items:center;gap:10px;width:100%;justify-content:center}
-.foot-brand-eyebrow::before,.foot-brand-eyebrow::after{content:'';flex:1;max-width:40px;height:.5px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.45))}
-.foot-brand-eyebrow::after{background:linear-gradient(270deg,transparent,rgba(201,169,110,.45))}
-.foot-brand-star{font-size:.5rem;color:rgba(201,169,110,.5);letter-spacing:.3em}
-.foot-brand-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:2rem;letter-spacing:.05em;background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,var(--gold2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
-.foot-brand-sub{font-size:.44rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,169,110,.38);margin-top:1px}
+.foot-logo-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:.9rem}
+.foot-logo-img{height:72px;display:block;object-fit:contain;mix-blend-mode:screen;filter:brightness(2.2) contrast(1.1) saturate(1.15)}
 .foot-div{width:28px;height:.5px;background:var(--border);margin:.7rem auto}
 .foot-info{font-size:.63rem;color:rgba(255,255,255,.25);line-height:2.3}
 .foot-info a{color:rgba(201,169,110,.45);text-decoration:none}
 .foot-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(201,169,110,.4);margin-top:.9rem}
-/* Legacy – hide old logo box if still present */
-.foot-logo-wrap{display:none}
 
 /* ═══ CARTA DE DRINKS ══════════════════════════════ */
 .carta{background:var(--dark3);border:.5px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:.6rem}
@@ -302,10 +300,11 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .drink-card:nth-child(odd){background:rgba(255,255,255,.015)}
 .drink-n{font-size:.68rem;font-weight:500;color:var(--gold2);margin-bottom:3px;line-height:1.25}
 .drink-d{font-size:.56rem;color:rgba(255,255,255,.38);line-height:1.5}
-.carta-brands{padding:.75rem 1.1rem;border-top:.5px solid rgba(201,169,110,.08);background:rgba(201,169,110,.02)}
-.carta-brands-t{font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,169,110,.45);margin-bottom:.5rem}
-.carta-brands-list{display:flex;flex-wrap:wrap;gap:.3rem}
-.carta-brand{background:rgba(201,169,110,.05);border:.5px solid rgba(201,169,110,.13);border-radius:10px;padding:3px 8px;font-size:.56rem;color:rgba(255,255,255,.4)}
+.carta-brands{padding:.9rem 1.2rem 1.1rem;border-top:.5px solid rgba(201,169,110,.12);background:linear-gradient(135deg,rgba(201,169,110,.05),rgba(201,169,110,.02))}
+.carta-brands-t{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem;display:flex;align-items:center;gap:.4rem}
+.carta-brands-t::before{content:'🍾';font-size:.65rem;letter-spacing:0}
+.carta-brands-list{display:flex;flex-wrap:wrap;gap:.35rem}
+.carta-brand{background:rgba(201,169,110,.1);border:.5px solid rgba(201,169,110,.32);border-radius:20px;padding:4px 10px;font-size:.6rem;color:rgba(255,255,255,.78);font-weight:400;white-space:nowrap}
 
 /* ═══ CARTA DE DRINKS ══════════════════════════════ */
 .carta-modal{display:none;position:fixed;inset:0;z-index:9600;background:rgba(0,0,0,.93);backdrop-filter:blur(6px);overflow-y:auto;padding:1rem 1rem 3rem;-webkit-overflow-scrolling:touch}
@@ -337,9 +336,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .carta-escolher{width:100%;background:transparent;border:.5px solid rgba(201,169,110,.2);color:rgba(255,255,255,.5);border-radius:10px;padding:.7rem;font-family:'DM Sans',sans-serif;font-size:.74rem;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
 .carta-escolher:hover{border-color:rgba(201,169,110,.4);color:var(--gold)}
 .carta-escolher.on{border-color:rgba(201,169,110,.45);color:var(--gold);background:rgba(201,169,110,.04)}
-.carta-brands{padding:.5rem 1.2rem .85rem;border-top:.5px solid rgba(201,169,110,.07)}
-.carta-brands-t{font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,169,110,.45);margin-bottom:.3rem}
-.carta-brands-txt{font-size:.62rem;color:rgba(255,255,255,.25);line-height:1.75}
+/* carta-brands duplicate removed */
 /* Button inside package card */
 @keyframes cartaWiggle{
   0%,72%,100%{transform:rotate(0)}
@@ -463,8 +460,7 @@ body{font-size:16px;line-height:1.6}
 .info-row .iv{font-size:.86rem}
 /* CTA button hover → green */
 .btn-main:hover{background:linear-gradient(135deg,#22c55e,#16a34a)!important;background-size:100% 100%!important;animation:none!important;box-shadow:0 6px 24px rgba(34,197,94,.28);transform:translateY(-1px)}
-/* Logo brightness/contrast */
-.foot-logo-img{filter:brightness(1.5) contrast(1.1) saturate(1.05);opacity:1}
+/* Logo — handled in footer CSS block above */
 /* Carta — limit reached message */
 .carta-limit-msg{background:rgba(201,169,110,.06);border:.5px solid rgba(201,169,110,.22);border-radius:10px;padding:.6rem 1rem;margin:.2rem 1rem .5rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:var(--gold);text-align:center;line-height:1.5;display:none}
 .carta-limit-msg.show{display:block}
@@ -696,7 +692,7 @@ body{font-size:16px;line-height:1.6}
     <button class="deg-tab" onclick="showDegTab('pre',this)">📍 Presencial</button>
   </div>
   <div id="deg-dom">
-  <div class="deg deg-bg" style="background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.35.23-9rixvz8IkBUqtCFt.jpeg');background-position:center top">
+  <div class="deg deg-bg" style="background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.35.23-9rixvz8IkBUqtCFt.jpeg');background-position:center 25%">
     <div class="deg-bg-overlay blue"></div>
     <div class="deg-body">
       <div class="deg-label">Experiência exclusiva</div>
@@ -711,7 +707,7 @@ body{font-size:16px;line-height:1.6}
   </div><!-- /deg-dom -->
   <!-- Formato Presencial -->
   <div id="deg-pre" style="display:none">
-  <div class="deg deg-bg" style="background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.36.39-7CwQc7gUlVwihlZq.jpeg')">
+  <div class="deg deg-bg" style="background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.36.39-7CwQc7gUlVwihlZq.jpeg');background-position:center 20%">
     <div class="deg-bg-overlay"></div>
     <div class="deg-body">
       <div class="deg-label">Experiência presencial</div>
@@ -794,8 +790,8 @@ body{font-size:16px;line-height:1.6}
       <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l4 8h6l4-8H5z"/><line x1="3" y1="8" x2="21" y2="8"/><line x1="12" y1="12" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg></span>
       <div style="flex:1"><div class="g-title">Balcão Freijó incluso</div><div class="g-sub">Sem taxa extra de locação. O balcão já faz parte do pacote.</div></div>
       <div class="g-photos">
-        <img class="g-photo" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2025-08-07-at-12.20.33-FjVYoiEJP10U20Y0.jpeg" alt="Balcão Freijó Aloha Drinks">
-        <img class="g-photo" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/111-cvGNwzEVvuIjljWb.jpg" alt="Modelo do balcão">
+        <img class="g-photo" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2025-08-07-at-12.20.33-FjVYoiEJP10U20Y0.jpeg" alt="Balcão Freijó Aloha Drinks" onclick="openSLB(this.src)">
+        <img class="g-photo" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/111-cvGNwzEVvuIjljWb.jpg" alt="Modelo do balcão" onclick="openSLB(this.src)">
       </div>
     </div>
 
@@ -887,12 +883,19 @@ body{font-size:16px;line-height:1.6}
   </div>
 </div>
 
+<!-- SINGLE LIGHTBOX -->
+<div class="slb" id="slb" onclick="closeSLB()">
+  <button class="slb-close" onclick="closeSLB()">✕</button>
+  <img id="slb-img" src="" alt="">
+</div>
+
 <!-- FOOTER -->
 <div class="footer fade-up">
-  <div class="foot-brand">
-    <div class="foot-brand-eyebrow"><span class="foot-brand-star">✦ ✦ ✦</span></div>
-    <div class="foot-brand-name">Aloha Drinks</div>
-    <div class="foot-brand-sub">Coquetelaria para eventos</div>
+  <div class="foot-logo-wrap">
+    <img class="foot-logo-img"
+      src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/logo-aloha2-FbHjChv7ADZZPk5u.jpg"
+      alt="Aloha Drinks"
+      onerror="this.style.display='none'">
   </div>
   <div class="foot-div"></div>
   <div class="foot-info">
@@ -943,7 +946,7 @@ body{font-size:16px;line-height:1.6}
     <!-- Marcas dos destilados -->
     <div class="carta-brands" id="carta-brands">
       <div class="carta-brands-t">Destilados utilizados</div>
-      <div class="carta-brands-txt" id="carta-brands-txt"></div>
+      <div class="carta-brands-list" id="carta-brands-list"></div>
     </div>
     <!-- Footer (modos: visualização / confirmado) -->
     <div class="carta-footer" id="carta-footer">
@@ -1314,7 +1317,7 @@ function openCarta(pkgKey){
   document.getElementById('carta-pkg-label').textContent='Carta de drinks · '+PKG[pkgKey].nome;
   document.getElementById('carta-title-h').textContent='Nossos drinks';
   document.getElementById('carta-subtitle').textContent=data.subtitle;
-  document.getElementById('carta-brands-txt').textContent=data.brands;
+  document.getElementById('carta-brands-list').innerHTML=data.brands.split('·').map(b=>`<span class="carta-brand">${b.trim()}</span>`).join('');
   // Se já confirmado, abrir no estado confirmado
   const saved=_chosenDrinks[pkgKey];
   if(saved&&saved.confirmed){
@@ -1680,6 +1683,19 @@ function aplicar(){
   btn.textContent='✅ Salvo!';
   setTimeout(()=>btn.textContent='✅ Aplicar alterações',2000);
 }
+
+// ─── SINGLE LIGHTBOX ─────────────────────────────────
+function openSLB(src){
+  document.getElementById('slb-img').src=src;
+  document.getElementById('slb').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeSLB(){
+  document.getElementById('slb').classList.remove('show');
+  document.body.style.overflow='';
+  setTimeout(()=>document.getElementById('slb-img').src='',300);
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSLB();});
 
 // ─── DEGUSTAÇÃO TABS ─────────────────────────────────
 function showDegTab(id,btn){
