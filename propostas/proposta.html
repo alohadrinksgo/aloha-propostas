@@ -80,7 +80,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .hero-eyebrow{display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:1rem}
 .hero-eyebrow-line{display:flex;align-items:center;gap:8px;width:100%;justify-content:center}
 .hero-eyebrow-line::before,.hero-eyebrow-line::after{content:'';width:20px;height:.5px;background:var(--gold);opacity:.7}
-.hero-eyebrow span{font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.hero-eyebrow span{font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;font-weight:400}
 .hero-eyebrow-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:rgba(201,169,110,.58);letter-spacing:.04em;margin-top:1px}
 .hero-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.65rem;font-weight:300;line-height:1.1;margin-bottom:.7rem}
 .hero-name em{color:var(--gold);font-style:italic;text-shadow:0 0 32px rgba(201,169,110,.3),0 0 64px rgba(201,169,110,.12)}
@@ -535,10 +535,55 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
   0%,100%{text-shadow:0 0 14px rgba(201,169,110,.2)}
   50%{text-shadow:0 0 26px rgba(201,169,110,.38),0 0 52px rgba(201,169,110,.12)}
 }
-#h-nome{animation:glowPulse 3.2s ease-in-out infinite}
-#i-nome{animation:glowPulseSubtle 3.5s ease-in-out infinite .4s}
-.pac-nome{animation:glowPulseSubtle 4s ease-in-out infinite}
+/* h-nome, i-nome, pac-nome animations defined below */
 .pkg-upg-nome{text-shadow:0 0 18px rgba(201,169,110,.13)}
+/* ═══ HERO — ALOHA SHIMMER ══════════════════════════ */
+@keyframes alohaShimmer{
+  0%{background-position:-200% center}
+  100%{background-position:200% center}
+}
+@keyframes alohaPulse{
+  0%,100%{filter:drop-shadow(0 0 6px rgba(201,169,110,.35)) drop-shadow(0 0 14px rgba(201,169,110,.12))}
+  50%{filter:drop-shadow(0 0 14px rgba(201,169,110,.65)) drop-shadow(0 0 28px rgba(240,216,150,.3)) drop-shadow(0 0 42px rgba(201,169,110,.15))}
+}
+.hero-eyebrow span{
+  background:linear-gradient(90deg,rgba(201,169,110,.9) 20%,rgba(240,216,150,1) 42%,rgba(255,243,186,1) 50%,rgba(240,216,150,1) 58%,rgba(201,169,110,.9) 80%);
+  background-size:250% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:alohaShimmer 3.5s linear infinite;
+}
+
+/* ═══ SECTION TITLES — GLOW SUTIL ═══════════════════ */
+@keyframes secTitleGlow{
+  0%,100%{text-shadow:none;opacity:.85}
+  50%{text-shadow:0 0 22px rgba(201,169,110,.3),0 0 44px rgba(201,169,110,.1);opacity:1}
+}
+.sec-t{animation:secTitleGlow 5s ease-in-out infinite}
+.sec-t em,.sec-t .sec-t-nome{color:rgba(240,216,150,1);font-style:italic}
+
+/* ═══ CLIENT NAME — SHIMMER PREMIUM ═════════════════ */
+@keyframes nomeShimmer{
+  0%,100%{text-shadow:0 0 20px rgba(201,169,110,.3),0 0 40px rgba(201,169,110,.08)}
+  40%{text-shadow:0 0 30px rgba(255,243,186,.6),0 0 60px rgba(240,216,150,.25),0 0 90px rgba(201,169,110,.12)}
+  50%{text-shadow:0 0 38px rgba(255,243,186,.7),0 0 80px rgba(240,216,150,.3),0 0 110px rgba(201,169,110,.15)}
+  60%{text-shadow:0 0 30px rgba(255,243,186,.6),0 0 60px rgba(240,216,150,.25),0 0 90px rgba(201,169,110,.12)}
+}
+@keyframes nomeShimmerSubtle{
+  0%,100%{text-shadow:0 0 10px rgba(201,169,110,.2),0 0 20px rgba(201,169,110,.06)}
+  50%{text-shadow:0 0 20px rgba(255,243,186,.35),0 0 40px rgba(240,216,150,.15),0 0 60px rgba(201,169,110,.08)}
+}
+#h-nome{animation:nomeShimmer 4s ease-in-out infinite!important}
+#i-nome{animation:nomeShimmerSubtle 4.5s ease-in-out infinite .3s!important}
+
+/* sparkle icon before name */
+#h-nome::before{content:'✦';font-size:.45em;margin-right:.35em;opacity:.7;vertical-align:.1em;animation:secTitleGlow 2.5s ease-in-out infinite}
+
+/* ═══ PROPOSTA TITLE INSIDE PACKAGE ═════════════════ */
+.pac-nome{animation:nomeShimmerSubtle 5s ease-in-out infinite!important}
+
 /* Typography scale +12% with better rhythm */
 body{font-size:16px;line-height:1.6}
 .about-p{font-size:.87rem;line-height:2}
@@ -598,9 +643,6 @@ body{font-size:16px;line-height:1.6}
 .team-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
 /* Client name glow in info section */
 #i-nome{text-shadow:0 0 18px rgba(201,169,110,.28)}
-/* Package & upgrade title glow */
-.pac-nome{text-shadow:0 0 22px rgba(201,169,110,.18)}
-.pkg-upg-nome{text-shadow:0 0 18px rgba(201,169,110,.13)}
 /* Typography mobile boosts */
 .about-p{font-size:.84rem}
 .g-title{font-size:.8rem}
@@ -814,7 +856,7 @@ body{font-size:16px;line-height:1.6}
 
 <!-- DADOS -->
 <div class="sec fade-up">
-  <div class="sec-head"><span class="sec-t">Sua celebração</span><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-t">Sua celebração, <span class="sec-t-nome" id="sec-t-celebracao"></span></span><div class="sec-line"></div></div>
   <div class="info-row"><span class="ik">Cliente</span><span class="iv" id="i-nome">Maria Silva</span></div>
   <div class="info-row"><span class="ik">Tipo</span><span class="iv" id="i-tipo">Casamento</span></div>
   <div class="info-row"><span class="ik">Data</span><span class="iv" id="i-data">20/07/2026</span></div>
@@ -1046,7 +1088,6 @@ body{font-size:16px;line-height:1.6}
 
 <!-- CTA -->
 <div class="cta fade-up">
-  <div class="cta-brinde">Um brinde à vida.</div>
   <h2 class="cta-title" id="cta-title">Pronta para fechar<br>o negócio?</h2>
   <p class="cta-sub" id="cta-sub">Mais de 300 festas inesquecíveis realizadas em Goiás e Brasília. A sua pode ser a próxima — fale com a gente agora e garanta sua data!</p>
   <div class="cta-trust">
@@ -2193,6 +2234,13 @@ function buildPacotes(){
 // Init
 syncUpgradeOptions();
 buildPacotes();
+// Título Sua celebração dinâmico
+(function(){
+  const nome = document.getElementById('h-nome')?.textContent||'';
+  const primeiro = nome.split(' ')[0];
+  const el = document.getElementById('sec-t-celebracao');
+  if(el && primeiro) el.textContent = primeiro;
+})();
 
 // ─── APLICAR ADMIN ───────────────────────────────────
 function aplicar(){
@@ -2213,6 +2261,10 @@ function aplicar(){
   }
   // Textos
   ['h-nome','i-nome'].forEach(id=>document.getElementById(id).textContent=nome);
+  // Título "Sua celebração, [Primeiro nome]"
+  const primeiroNome=nome.split(' ')[0];
+  const stEl=document.getElementById('sec-t-celebracao');
+  if(stEl) stEl.textContent=primeiroNome;
   document.getElementById('h-desc').textContent=get('a-hero-desc');
   document.getElementById('h-data').textContent=data;
   document.getElementById('h-conv').textContent=conv;
