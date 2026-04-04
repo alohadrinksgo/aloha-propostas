@@ -374,6 +374,15 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .adic-chosen-list{font-size:.7rem;color:rgba(255,255,255,.55);line-height:1.9}
 .adic-chosen-edit{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;color:var(--muted);cursor:pointer;margin-top:.5rem;padding:.3rem .65rem;border:.5px solid var(--border);border-radius:6px;background:transparent;font-family:'DM Sans',sans-serif;transition:all .2s}
 .adic-chosen-edit:hover{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.18)}
+/* ═══ ADIC CHOSEN — COM PREÇOS ══════════════════════ */
+.adic-chosen-item-row{display:flex;justify-content:space-between;align-items:baseline;padding:.18rem 0;gap:.5rem}
+.adic-chosen-item-name{font-size:.7rem;color:rgba(255,255,255,.55);flex:1}
+.adic-chosen-item-dots{flex:1;border-bottom:1px dotted rgba(255,255,255,.1);margin:0 .3rem .15rem;min-width:10px}
+.adic-chosen-item-price{font-size:.68rem;color:rgba(201,169,110,.8);white-space:nowrap;flex-shrink:0}
+.adic-chosen-total-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0 .1rem;border-top:.5px solid rgba(201,169,110,.15);margin-top:.35rem}
+.adic-chosen-total-lbl{font-size:.65rem;color:rgba(255,255,255,.5);font-weight:500}
+.adic-chosen-total-val{font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.01em}
+
 /* ═══ ADM — COTAÇÃO ADICIONAIS ═══════════════════════ */
 .adm-adic-price-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
 .adm-adic-price-lbl{font-size:.68rem;color:rgba(255,255,255,.6);flex:1;min-width:0}
@@ -1686,7 +1695,40 @@ function _atualizarAdicChosen(names){
   const listEl = document.getElementById('adic-chosen-list');
   if(!wrap || !listEl) return;
   if(names && names.length > 0){
-    listEl.textContent = names.join(' · ');
+    // Verificar se há preços salvos
+    let precos = {};
+    try{ precos = JSON.parse(localStorage.getItem('aloha_adic_precos')||'{}'); }catch(e){}
+    
+    const temPrecos = Object.keys(precos).some(k => precos[k] && names.includes(k));
+    
+    if(temPrecos){
+      // Exibir com preços e total
+      let totalCents = 0;
+      let rows = names.map(n => {
+        const pStr = precos[n] || '';
+        // Extrair número do preço (ex: "R$ 350,00" → 350.00)
+        const pNum = parseFloat(pStr.replace(/[^0-9,]/g,'').replace(',','.')) || 0;
+        totalCents += pNum;
+        const pDisplay = pStr || '—';
+        return `<div class="adic-chosen-item-row">
+          <span class="adic-chosen-item-name">${n}</span>
+          <span class="adic-chosen-item-dots"></span>
+          <span class="adic-chosen-item-price">${pDisplay}</span>
+        </div>`;
+      }).join('');
+      
+      if(totalCents > 0){
+        const totalFormatted = totalCents.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+        rows += `<div class="adic-chosen-total-row">
+          <span class="adic-chosen-total-lbl">Total adicionais</span>
+          <span class="adic-chosen-total-val">${totalFormatted}</span>
+        </div>`;
+      }
+      listEl.innerHTML = rows;
+    } else {
+      // Sem preços — exibir só os nomes
+      listEl.textContent = names.join(' · ');
+    }
     wrap.classList.add('show');
   } else {
     wrap.classList.remove('show');
@@ -1739,7 +1781,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAdic();
   }
 })();
 
-// Restaurar adicionais do localStorage na inicialização
+// Restaurar adicionais + preços do localStorage na inicialização
 (function(){
   try{
     const saved = localStorage.getItem('aloha_adicionais');
@@ -2107,11 +2149,11 @@ function _gerarResumoAdmin(){
   const nome=document.getElementById('h-nome')?.textContent||'—';
   const pkg=document.getElementById('a-main-pkg')?.value||'—';
   
-  // Adicionais selecionados (do localStorage do cliente)
+  // Adicionais selecionados (do localStorage)
   let adicList=[];
   try{const s=localStorage.getItem('aloha_adicionais');if(s)adicList=JSON.parse(s);}catch(e){}
   
-  // Preços
+  // Preços — mapear nome → valor digitado pelo admin
   const precos={
     'Torre de Taças': get('ap-torre'),
     'Drinks Personalizados': get('ap-drinks-p'),
@@ -2121,6 +2163,22 @@ function _gerarResumoAdmin(){
     'Bistrôs': get('ap-bistros')
   };
   
+  // Salvar preços no localStorage para o adic-chosen usar
+  const precosParaSalvar = {};
+  Object.entries(precos).forEach(([k,v])=>{ if(v) precosParaSalvar[k]=v; });
+  try{ localStorage.setItem('aloha_adic_precos', JSON.stringify(precosParaSalvar)); }catch(e){}
+  
+  // Atualizar o card de confirmação na página principal
+  if(adicList.length > 0) _atualizarAdicChosen(adicList);
+  
+  // Calcular total
+  let total = 0;
+  adicList.forEach(n=>{
+    const p = precos[n]||'';
+    const num = parseFloat(p.replace(/[^0-9,]/g,'').replace(',','.')) || 0;
+    total += num;
+  });
+  
   const resumoEl=document.getElementById('adm-resumo-content');
   if(!resumoEl) return;
   
@@ -2129,10 +2187,14 @@ function _gerarResumoAdmin(){
     <div class="adm-resumo-item"><span>Pacote</span><span>${pkg}</span></div>`;
   
   if(adicList.length>0){
-    adicList.forEach(nome=>{
-      const p=precos[nome]||'—';
-      html2+=`<div class="adm-resumo-item"><span>${nome}</span><span>${p}</span></div>`;
+    adicList.forEach(n=>{
+      const p=precos[n]||'—';
+      html2+=`<div class="adm-resumo-item"><span>${n}</span><span>${p}</span></div>`;
     });
+    if(total>0){
+      const tf=total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+      html2+=`<div class="adm-resumo-item" style="border-top:.5px solid rgba(201,169,110,.2);margin-top:.4rem;padding-top:.5rem;color:rgba(255,255,255,.9)"><span><strong>Total adicionais</strong></span><span style="color:var(--gold)">${tf}</span></div>`;
+    }
   } else {
     html2+=`<div class="adm-resumo-item"><span>Adicionais</span><span style="color:var(--muted)">Nenhum selecionado ainda</span></div>`;
   }
