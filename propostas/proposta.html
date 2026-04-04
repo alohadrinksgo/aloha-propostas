@@ -275,10 +275,50 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .social-btn:hover{border-color:rgba(201,169,110,.4);color:var(--gold);background:rgba(201,169,110,.05)}
 .social-btn svg{flex-shrink:0}
 
+/* ═══ SOCIAL WEBSITE ════════════════════════════════ */
+.social-site-row{margin-top:.55rem;display:flex;justify-content:center}
+.social-btn-site{display:flex;align-items:center;gap:7px;background:rgba(201,169,110,.07);border:.5px solid rgba(201,169,110,.22);border-radius:11px;padding:.65rem 1.6rem;font-size:.74rem;color:var(--gold);text-decoration:none;transition:border-color .25s,color .25s,background .25s;white-space:nowrap}
+.social-btn-site:hover{border-color:rgba(201,169,110,.48);background:rgba(201,169,110,.13)}
+.social-btn-site svg{flex-shrink:0}
+
+/* ═══ ADICIONAIS E UPGRADES ═════════════════════════ */
+.adic-sec{padding:2rem 1.2rem 2.4rem}
+.adic-header{text-align:center;margin-bottom:1.6rem}
+.adic-eyebrow{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.adic-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:300;line-height:1.25;margin-bottom:.5rem}
+.adic-title em{color:var(--gold2);font-style:italic}
+.adic-sub{font-size:.72rem;color:var(--muted);line-height:1.6;max-width:280px;margin:0 auto}
+.adic-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.adic-card{background:var(--dark3);border:.5px solid var(--border);border-radius:14px;overflow:hidden;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.adic-card:hover{transform:translateY(-3px);border-color:rgba(201,169,110,.35);box-shadow:0 8px 28px rgba(0,0,0,.4),0 0 0 1px rgba(201,169,110,.07)}
+.adic-icon-area{height:88px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;position:relative}
+.adic-icon-area::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,var(--dark3) 100%)}
+.adic-body{padding:.85rem .8rem}
+.adic-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:rgba(255,255,255,.92);line-height:1.2;margin-bottom:.3rem}
+.adic-desc{font-size:.6rem;color:var(--muted);line-height:1.55;margin-bottom:.7rem}
+.adic-cta{display:flex;align-items:center;justify-content:center;gap:5px;background:rgba(201,169,110,.08);border:.5px solid rgba(201,169,110,.25);border-radius:8px;padding:7px 8px;font-size:.58rem;color:var(--gold);text-decoration:none;transition:background .25s,border-color .25s;text-align:center;line-height:1.3;font-weight:400}
+.adic-cta:hover{background:rgba(201,169,110,.16);border-color:rgba(201,169,110,.5)}
+.adic-cta svg{flex-shrink:0}
+
 /* ═══ FOOTER ════════════════════════════════════════ */
 .footer{padding:2.5rem 1.5rem 3.5rem;text-align:center;border-top:.5px solid var(--border)}
-.foot-logo-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:.9rem}
-.foot-logo-img{height:72px;display:block;object-fit:contain;mix-blend-mode:screen;filter:brightness(2.2) contrast(1.1) saturate(1.15)}
+.foot-logo-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.foot-logo-inner{
+  padding:14px 28px;
+  background:var(--dark3);
+  border:.5px solid rgba(201,169,110,.18);
+  border-radius:16px;
+  box-shadow:0 0 30px rgba(201,169,110,.07),0 0 0 1px rgba(201,169,110,.04),0 4px 20px rgba(0,0,0,.35);
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+  cursor:default;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.foot-logo-inner:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 44px rgba(201,169,110,.15),0 0 0 1px rgba(201,169,110,.12),0 8px 28px rgba(0,0,0,.4);
+  border-color:rgba(201,169,110,.32);
+}
+.foot-logo-img{height:64px;display:block;object-fit:contain}
 .foot-div{width:28px;height:.5px;background:var(--border);margin:.7rem auto}
 .foot-info{font-size:.63rem;color:rgba(255,255,255,.25);line-height:2.3}
 .foot-info a{color:rgba(201,169,110,.45);text-decoration:none}
@@ -684,6 +724,108 @@ body{font-size:16px;line-height:1.6}
 <!-- PACOTES -->
 <div id="pacotes-block"></div>
 
+<!-- ADICIONAIS E UPGRADES -->
+<section class="adic-sec fade-up">
+  <div class="adic-header">
+    <div class="adic-eyebrow">✦ Eleve ainda mais</div>
+    <h2 class="adic-title">Personalize sua<br><em>celebração</em></h2>
+    <p class="adic-sub">Cada detalhe faz a diferença. Escolha os adicionais que tornam o seu evento único e inesquecível.</p>
+  </div>
+  <div class="adic-grid">
+
+    <!-- Torre de Taças -->
+    <div class="adic-card fade-up d1">
+      <div class="adic-icon-area" style="background:linear-gradient(135deg,#0d1520,#1a1400);">
+        <span style="filter:drop-shadow(0 0 10px rgba(201,169,110,.55));font-size:2.3rem">🥂</span>
+      </div>
+      <div class="adic-body">
+        <div class="adic-name">Torre de Taças</div>
+        <div class="adic-desc">Entrada dos noivos com torre cintilante — o momento mais fotografado da festa</div>
+        <a class="adic-cta" href="https://wa.me/5562981964726?text=Ol%C3%A1!+Gostaria+de+incluir+o+item+Torre+de+Ta%C3%A7as+na+minha+proposta." target="_blank" rel="noopener">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Adicionar ao evento
+        </a>
+      </div>
+    </div>
+
+    <!-- Drinks Personalizados -->
+    <div class="adic-card fade-up d2">
+      <div class="adic-icon-area" style="background:linear-gradient(135deg,#0a1628,#070b1c);">
+        <span style="filter:drop-shadow(0 0 10px rgba(80,120,240,.45));font-size:2.3rem">🍹</span>
+      </div>
+      <div class="adic-body">
+        <div class="adic-name">Drinks Personalizados</div>
+        <div class="adic-desc">Drinks exclusivos com o nome e identidade visual do seu evento</div>
+        <a class="adic-cta" href="https://wa.me/5562981964726?text=Ol%C3%A1!+Gostaria+de+incluir+o+item+Drinks+Personalizados+na+minha+proposta." target="_blank" rel="noopener">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Adicionar ao evento
+        </a>
+      </div>
+    </div>
+
+    <!-- Chá Lingerie -->
+    <div class="adic-card fade-up d1">
+      <div class="adic-icon-area" style="background:linear-gradient(135deg,#0a1628,#160a10);">
+        <span style="filter:drop-shadow(0 0 10px rgba(220,100,140,.45));font-size:2.3rem">🌸</span>
+      </div>
+      <div class="adic-body">
+        <div class="adic-name">Chá Lingerie</div>
+        <div class="adic-desc">Kit especial com drinks temáticos para a despedida de solteira perfeita</div>
+        <a class="adic-cta" href="https://wa.me/5562981964726?text=Ol%C3%A1!+Gostaria+de+incluir+o+item+Ch%C3%A1+Lingerie+na+minha+proposta." target="_blank" rel="noopener">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Adicionar ao evento
+        </a>
+      </div>
+    </div>
+
+    <!-- Welcome Drinks -->
+    <div class="adic-card fade-up d2">
+      <div class="adic-icon-area" style="background:linear-gradient(135deg,#0a1628,#120e00);">
+        <span style="filter:drop-shadow(0 0 10px rgba(200,160,60,.45));font-size:2.3rem">🥃</span>
+      </div>
+      <div class="adic-body">
+        <div class="adic-name">Welcome Drinks</div>
+        <div class="adic-desc">Recepcione com drinks especiais na chegada — primeira impressão inesquecível</div>
+        <a class="adic-cta" href="https://wa.me/5562981964726?text=Ol%C3%A1!+Gostaria+de+incluir+o+item+Welcome+Drinks+na+minha+proposta." target="_blank" rel="noopener">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Adicionar ao evento
+        </a>
+      </div>
+    </div>
+
+    <!-- Shots -->
+    <div class="adic-card fade-up d1">
+      <div class="adic-icon-area" style="background:linear-gradient(135deg,#0a1628,#091408);">
+        <span style="filter:drop-shadow(0 0 10px rgba(80,200,100,.4));font-size:2.3rem">🎯</span>
+      </div>
+      <div class="adic-body">
+        <div class="adic-name">Shots</div>
+        <div class="adic-desc">Rodada especial para animar a galera — celebração coletiva e inesquecível</div>
+        <a class="adic-cta" href="https://wa.me/5562981964726?text=Ol%C3%A1!+Gostaria+de+incluir+o+item+Shots+na+minha+proposta." target="_blank" rel="noopener">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Adicionar ao evento
+        </a>
+      </div>
+    </div>
+
+    <!-- Bistrôs -->
+    <div class="adic-card fade-up d2">
+      <div class="adic-icon-area" style="background:linear-gradient(135deg,#0a1628,#130806);">
+        <span style="filter:drop-shadow(0 0 10px rgba(200,100,70,.4));font-size:2.3rem">🍽️</span>
+      </div>
+      <div class="adic-body">
+        <div class="adic-name">Bistrôs</div>
+        <div class="adic-desc">Estações gourmet com petiscos e harmonizações — sofisticação no seu evento</div>
+        <a class="adic-cta" href="https://wa.me/5562981964726?text=Ol%C3%A1!+Gostaria+de+incluir+o+item+Bistr%C3%B4s+na+minha+proposta." target="_blank" rel="noopener">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Adicionar ao evento
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- DEGUSTAÇÃO -->
 <div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Degustação</span><div class="sec-line"></div></div>
@@ -881,6 +1023,12 @@ body{font-size:16px;line-height:1.6}
       WhatsApp
     </a>
   </div>
+  <div class="social-site-row">
+    <a class="social-btn-site" href="https://alohadrinksgo.com.br" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Conheça mais o site
+    </a>
+  </div>
 </div>
 
 <!-- SINGLE LIGHTBOX -->
@@ -892,10 +1040,12 @@ body{font-size:16px;line-height:1.6}
 <!-- FOOTER -->
 <div class="footer fade-up">
   <div class="foot-logo-wrap">
-    <img class="foot-logo-img"
-      src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/logo-aloha2-FbHjChv7ADZZPk5u.jpg"
-      alt="Aloha Drinks"
-      onerror="this.style.display='none'">
+    <div class="foot-logo-inner">
+      <img class="foot-logo-img"
+        src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/logo-aloha2-FbHjChv7ADZZPk5u.jpg"
+        alt="Aloha Drinks"
+        onerror="this.style.display='none'">
+    </div>
   </div>
   <div class="foot-div"></div>
   <div class="foot-info">
