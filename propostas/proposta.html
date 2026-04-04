@@ -83,7 +83,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .hero-eyebrow span{font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;font-weight:400}
 .hero-eyebrow-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:rgba(201,169,110,.58);letter-spacing:.04em;margin-top:1px}
 .hero-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.65rem;font-weight:300;line-height:1.1;margin-bottom:.7rem}
-.hero-name em{color:var(--gold);font-style:italic;text-shadow:0 0 32px rgba(201,169,110,.3),0 0 64px rgba(201,169,110,.12)}
+.hero-name em{color:var(--gold);font-style:italic}
 .hero-desc{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:1.5rem;max-width:310px}
 .hero-pills{display:flex;gap:.4rem;flex-wrap:wrap}
 .pill{background:rgba(255,255,255,.07);border:.5px solid rgba(255,255,255,.11);border-radius:20px;padding:5px 12px;font-size:.62rem;color:rgba(255,255,255,.6)}
@@ -565,21 +565,33 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .sec-t em,.sec-t .sec-t-nome{color:rgba(240,216,150,1);font-style:italic}
 
 /* ═══ CLIENT NAME — SHIMMER PREMIUM ═════════════════ */
-@keyframes nomeShimmer{
-  0%,100%{text-shadow:0 0 20px rgba(201,169,110,.3),0 0 40px rgba(201,169,110,.08)}
-  40%{text-shadow:0 0 30px rgba(255,243,186,.6),0 0 60px rgba(240,216,150,.25),0 0 90px rgba(201,169,110,.12)}
-  50%{text-shadow:0 0 38px rgba(255,243,186,.7),0 0 80px rgba(240,216,150,.3),0 0 110px rgba(201,169,110,.15)}
-  60%{text-shadow:0 0 30px rgba(255,243,186,.6),0 0 60px rgba(240,216,150,.25),0 0 90px rgba(201,169,110,.12)}
+@keyframes nomeFlash{
+  0%{background-position:-300% center}
+  100%{background-position:300% center}
 }
 @keyframes nomeShimmerSubtle{
   0%,100%{text-shadow:0 0 10px rgba(201,169,110,.2),0 0 20px rgba(201,169,110,.06)}
   50%{text-shadow:0 0 20px rgba(255,243,186,.35),0 0 40px rgba(240,216,150,.15),0 0 60px rgba(201,169,110,.08)}
 }
-#h-nome{animation:nomeShimmer 4s ease-in-out infinite!important}
+/* flash varrendo o nome — background-clip:text */
+#h-nome{
+  background:linear-gradient(90deg,rgba(201,169,110,.9) 15%,rgba(240,216,150,1) 35%,rgba(255,252,220,1) 50%,rgba(240,216,150,1) 65%,rgba(201,169,110,.9) 85%);
+  background-size:300% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:nomeFlash 2.8s linear infinite!important;
+  text-shadow:none!important;
+}
+/* sparkle ✦ precisa de cor explícita pois herda transparent */
+#h-nome::before{
+  content:'✦';font-size:.45em;margin-right:.35em;opacity:.75;vertical-align:.1em;
+  -webkit-text-fill-color:rgba(240,216,150,.85);
+  background:none;
+  animation:secTitleGlow 2.5s ease-in-out infinite;
+}
 #i-nome{animation:nomeShimmerSubtle 4.5s ease-in-out infinite .3s!important}
-
-/* sparkle icon before name */
-#h-nome::before{content:'✦';font-size:.45em;margin-right:.35em;opacity:.7;vertical-align:.1em;animation:secTitleGlow 2.5s ease-in-out infinite}
 
 /* ═══ PROPOSTA TITLE INSIDE PACKAGE ═════════════════ */
 .pac-nome{animation:nomeShimmerSubtle 5s ease-in-out infinite!important}
@@ -856,7 +868,7 @@ body{font-size:16px;line-height:1.6}
 
 <!-- DADOS -->
 <div class="sec fade-up">
-  <div class="sec-head"><span class="sec-t">Sua celebração, <span class="sec-t-nome" id="sec-t-celebracao"></span></span><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-t">Sua celebração</span><div class="sec-line"></div></div>
   <div class="info-row"><span class="ik">Cliente</span><span class="iv" id="i-nome">Maria Silva</span></div>
   <div class="info-row"><span class="ik">Tipo</span><span class="iv" id="i-tipo">Casamento</span></div>
   <div class="info-row"><span class="ik">Data</span><span class="iv" id="i-data">20/07/2026</span></div>
@@ -2234,13 +2246,6 @@ function buildPacotes(){
 // Init
 syncUpgradeOptions();
 buildPacotes();
-// Título Sua celebração dinâmico
-(function(){
-  const nome = document.getElementById('h-nome')?.textContent||'';
-  const primeiro = nome.split(' ')[0];
-  const el = document.getElementById('sec-t-celebracao');
-  if(el && primeiro) el.textContent = primeiro;
-})();
 
 // ─── APLICAR ADMIN ───────────────────────────────────
 function aplicar(){
@@ -2261,10 +2266,6 @@ function aplicar(){
   }
   // Textos
   ['h-nome','i-nome'].forEach(id=>document.getElementById(id).textContent=nome);
-  // Título "Sua celebração, [Primeiro nome]"
-  const primeiroNome=nome.split(' ')[0];
-  const stEl=document.getElementById('sec-t-celebracao');
-  if(stEl) stEl.textContent=primeiroNome;
   document.getElementById('h-desc').textContent=get('a-hero-desc');
   document.getElementById('h-data').textContent=data;
   document.getElementById('h-conv').textContent=conv;
