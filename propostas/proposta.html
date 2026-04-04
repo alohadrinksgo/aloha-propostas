@@ -218,16 +218,18 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .logo-text{font-size:.62rem;color:#555;text-align:center}
 
 /* ═══ GARANTIAS ═════════════════════════════════════ */
-.garantias{display:grid;gap:.5rem}
-.g-item{display:flex;align-items:flex-start;gap:.9rem;background:var(--dark3);border:.5px solid rgba(255,255,255,.04);border-radius:13px;padding:.9rem 1rem;transition:border-color .3s,background .3s;flex-wrap:wrap}
-.g-item:hover{border-color:rgba(201,169,110,.2);background:rgba(201,169,110,.03)}
-.g-icon{flex-shrink:0;width:22px;height:22px;margin-top:1px;color:var(--gold);opacity:.88}
+.garantias{display:grid;gap:.45rem}
+.g-item{display:flex;align-items:center;gap:.85rem;background:var(--dark3);border:.5px solid rgba(255,255,255,.04);border-left:2px solid rgba(201,169,110,.18);border-radius:0 13px 13px 0;padding:.85rem .95rem;transition:border-color .3s,background .3s,border-left-color .3s}
+.g-item:hover{border-color:rgba(201,169,110,.15);border-left-color:rgba(201,169,110,.5);background:rgba(201,169,110,.025)}
+.g-icon{flex-shrink:0;width:20px;height:20px;color:var(--gold);opacity:.85}
 .g-icon svg{width:100%;height:100%}
-.g-title{font-size:.77rem;font-weight:500;margin-bottom:2px;letter-spacing:.01em}
-.g-sub{font-size:.66rem;color:var(--muted);line-height:1.55}
-.g-photos{display:flex;gap:.4rem;margin-top:.7rem;width:100%}
-.g-photo{flex:1;height:72px;border-radius:8px;object-fit:cover;border:.5px solid rgba(201,169,110,.2);opacity:.88;transition:opacity .2s,transform .2s;cursor:zoom-in}
-.g-photo:hover{opacity:1;transform:scale(1.02)}
+.g-text{flex:1;min-width:0}
+.g-title{font-size:.75rem;font-weight:500;margin-bottom:2px;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-sub{font-size:.64rem;color:var(--muted);line-height:1.5}
+/* Balcão photos — gallery below grid */
+.g-balcao-fotos{display:flex;gap:.4rem;margin-top:.5rem}
+.g-balcao-fotos img{flex:1;height:80px;border-radius:9px;object-fit:cover;border:.5px solid rgba(201,169,110,.18);opacity:.85;transition:opacity .2s,transform .2s;cursor:zoom-in}
+.g-balcao-fotos img:hover{opacity:1;transform:scale(1.02)}
 /* Simple single-image lightbox */
 .slb{display:none;position:fixed;inset:0;z-index:9700;background:rgba(0,0,0,.94);align-items:center;justify-content:center;cursor:zoom-out;padding:1rem}
 .slb.show{display:flex}
@@ -846,33 +848,35 @@ body{font-size:16px;line-height:1.6}
 
     <div class="g-item fade-up d1">
       <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3"/><path d="M9 13h6M12 10v6"/></svg></span>
-      <div><div class="g-title">Destilados 100% originais</div><div class="g-sub">Parceiros homologados. Qualidade rastreável, sem atalhos.</div></div>
+      <div class="g-text"><div class="g-title">Destilados 100% originais</div><div class="g-sub">Parceiros homologados. Qualidade rastreável, sem atalhos.</div></div>
     </div>
 
     <div class="g-item fade-up d2">
       <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-3 8H11L8 3z"/><path d="M11 11v10M13 11v10M7 21h10"/><line x1="9" y1="7" x2="15" y2="7"/></svg></span>
-      <div><div class="g-title">Copos e taças de vidro</div><div class="g-sub">Canudos biodegradáveis inclusos. Nenhum descartável no seu evento.</div></div>
+      <div class="g-text"><div class="g-title">Copos e taças de vidro</div><div class="g-sub">Canudos biodegradáveis inclusos. Nenhum descartável no seu evento.</div></div>
     </div>
 
     <div class="g-item fade-up d3">
       <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-1a6 6 0 0 1 12 0v1"/><path d="M14 13.5l1 1.5-3 1-3-1 1-1.5"/></svg></span>
-      <div><div class="g-title">Equipe uniformizada e treinada</div><div class="g-sub">Profissionais pontuais, apresentados e com experiência comprovada.</div></div>
+      <div class="g-text"><div class="g-title">Equipe uniformizada e treinada</div><div class="g-sub">Profissionais pontuais, apresentados e com experiência comprovada.</div></div>
     </div>
 
     <div class="g-item fade-up d4">
       <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
-      <div><div class="g-title">Você não paga por quebras</div><div class="g-sub">Seguro contra perdas de copos e taças incluso em todos os pacotes.</div></div>
+      <div class="g-text"><div class="g-title">Você não paga por quebras</div><div class="g-sub">Seguro contra perdas de copos e taças incluso em todos os pacotes.</div></div>
     </div>
 
     <div class="g-item fade-up">
       <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l4 8h6l4-8H5z"/><line x1="3" y1="8" x2="21" y2="8"/><line x1="12" y1="12" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg></span>
-      <div style="flex:1"><div class="g-title">Balcão Freijó incluso</div><div class="g-sub">Sem taxa extra de locação. O balcão já faz parte do pacote.</div></div>
-      <div class="g-photos">
-        <img class="g-photo" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2025-08-07-at-12.20.33-FjVYoiEJP10U20Y0.jpeg" alt="Balcão Freijó Aloha Drinks" onclick="openSLB(this.src)">
-        <img class="g-photo" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/111-cvGNwzEVvuIjljWb.jpg" alt="Modelo do balcão" onclick="openSLB(this.src)">
-      </div>
+      <div class="g-text"><div class="g-title">Balcão Freijó incluso</div><div class="g-sub">Sem taxa extra de locação. O balcão já faz parte do pacote.</div></div>
     </div>
 
+  </div>
+
+  <!-- Fotos do balcão — fora dos cards para manter uniformidade -->
+  <div class="g-balcao-fotos fade-up">
+    <img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2025-08-07-at-12.20.33-FjVYoiEJP10U20Y0.jpeg" alt="Balcão Freijó Aloha Drinks" onclick="openSLB(this.src)">
+    <img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/111-cvGNwzEVvuIjljWb.jpg" alt="Modelo do balcão" onclick="openSLB(this.src)">
   </div>
 </div>
 
@@ -1075,7 +1079,7 @@ body{font-size:16px;line-height:1.6}
   <div class="foot-info">
     BH Produções LTDA · CNPJ: 65.057.227/0001-19<br>
     Aparecida de Goiânia — GO<br>
-    (62) 98196-4726 · (62) 99500-1598<br>
+    (62) 99500-1598<br>
     <a href="https://alohadrinksgo.com.br">alohadrinksgo.com.br</a>
   </div>
   <div class="foot-tagline">Um brinde à vida.</div>
