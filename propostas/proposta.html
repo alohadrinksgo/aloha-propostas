@@ -412,26 +412,27 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 .adm-resumo-item:last-child{border-bottom:none;color:rgba(255,255,255,.9);font-weight:500;padding-top:.5rem;margin-top:.2rem}
 
 
-/* ═══ FOOTER ════════════════════════════════════════ */
-.footer{padding:0 0 2.5rem;text-align:center;background:linear-gradient(180deg,var(--dark2) 0%,#040a14 100%);position:relative;overflow:hidden}
-.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(201,169,110,.35) 30%,rgba(240,216,150,.6) 50%,rgba(201,169,110,.35) 70%,transparent 100%)}
-.footer::after{content:'ALOHA DRINKS';position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;letter-spacing:.06em;color:rgba(201,169,110,.04);white-space:nowrap;pointer-events:none;user-select:none}
-.foot-ornament{display:flex;align-items:center;gap:.8rem;padding:1.2rem 2rem .9rem}
-.foot-ornament-line{flex:1;height:.5px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.2))}
-.foot-ornament-line.right{background:linear-gradient(270deg,transparent,rgba(201,169,110,.2))}
-.foot-ornament-diamond{width:5px;height:5px;background:rgba(201,169,110,.45);transform:rotate(45deg);flex-shrink:0}
-.foot-logo-wrap{display:flex;align-items:center;justify-content:center;margin-bottom:.9rem}
-.foot-logo-img{height:155px;display:block;object-fit:contain;filter:drop-shadow(0 0 22px rgba(201,169,110,.22)) drop-shadow(0 2px 8px rgba(0,0,0,.6));transition:filter .4s,transform .4s}
-.foot-logo-img:hover{filter:drop-shadow(0 0 32px rgba(201,169,110,.38)) drop-shadow(0 2px 8px rgba(0,0,0,.6));transform:scale(1.03)}
-.foot-info{font-size:.61rem;color:rgba(255,255,255,.32);line-height:2.1;letter-spacing:.02em}
-.foot-info a{color:rgba(201,169,110,.4);text-decoration:none;transition:color .2s}
-.foot-info a:hover{color:rgba(201,169,110,.7)}
+/* ═══ FOOTER PREMIUM ════════════════════════════════ */
+.footer{padding:0 0 2.8rem;text-align:center;background:linear-gradient(180deg,var(--dark) 0%,#02060f 100%);position:relative;overflow:hidden}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(201,169,110,.2) 30%,rgba(240,216,150,.55) 50%,rgba(201,169,110,.2) 70%,transparent 100%)}
+.footer::after{content:'ALOHA DRINKS';position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;letter-spacing:.1em;color:rgba(201,169,110,.03);white-space:nowrap;pointer-events:none;user-select:none}
+.foot-ornament{display:flex;align-items:center;gap:.8rem;padding:2rem 2rem 0}
+.foot-ornament-line{flex:1;height:.5px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.15))}
+.foot-ornament-line.right{background:linear-gradient(270deg,transparent,rgba(201,169,110,.15))}
+.foot-ornament-diamond{width:5px;height:5px;background:rgba(201,169,110,.4);transform:rotate(45deg);flex-shrink:0}
+.foot-logo-wrap{display:flex;align-items:center;justify-content:center;padding:1.6rem 0 1rem}
+.foot-logo-img{height:120px;display:block;object-fit:contain;filter:drop-shadow(0 0 28px rgba(201,169,110,.2)) drop-shadow(0 2px 10px rgba(0,0,0,.7));transition:filter .4s,transform .4s}
+.foot-logo-img:hover{filter:drop-shadow(0 0 40px rgba(201,169,110,.38)) drop-shadow(0 2px 10px rgba(0,0,0,.7));transform:scale(1.04)}
+.foot-divider{width:32px;height:.5px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.3),transparent);margin:0 auto .9rem}
+.foot-info{font-size:.6rem;color:rgba(255,255,255,.25);line-height:2;letter-spacing:.03em}
+.foot-info a{color:rgba(201,169,110,.35);text-decoration:none;transition:color .2s}
+.foot-info a:hover{color:rgba(201,169,110,.65)}
 
 /* ═══ FOOTER — SOCIAL ════════════════════════════════ */
-.foot-social{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1rem}
-.foot-soc-link{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:.5px solid rgba(201,169,110,.2);background:rgba(201,169,110,.04);color:rgba(201,169,110,.55);text-decoration:none;transition:all .25s}
-.foot-soc-link:hover{border-color:rgba(201,169,110,.5);background:rgba(201,169,110,.1);color:rgba(201,169,110,.9);transform:translateY(-2px)}
-.foot-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(201,169,110,.38);margin-top:.9rem;letter-spacing:.04em;position:relative;z-index:1;padding-bottom:1.8rem}
+.foot-social{display:flex;align-items:center;justify-content:center;gap:1.1rem;margin-bottom:.85rem}
+.foot-soc-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:.5px solid rgba(201,169,110,.18);background:rgba(201,169,110,.03);color:rgba(201,169,110,.5);text-decoration:none;transition:all .3s}
+.foot-soc-link:hover{border-color:rgba(201,169,110,.5);background:rgba(201,169,110,.09);color:rgba(201,169,110,.9);transform:translateY(-2px);box-shadow:0 4px 12px rgba(201,169,110,.15)}
+.foot-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;color:rgba(201,169,110,.3);margin-top:.7rem;letter-spacing:.06em;position:relative;z-index:1;padding-bottom:2rem}
 
 /* ═══ CARTA DE DRINKS ══════════════════════════════ */
 .carta{background:var(--dark3);border:.5px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:.6rem}
@@ -993,7 +994,7 @@ body{font-size:16px;line-height:1.6}
       <div class="step-num">3</div>
       <div class="step-body">
         <div class="step-t">Degustação exclusiva</div>
-        <div class="step-s">Você prova os drinks do seu evento antes do grande dia — sem custo adicional.</div>
+        <div class="step-s">Você agenda e participa de uma degustação exclusiva para afinar cada detalhe dos drinks do seu evento.</div>
       </div>
     </div>
     <div class="step-arrow">↓</div>
@@ -1017,20 +1018,6 @@ body{font-size:16px;line-height:1.6}
 
 <!-- PACOTES -->
 
-  <!-- Depoimento -->
-  <div class="depo-card fade-up">
-    <span class="depo-badge">Cliente verificada</span>
-    <div class="depo-stars">★★★★★</div>
-    <p class="depo-quote">A Aloha superou todas as expectativas. Os drinks eram lindos e deliciosos — meus convidados não paravam de elogiar. Valeu cada centavo!</p>
-    <div class="depo-author">
-      <div class="depo-avatar">A</div>
-      <div class="depo-info">
-        <div class="depo-name">Ana Carolina M.</div>
-        <div class="depo-event">Casamento · 180 convidados · Goiânia</div>
-      </div>
-    </div>
-  </div>
-
 <div id="pacotes-block"></div>
 
 <!-- ADICIONAIS TRIGGER -->
@@ -1053,7 +1040,6 @@ body{font-size:16px;line-height:1.6}
 <!-- DEGUSTAÇÃO -->
 <div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Degustação exclusiva</span><div class="sec-line"></div></div>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(201,169,110,.1);border:.5px solid rgba(201,169,110,.25);border-radius:20px;padding:3px 12px;font-size:.55rem;letter-spacing:.12em;color:var(--gold2);margin-bottom:.9rem;text-transform:uppercase">🎁 Incluso no seu pacote — sem custo adicional</div>
   <div class="deg-tabs">
     <button class="deg-tab on" onclick="showDegTab('dom',this)">🏠 Domicílio</button>
     <button class="deg-tab" onclick="showDegTab('pre',this)">📍 Presencial</button>
@@ -1155,7 +1141,14 @@ body{font-size:16px;line-height:1.6}
 
     <div class="g-item fade-up">
       <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l4 8h6l4-8H5z"/><line x1="3" y1="8" x2="21" y2="8"/><line x1="12" y1="12" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg></span>
-      <div class="g-text"><div class="g-title">Balcão Freijó incluso</div><div class="g-sub">Sem taxa extra de locação. O balcão já faz parte do pacote.</div></div>
+      <div class="g-text">
+        <div class="g-title">Balcão Freijó incluso</div>
+        <div class="g-sub">Sem taxa extra de locação. O balcão já faz parte do pacote.</div>
+        <div class="g-balcao-fotos" style="margin-top:.55rem">
+          <img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2025-08-07-at-12.20.33-FjVYoiEJP10U20Y0.jpeg" alt="Balcão Freijó Aloha Drinks" onclick="openSLB(this.src)">
+          <img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/111-cvGNwzEVvuIjljWb.jpg" alt="Modelo do balcão" onclick="openSLB(this.src)">
+        </div>
+      </div>
     </div>
 
     <div class="g-item fade-up">
@@ -1165,11 +1158,6 @@ body{font-size:16px;line-height:1.6}
 
   </div>
 
-  <!-- Fotos do balcão — fora dos cards para manter uniformidade -->
-  <div class="g-balcao-fotos fade-up">
-    <img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2025-08-07-at-12.20.33-FjVYoiEJP10U20Y0.jpeg" alt="Balcão Freijó Aloha Drinks" onclick="openSLB(this.src)">
-    <img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/111-cvGNwzEVvuIjljWb.jpg" alt="Modelo do balcão" onclick="openSLB(this.src)">
-  </div>
 </div>
 
 <!-- PAGAMENTO -->
@@ -1436,9 +1424,10 @@ body{font-size:16px;line-height:1.6}
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
     </a>
   </div>
+  <div class="foot-divider"></div>
   <div class="foot-info">
     BH Produções LTDA &middot; CNPJ: 65.057.227/0001-19<br>
-    Aparecida de Goiânia &mdash; GO<br>
+    Aparecida de Goiânia — GO<br>
     (62) 99500-1598
   </div>
   <div class="foot-tagline">Um brinde à vida.</div>
