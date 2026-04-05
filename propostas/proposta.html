@@ -682,6 +682,80 @@ body{font-size:16px;line-height:1.6}
 /* CTA trust signals */
 .cta-trust{display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem .9rem;margin-bottom:1.1rem}
 .cta-trust span{font-size:.65rem;color:rgba(255,255,255,.42);letter-spacing:.01em}
+
+/* ══ Hero CTA button ══════════════════════════════════ */
+.hero-cta-wrap{margin-top:1.2rem;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
+.hero-btn-wa{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#25d366,#1aab55);
+  color:#fff;border-radius:50px;padding:.7rem 1.4rem;
+  font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;
+  text-decoration:none;letter-spacing:.01em;
+  box-shadow:0 4px 18px rgba(37,211,102,.4);
+  transition:transform .2s,box-shadow .2s;
+}
+.hero-btn-wa:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(37,211,102,.55)}
+.hero-scroll-hint{font-size:.62rem;color:rgba(255,255,255,.38);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:5px}
+.hero-scroll-hint::after{content:'↓';font-size:.7rem;animation:bounce 1.5s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+
+
+/* ══ Como Funciona ════════════════════════════════════ */
+.steps{display:flex;flex-direction:column;gap:.85rem}
+.step{display:flex;align-items:flex-start;gap:1rem;padding:.9rem 1rem;background:rgba(201,169,110,.05);border:.5px solid rgba(201,169,110,.1);border-radius:14px;transition:border-color .3s}
+.step:hover{border-color:rgba(201,169,110,.25)}
+.step-num{min-width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,rgba(201,169,110,.25),rgba(201,169,110,.1));border:.5px solid rgba(201,169,110,.4);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);font-weight:600;flex-shrink:0}
+.step-body{}
+.step-t{font-size:.8rem;font-weight:500;color:#fff;margin-bottom:2px}
+.step-s{font-size:.68rem;color:rgba(255,255,255,.45);line-height:1.5}
+.step-arrow{text-align:center;color:rgba(201,169,110,.3);font-size:.7rem;letter-spacing:.05em;padding:.1rem 0}
+
+
+/* ══ Depoimento ══════════════════════════════════════ */
+.depo-card{background:linear-gradient(135deg,rgba(201,169,110,.08),rgba(201,169,110,.03));border:.5px solid rgba(201,169,110,.2);border-radius:16px;padding:1.2rem 1.1rem;margin:0 0 1.2rem;position:relative}
+.depo-stars{color:var(--gold2);font-size:.9rem;letter-spacing:2px;margin-bottom:.6rem}
+.depo-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:.9rem}
+.depo-quote::before{content:'"';font-size:2rem;color:rgba(201,169,110,.4);line-height:0;vertical-align:-.4rem;margin-right:.2rem}
+.depo-quote::after{content:'"';font-size:2rem;color:rgba(201,169,110,.4);line-height:0;vertical-align:-.4rem;margin-left:.2rem}
+.depo-author{display:flex;align-items:center;gap:.65rem}
+.depo-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(201,169,110,.4),rgba(201,169,110,.15));border:.5px solid rgba(201,169,110,.3);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);flex-shrink:0}
+.depo-info{}
+.depo-name{font-size:.75rem;font-weight:600;color:#fff}
+.depo-event{font-size:.62rem;color:rgba(255,255,255,.38);letter-spacing:.04em}
+.depo-badge{position:absolute;top:.8rem;right:.9rem;font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);background:rgba(201,169,110,.12);border:.5px solid rgba(201,169,110,.2);border-radius:20px;padding:2px 8px}
+
+
+/* ══ FAQ ═════════════════════════════════════════════ */
+.faq-list{display:flex;flex-direction:column;gap:.5rem}
+.faq-item{border:.5px solid rgba(201,169,110,.12);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(201,169,110,.3)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.85rem 1rem;cursor:pointer;font-size:.78rem;font-weight:500;color:rgba(255,255,255,.85);line-height:1.4;-webkit-user-select:none;user-select:none}
+.faq-q:hover{color:#fff}
+.faq-icon{min-width:18px;height:18px;border-radius:50%;background:rgba(201,169,110,.1);border:.5px solid rgba(201,169,110,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.75rem;transition:transform .25s,background .2s;flex-shrink:0}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(201,169,110,.2)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:.71rem;color:rgba(255,255,255,.48);line-height:1.65;padding:0 1rem}
+.faq-item.open .faq-a{max-height:200px;padding:.1rem 1rem .9rem}
+
+
+/* ══ WhatsApp Flutuante ═══════════════════════════════ */
+.wa-float{
+  position:fixed;bottom:22px;right:16px;z-index:9000;
+  display:flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  color:#fff;border-radius:50px;
+  padding:.62rem 1.1rem .62rem .75rem;
+  font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;
+  box-shadow:0 4px 20px rgba(37,211,102,.45),0 2px 8px rgba(0,0,0,.3);
+  text-decoration:none;letter-spacing:.01em;
+  transition:transform .2s,box-shadow .2s;
+  animation:waPulse 2.5s ease-in-out infinite;
+}
+.wa-float:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 6px 28px rgba(37,211,102,.55),0 3px 12px rgba(0,0,0,.3)}
+.wa-float svg{flex-shrink:0}
+@keyframes waPulse{
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45),0 2px 8px rgba(0,0,0,.3)}
+  50%{box-shadow:0 4px 28px rgba(37,211,102,.7),0 2px 8px rgba(0,0,0,.3),0 0 0 6px rgba(37,211,102,.12)}
+}
 </style>
 </head>
 <body>
@@ -850,7 +924,7 @@ body{font-size:16px;line-height:1.6}
       <div class="hero-eyebrow-tagline">Um brinde à vida.</div>
     </div>
     <h1 class="hero-name">Uma proposta<br>feita para<br><em id="h-nome">Maria Silva</em></h1>
-    <p class="hero-desc" id="h-desc">Drinks de alto padrão, estrutura profissional e zero preocupação — do início ao fim da sua celebração.</p>
+    <p class="hero-desc" id="h-desc">Drinks sofisticados, bartenders impecáveis e uma noite que seus convidados vão lembrar para sempre — tudo cuidado por quem entende de celebrações.</p>
     <div class="hero-pills">
       <span class="pill"><strong id="h-data">20/07/2026</strong></span>
       <span class="pill"><strong id="h-conv">120</strong> convidados</span>
@@ -861,9 +935,9 @@ body{font-size:16px;line-height:1.6}
 
 <!-- PROOF -->
 <div class="proof fade-up">
-  <div class="proof-item"><span class="proof-n">300+</span><span class="proof-l">Eventos</span></div>
-  <div class="proof-item"><span class="proof-n">1.200+</span><span class="proof-l">Convidados</span></div>
-  <div class="proof-item"><span class="proof-n">2+</span><span class="proof-l">Anos</span></div>
+  <div class="proof-item"><span class="proof-n">300+</span><span class="proof-l">Eventos realizados</span></div>
+  <div class="proof-item"><span class="proof-n">5.000+</span><span class="proof-l">Convidados felizes</span></div>
+  <div class="proof-item"><span class="proof-n">5★</span><span class="proof-l">Avaliação média</span></div>
 </div>
 
 <!-- DADOS -->
@@ -897,6 +971,43 @@ body{font-size:16px;line-height:1.6}
 
 <!-- EQUIPE -->
 <div class="sec fade-up">
+  <div class="sec-head"><span class="sec-t">Como funciona</span><div class="sec-line"></div></div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-t">Você confirma a proposta</div>
+        <div class="step-s">Fale com nossa equipe pelo WhatsApp. Alinhamos os últimos detalhes e bloqueamos sua data.</div>
+      </div>
+    </div>
+    <div class="step-arrow">↓</div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-t">Reunião de alinhamento</div>
+        <div class="step-s">Definimos cardápio, personalização dos drinks e estrutura ideal para o seu evento.</div>
+      </div>
+    </div>
+    <div class="step-arrow">↓</div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-t">Degustação exclusiva</div>
+        <div class="step-s">Você prova os drinks do seu evento antes do grande dia — sem custo adicional.</div>
+      </div>
+    </div>
+    <div class="step-arrow">↓</div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-t">Seu evento perfeito</div>
+        <div class="step-s">Nossa equipe cuida de tudo. Você curte cada momento sem nenhuma preocupação.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec fade-up">
   <div class="sec-head"><span class="sec-t">Equipe do seu evento</span><div class="sec-line"></div></div>
   <div class="team-grid">
     <div class="team-card"><div class="team-n" id="i-bar">3</div><div class="team-l">Bartenders</div></div>
@@ -905,6 +1016,21 @@ body{font-size:16px;line-height:1.6}
 </div>
 
 <!-- PACOTES -->
+
+  <!-- Depoimento -->
+  <div class="depo-card fade-up">
+    <span class="depo-badge">Cliente verificada</span>
+    <div class="depo-stars">★★★★★</div>
+    <p class="depo-quote">A Aloha superou todas as expectativas. Os drinks eram lindos e deliciosos — meus convidados não paravam de elogiar. Valeu cada centavo!</p>
+    <div class="depo-author">
+      <div class="depo-avatar">A</div>
+      <div class="depo-info">
+        <div class="depo-name">Ana Carolina M.</div>
+        <div class="depo-event">Casamento · 180 convidados · Goiânia</div>
+      </div>
+    </div>
+  </div>
+
 <div id="pacotes-block"></div>
 
 <!-- ADICIONAIS TRIGGER -->
@@ -926,7 +1052,8 @@ body{font-size:16px;line-height:1.6}
 
 <!-- DEGUSTAÇÃO -->
 <div class="sec fade-up">
-  <div class="sec-head"><span class="sec-t">Degustação</span><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-t">Degustação exclusiva</span><div class="sec-line"></div></div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(201,169,110,.1);border:.5px solid rgba(201,169,110,.25);border-radius:20px;padding:3px 12px;font-size:.55rem;letter-spacing:.12em;color:var(--gold2);margin-bottom:.9rem;text-transform:uppercase">🎁 Incluso no seu pacote — sem custo adicional</div>
   <div class="deg-tabs">
     <button class="deg-tab on" onclick="showDegTab('dom',this)">🏠 Domicílio</button>
     <button class="deg-tab" onclick="showDegTab('pre',this)">📍 Presencial</button>
@@ -1031,6 +1158,11 @@ body{font-size:16px;line-height:1.6}
       <div class="g-text"><div class="g-title">Balcão Freijó incluso</div><div class="g-sub">Sem taxa extra de locação. O balcão já faz parte do pacote.</div></div>
     </div>
 
+    <div class="g-item fade-up">
+      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+      <div class="g-text"><div class="g-title">Compromisso com a sua felicidade</div><div class="g-sub">Se algo não sair como planejado, nossa equipe resolve na hora. Você não se preocupa com nada.</div></div>
+    </div>
+
   </div>
 
   <!-- Fotos do balcão — fora dos cards para manter uniformidade -->
@@ -1061,7 +1193,7 @@ body{font-size:16px;line-height:1.6}
     <div class="pgto-item">
       <div class="pgto-left">
         <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
-        <div><div class="pgto-name">Cartão de crédito</div><div class="pgto-sub">Com juros da operadora</div></div>
+        <div><div class="pgto-name">Cartão de crédito</div><div class="pgto-sub">Até 12x · máxima flexibilidade para você</div></div>
       </div>
       <div class="pgto-badge">Até 12x</div>
     </div>
@@ -1079,8 +1211,8 @@ body{font-size:16px;line-height:1.6}
 <!-- URGÊNCIA -->
 <div class="sec fade-up" style="border:none">
   <div class="urgencia">
-    <div class="urg-title">⏳ Esta proposta expira em</div>
-    <p class="urg-sub">Reserve sua data e garanta os valores desta proposta agora</p>
+    <div class="urg-title">✨ Sua data está reservada por</div>
+    <p class="urg-sub">Depois desse prazo, sua data fica disponível para outras noivas. Confirme agora e tenha sua celebração garantida com esses valores.</p>
     <div class="countdown">
       <div class="cb"><span class="cb-n" id="cd-d">07</span><span class="cb-l">dias</span></div>
       <span class="cb-sep">:</span>
@@ -1098,20 +1230,52 @@ body{font-size:16px;line-height:1.6}
   <span class="vb">Válida por <strong>7 dias</strong></span>
 </div>
 
+<div class="sec fade-up">
+  <div class="sec-head"><span class="sec-t">Perguntas frequentes</span><div class="sec-line"></div></div>
+  <div class="faq-list">
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">O cardápio de drinks pode ser personalizado?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Sim! Durante a reunião de alinhamento, adaptamos o cardápio ao seu gosto e ao perfil dos seus convidados. Cada proposta é única.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">O que está incluso na estrutura do balcão?<span class="faq-icon">+</span></div>
+      <div class="faq-a">O balcão Freijó já está incluso no pacote — sem taxa extra de locação. Também incluímos copos e taças de vidro, gelo, ingredientes e toda a decoração do bar.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Como funciona a degustação?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Você agenda um horário com nossa equipe para provar os drinks do seu evento antes do grande dia. É um momento exclusivo, sem custo adicional e super especial.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Quanto tempo antes preciso confirmar?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Quanto antes, melhor! Datas populares (especialmente fins de semana) são disputadas. Confirme agora e garanta sua data sem risco de perder a disponibilidade.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">E se eu quiser cancelar ou remarcar?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Entendemos que imprevistos acontecem. Temos política de remarcação flexível — fale com nossa equipe e encontramos a melhor solução para você.</div>
+    </div>
+
+  </div>
+</div>
+
 <!-- CTA -->
 <div class="cta fade-up">
-  <h2 class="cta-title" id="cta-title">Pronta para fechar<br>o negócio?</h2>
-  <p class="cta-sub" id="cta-sub">Mais de 300 festas inesquecíveis realizadas em Goiás e Brasília. A sua pode ser a próxima — fale com a gente agora e garanta sua data!</p>
+  <h2 class="cta-title" id="cta-title">Sua data está<br>quase garantida ✨</h2>
+  <p class="cta-sub" id="cta-sub">Esta proposta foi preparada exclusivamente para você. Mais de 300 celebrações realizadas — e a próxima pode ser a mais especial de todas. Responda agora e bloqueie sua data.</p>
   <div class="cta-trust">
     <span>✓ Resposta em minutos</span>
-    <span>✓ Equipe disponível agora</span>
-    <span>✓ Sem compromisso</span>
+    <span>✓ Data bloqueada para você</span>
+    <span>✓ Sem burocracia</span>
   </div>
   <a class="btn-main" href="https://wa.me/5562995001598?text=Ol%C3%A1!%20Quero%20fechar%20minha%20proposta!">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Quero garantir minha data!
+    Confirmar minha proposta agora
   </a>
-  <a class="btn-sec" href="https://wa.me/5562995001598">Ainda tenho uma perguntinha...</a>
+  <a class="btn-sec" href="https://wa.me/5562995001598">Tenho algumas dúvidas antes...</a>
 </div>
 
 <!-- SOCIAL -->
@@ -1134,6 +1298,13 @@ body{font-size:16px;line-height:1.6}
     </a>
   </div>
 </div>
+
+
+<!-- WhatsApp Flutuante -->
+<a class="wa-float" href="https://wa.me/5562995001598?text=Ol%C3%A1%21%20Vi%20a%20proposta%20e%20quero%20confirmar%20minha%20data%21" target="_blank" rel="noopener">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Falar agora
+</a>
 
 <!-- ADICIONAIS MODAL -->
 <div class="adic-modal" id="adic-modal">
