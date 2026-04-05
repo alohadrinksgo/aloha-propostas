@@ -72,7 +72,7 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 /* ═══ HERO ════════════════════════════════════════ */
 .hero{position:relative;height:100svh;min-height:600px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:opacity .5s}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;display:none}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;display:none;pointer-events:none}
 .hero-video.active{display:block}
 .hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,12,26,.1) 0%,rgba(5,12,26,.15) 30%,rgba(5,12,26,.82) 65%,var(--dark) 100%)}
 .hero-grad::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,169,110,.06) 0%,transparent 65%)}
@@ -2389,6 +2389,29 @@ tick();setInterval(tick,1000);
 (()=>{
   const el=document.getElementById('v-gerada');
   if(el){const d=new Date();el.textContent=`${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;}
+})();
+
+// ─── VIDEO SEMPRE REPRODUZINDO ───────────────────────
+(()=>{
+  const vid=document.getElementById('hero-video');
+  if(!vid||!vid.src)return;
+  const tryPlay=()=>{if(vid.paused)vid.play().catch(()=>{});};
+
+  // 1) tenta logo ao carregar
+  tryPlay();
+  setTimeout(tryPlay,300);
+  setTimeout(tryPlay,1200);
+
+  // 2) retoma quando o usuário volta para a aba/app
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryPlay();});
+  window.addEventListener('focus',tryPlay);
+  window.addEventListener('pageshow',tryPlay);
+
+  // 3) no primeiro toque retoma (iOS muito restritivo)
+  document.addEventListener('touchstart',tryPlay,{passive:true});
+
+  // 4) watchdog: verifica a cada 2s — se pausou, reinicia
+  setInterval(tryPlay,2000);
 })();
 
 // ─── SCROLL ANIMATIONS ───────────────────────────────
