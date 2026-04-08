@@ -106,8 +106,8 @@ body{background:var(--dark);color:#fff;font-family:'DM Sans',sans-serif;font-wei
 /* ═══ BRINDE ════════════════════════════════════════ */
 .brinde{padding:1.6rem 1.5rem;text-align:center;border-bottom:.5px solid rgba(201,169,110,.06)}
 .brinde-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--gold2);line-height:1.3;opacity:.88}
-.brinde-q::before{content:''';margin-right:2px;opacity:.6}
-.brinde-q::after{content:''';margin-left:2px;opacity:.6}
+.brinde-q::before{content:'\22';margin-right:2px;opacity:.6}
+.brinde-q::after{content:'\22';margin-left:2px;opacity:.6}
 .brinde-line{width:32px;height:.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto 0}
 
 /* ═══ SECTION ═══════════════════════════════════════ */
@@ -726,8 +726,8 @@ body{font-size:16px;line-height:1.6}
 .depo-card{background:linear-gradient(135deg,rgba(201,169,110,.08),rgba(201,169,110,.03));border:.5px solid rgba(201,169,110,.2);border-radius:16px;padding:1.2rem 1.1rem;margin:0 0 1.2rem;position:relative}
 .depo-stars{color:var(--gold2);font-size:.9rem;letter-spacing:2px;margin-bottom:.6rem}
 .depo-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:.9rem}
-.depo-quote::before{content:''';font-size:2rem;color:rgba(201,169,110,.4);line-height:0;vertical-align:-.4rem;margin-right:.2rem}
-.depo-quote::after{content:''';font-size:2rem;color:rgba(201,169,110,.4);line-height:0;vertical-align:-.4rem;margin-left:.2rem}
+.depo-quote::before{content:'\22';font-size:2rem;color:rgba(201,169,110,.4);line-height:0;vertical-align:-.4rem;margin-right:.2rem}
+.depo-quote::after{content:'\22';font-size:2rem;color:rgba(201,169,110,.4);line-height:0;vertical-align:-.4rem;margin-left:.2rem}
 .depo-author{display:flex;align-items:center;gap:.65rem}
 .depo-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(201,169,110,.4),rgba(201,169,110,.15));border:.5px solid rgba(201,169,110,.3);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);flex-shrink:0}
 .depo-info{}
@@ -788,7 +788,7 @@ body{font-size:16px;line-height:1.6}
   <div class='lock-box'>
     <div class='lock-title'>🔐 Área restrita</div>
     <div class='lock-sub'>Digite a senha para editar esta proposta</div>
-    <input class='lock-input' id='lock-inp' type='password' maxlength='20' placeholder='••••••' onkeydown='if(event.key===&#39;Enter&#39;)checkSenha()'>
+    <input class='lock-input' id='lock-inp' type='password' maxlength='20' placeholder='••••••' onkeydown='if(event.key==='Enter')checkSenha()'>
     <button class='lock-btn' onclick='checkSenha()'>Entrar</button>
     <div class='lock-err' id='lock-err'>Senha incorreta</div>
     <button class='lock-close' onclick='fecharLock()'>Cancelar</button>
@@ -805,19 +805,19 @@ body{font-size:16px;line-height:1.6}
   <!-- Dados do cliente -->
   <div class='adm-sec'>
     <div class='adm-sec-t'>👤 Dados do cliente</div>
-    <div class='adm-row full'><div class='adm-lbl'>Nome</div><input class='adm-inp' id='a-nome' value='{{NOME}}'></div>
+    <div class='adm-row full'><div class='adm-lbl'>Nome</div><input class='adm-inp' id='a-nome' value='{{1.nome_cliente}}'></div>
     <div class='adm-row'>
-      <div><div class='adm-lbl'>Tipo de evento</div><input class='adm-inp' id='a-tipo' value='{{TIPO_EVENTO}}'></div>
-      <div><div class='adm-lbl'>Convidados</div><input class='adm-inp' id='a-conv' value='{{CONVIDADOS}}' type='number'></div>
+      <div><div class='adm-lbl'>Tipo de evento</div><input class='adm-inp' id='a-tipo' value='{{1.tipo_evento}}'></div>
+      <div><div class='adm-lbl'>Convidados</div><input class='adm-inp' id='a-conv' value='{{1.numero_convidados}}' type='number'></div>
     </div>
     <div class='adm-row'>
-      <div><div class='adm-lbl'>Data do evento</div><input class='adm-inp' id='a-data' value='{{DATA_EVENTO}}'></div>
-      <div><div class='adm-lbl'>Horas open bar</div><input class='adm-inp' id='a-horas' value='{{HORAS}}' type='number'></div>
+      <div><div class='adm-lbl'>Data do evento</div><input class='adm-inp' id='a-data' value='{{1.data_evento}}'></div>
+      <div><div class='adm-lbl'>Horas open bar</div><input class='adm-inp' id='a-horas' value='{{1.horas_bar}}' type='number'></div>
     </div>
-    <div class='adm-row full'><div class='adm-lbl'>Local</div><input class='adm-inp' id='a-local' value='{{LOCAL}}'></div>
+    <div class='adm-row full'><div class='adm-lbl'>Local</div><input class='adm-inp' id='a-local' value='{{1.localizacao_evento}}'></div>
     <div class='adm-row'>
-      <div><div class='adm-lbl'>Bartenders</div><input class='adm-inp' id='a-bar' value='{{BARTENDERS}}' type='number'></div>
-      <div><div class='adm-lbl'>Barbacks</div><input class='adm-inp' id='a-back' value='{{BARBACKS}}' type='number'></div>
+      <div><div class='adm-lbl'>Bartenders</div><input class='adm-inp' id='a-bar' value='{{2.num_barmans}}' type='number'></div>
+      <div><div class='adm-lbl'>Barbacks</div><input class='adm-inp' id='a-back' value='{{2.num_barbacks}}' type='number'></div>
     </div>
   </div>
 
@@ -1051,11 +1051,11 @@ body{font-size:16px;line-height:1.6}
 <div class='sec fade-up'>
   <div class='sec-head'><span class='sec-t'>Degustação exclusiva</span><div class='sec-line'></div></div>
   <div class='deg-tabs'>
-    <button class='deg-tab on' onclick='showDegTab(&#39;dom&#39;,this)'>🏠 Domicílio</button>
-    <button class='deg-tab' onclick='showDegTab(&#39;pre&#39;,this)'>📍 Presencial</button>
+    <button class='deg-tab on' onclick='showDegTab('dom',this)'>🏠 Domicílio</button>
+    <button class='deg-tab' onclick='showDegTab('pre',this)'>📍 Presencial</button>
   </div>
   <div id='deg-dom'>
-  <div class='deg deg-bg' style='background-image:url(&#39;https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.35.23-9rixvz8IkBUqtCFt.jpeg&#39;);background-position:center 25%'>
+  <div class='deg deg-bg' style='background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.35.23-9rixvz8IkBUqtCFt.jpeg');background-position:center 25%'>
     <div class='deg-bg-overlay blue'></div>
     <div class='deg-body'>
       <div class='deg-label'>Experiência exclusiva</div>
@@ -1070,7 +1070,7 @@ body{font-size:16px;line-height:1.6}
   </div><!-- /deg-dom -->
   <!-- Formato Presencial -->
   <div id='deg-pre' style='display:none'>
-  <div class='deg deg-bg' style='background-image:url(&#39;https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.36.39-7CwQc7gUlVwihlZq.jpeg&#39;);background-position:center 20%'>
+  <div class='deg deg-bg' style='background-image:url('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-02-15-at-22.36.39-7CwQc7gUlVwihlZq.jpeg');background-position:center 20%'>
     <div class='deg-bg-overlay'></div>
     <div class='deg-body'>
       <div class='deg-label'>Experiência presencial</div>
@@ -1105,14 +1105,14 @@ body{font-size:16px;line-height:1.6}
   <div class='sec-head'><span class='sec-t'>Quem já confiou em nós</span><div class='sec-line'></div></div>
   <div class='logos-wrap'>
     <div class='logos-track' id='logos-track'>
-      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-sicoob-SICCoe5zDjTZsTx2.PNG' alt='Sicoob' onerror='this.replaceWith(Object.assign(document.createElement(&#39;span&#39;),{className:&#39;logo-text&#39;,textContent:&#39;Sicoob&#39;}))'></div>
-      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-clinica-vitta-Yg8oJdTyCJuteuxo.PNG' alt='Clínica Vittá' onerror='this.replaceWith(Object.assign(document.createElement(&#39;span&#39;),{className:&#39;logo-text&#39;,textContent:&#39;Clínica Vittá&#39;}))'></div>
-      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-lince-toyota-qTLPkT2q2o7SNrhg.PNG' alt='Toyota' onerror='this.replaceWith(Object.assign(document.createElement(&#39;span&#39;),{className:&#39;logo-text&#39;,textContent:&#39;Lince Toyota&#39;}))'></div>
-      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-jbs-xFfO6O1MQqS1Ontx.PNG' alt='JBS' onerror='this.replaceWith(Object.assign(document.createElement(&#39;span&#39;),{className:&#39;logo-text&#39;,textContent:&#39;JBS&#39;}))'></div>
-      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-grupo-maua-h7yqlSwZUfsSePoG.PNG' alt='Grupo Mauá' onerror='this.replaceWith(Object.assign(document.createElement(&#39;span&#39;),{className:&#39;logo-text&#39;,textContent:&#39;Grupo Mauá&#39;}))'></div>
-      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-umuarama-concessionarias-o74afyb40wRLCgOc.PNG' alt='Umuarama' onerror='this.replaceWith(Object.assign(document.createElement(&#39;span&#39;),{className:&#39;logo-text&#39;,textContent:&#39;Umuarama&#39;}))'></div>
-      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-policia-militar-IVU3Ze8On7WIPeV6.PNG' alt='PM' onerror='this.replaceWith(Object.assign(document.createElement(&#39;span&#39;),{className:&#39;logo-text&#39;,textContent:&#39;Pol. Militar&#39;}))'></div>
-      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-unicamps-dQ06LDq5DNZNCgRZ.PNG' alt='Unicamps' onerror='this.replaceWith(Object.assign(document.createElement(&#39;span&#39;),{className:&#39;logo-text&#39;,textContent:&#39;Unicamps&#39;}))'></div>
+      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-sicoob-SICCoe5zDjTZsTx2.PNG' alt='Sicoob' onerror='this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Sicoob'}))'></div>
+      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-clinica-vitta-Yg8oJdTyCJuteuxo.PNG' alt='Clínica Vittá' onerror='this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Clínica Vittá'}))'></div>
+      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-lince-toyota-qTLPkT2q2o7SNrhg.PNG' alt='Toyota' onerror='this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Lince Toyota'}))'></div>
+      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-jbs-xFfO6O1MQqS1Ontx.PNG' alt='JBS' onerror='this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'JBS'}))'></div>
+      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-grupo-maua-h7yqlSwZUfsSePoG.PNG' alt='Grupo Mauá' onerror='this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Grupo Mauá'}))'></div>
+      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-umuarama-concessionarias-o74afyb40wRLCgOc.PNG' alt='Umuarama' onerror='this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Umuarama'}))'></div>
+      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-policia-militar-IVU3Ze8On7WIPeV6.PNG' alt='PM' onerror='this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Pol. Militar'}))'></div>
+      <div class='logo-card'><img loading='lazy' src='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-unicamps-dQ06LDq5DNZNCgRZ.PNG' alt='Unicamps' onerror='this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Unicamps'}))'></div>
     </div>
   </div>
   <div class='logos-social'>
@@ -1232,27 +1232,27 @@ body{font-size:16px;line-height:1.6}
   <div class='sec-head'><span class='sec-t'>Perguntas frequentes</span><div class='sec-line'></div></div>
   <div class='faq-list'>
 
-    <div class='faq-item' onclick='this.classList.toggle(&#39;open&#39;)'>
+    <div class='faq-item' onclick='this.classList.toggle('open')'>
       <div class='faq-q'>O cardápio de drinks pode ser personalizado?<span class='faq-icon'>+</span></div>
       <div class='faq-a'>Sim! Durante a reunião de alinhamento, adaptamos o cardápio ao seu gosto e ao perfil dos seus convidados. Cada proposta é única.</div>
     </div>
 
-    <div class='faq-item' onclick='this.classList.toggle(&#39;open&#39;)'>
+    <div class='faq-item' onclick='this.classList.toggle('open')'>
       <div class='faq-q'>O que está incluso na estrutura do balcão?<span class='faq-icon'>+</span></div>
       <div class='faq-a'>O balcão Freijó já está incluso no pacote — sem taxa extra de locação. Também incluímos copos e taças de vidro, gelo, ingredientes e toda a decoração do bar.</div>
     </div>
 
-    <div class='faq-item' onclick='this.classList.toggle(&#39;open&#39;)'>
+    <div class='faq-item' onclick='this.classList.toggle('open')'>
       <div class='faq-q'>Como funciona a degustação?<span class='faq-icon'>+</span></div>
       <div class='faq-a'>Você agenda um horário com nossa equipe para provar os drinks do seu evento antes do grande dia. É um momento exclusivo, sem custo adicional e super especial.</div>
     </div>
 
-    <div class='faq-item' onclick='this.classList.toggle(&#39;open&#39;)'>
+    <div class='faq-item' onclick='this.classList.toggle('open')'>
       <div class='faq-q'>Quanto tempo antes preciso confirmar?<span class='faq-icon'>+</span></div>
       <div class='faq-a'>Quanto antes, melhor! Datas populares (especialmente fins de semana) são disputadas. Confirme agora e garanta sua data sem risco de perder a disponibilidade.</div>
     </div>
 
-    <div class='faq-item' onclick='this.classList.toggle(&#39;open&#39;)'>
+    <div class='faq-item' onclick='this.classList.toggle('open')'>
       <div class='faq-q'>E se eu quiser cancelar ou remarcar?<span class='faq-icon'>+</span></div>
       <div class='faq-a'>Entendemos que imprevistos acontecem. Temos política de remarcação flexível — fale com nossa equipe e encontramos a melhor solução para você.</div>
     </div>
@@ -1318,7 +1318,7 @@ body{font-size:16px;line-height:1.6}
       <div class='adic-grid' id='adic-grid'>
         <!-- Torre de Taças -->
         <div class='adic-card selectable' data-name='Torre de Taças' onclick='toggleAdicCard(this)'>
-          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg);background-position:center 20%;' onclick='event.stopPropagation();openSLB(&#39;https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg&#39;)'>
+          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg);background-position:center 20%;' onclick='event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg')'>
           <div class='adic-img-title'>Torre de Taças</div>
           <div class='adic-check'><svg class='adic-check-svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='#fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></div>
         </div>
@@ -1330,7 +1330,7 @@ body{font-size:16px;line-height:1.6}
 
         <!-- Drinks Personalizados -->
         <div class='adic-card selectable' data-name='Drinks Personalizados' onclick='toggleAdicCard(this)'>
-          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/25-anos-BtYS8y6yUVhPU0I9.jpg);background-position:center 40%;' onclick='event.stopPropagation();openSLB(&#39;https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/25-anos-BtYS8y6yUVhPU0I9.jpg&#39;)'>
+          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/25-anos-BtYS8y6yUVhPU0I9.jpg);background-position:center 40%;' onclick='event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/25-anos-BtYS8y6yUVhPU0I9.jpg')'>
           <div class='adic-img-title'>Drinks Personalizados</div>
           <div class='adic-check'><svg class='adic-check-svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='#fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></div>
         </div>
@@ -1342,7 +1342,7 @@ body{font-size:16px;line-height:1.6}
 
         <!-- Chá Lingerie -->
         <div class='adic-card selectable' data-name='Chá Lingerie' onclick='toggleAdicCard(this)'>
-          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-03-23-at-asd-pa7qOmFGiCOle9Pr.jpeg);background-position:center 25%;' onclick='event.stopPropagation();openSLB(&#39;https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-03-23-at-asd-pa7qOmFGiCOle9Pr.jpeg&#39;)'>
+          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-03-23-at-asd-pa7qOmFGiCOle9Pr.jpeg);background-position:center 25%;' onclick='event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-03-23-at-asd-pa7qOmFGiCOle9Pr.jpeg')'>
           <div class='adic-img-title'>Chá Lingerie</div>
           <div class='adic-check'><svg class='adic-check-svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='#fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></div>
         </div>
@@ -1354,7 +1354,7 @@ body{font-size:16px;line-height:1.6}
 
         <!-- Welcome Drinks -->
         <div class='adic-card selectable' data-name='Welcome Drinks' onclick='toggleAdicCard(this)'>
-          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/b5146134-76d0-42d0-868f-00b4c2c81087-tp9u6eC6GhWwNP68.jpg);background-position:center 30%;' onclick='event.stopPropagation();openSLB(&#39;https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/b5146134-76d0-42d0-868f-00b4c2c81087-tp9u6eC6GhWwNP68.jpg&#39;)'>
+          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/b5146134-76d0-42d0-868f-00b4c2c81087-tp9u6eC6GhWwNP68.jpg);background-position:center 30%;' onclick='event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/b5146134-76d0-42d0-868f-00b4c2c81087-tp9u6eC6GhWwNP68.jpg')'>
           <div class='adic-img-title'>Welcome Drinks</div>
           <div class='adic-check'><svg class='adic-check-svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='#fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></div>
         </div>
@@ -1366,7 +1366,7 @@ body{font-size:16px;line-height:1.6}
 
         <!-- Shots -->
         <div class='adic-card selectable' data-name='Shots' onclick='toggleAdicCard(this)'>
-          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/3546c900-e587-4545-a5d7-57a29caa04f5-rc3rFeld8Xoqmmzy.jpg);background-position:center 18%;' onclick='event.stopPropagation();openSLB(&#39;https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/3546c900-e587-4545-a5d7-57a29caa04f5-rc3rFeld8Xoqmmzy.jpg&#39;)'>
+          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/3546c900-e587-4545-a5d7-57a29caa04f5-rc3rFeld8Xoqmmzy.jpg);background-position:center 18%;' onclick='event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/3546c900-e587-4545-a5d7-57a29caa04f5-rc3rFeld8Xoqmmzy.jpg')'>
           <div class='adic-img-title'>Shots</div>
           <div class='adic-check'><svg class='adic-check-svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='#fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></div>
         </div>
@@ -1378,7 +1378,7 @@ body{font-size:16px;line-height:1.6}
 
         <!-- Bistrôs -->
         <div class='adic-card selectable' data-name='Bistrôs' onclick='toggleAdicCard(this)'>
-          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/168151-800-auto-JMyt9er87HRM28yx.webp);background-position:center 40%;' onclick='event.stopPropagation();openSLB(&#39;https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/168151-800-auto-JMyt9er87HRM28yx.webp&#39;)'>
+          <div class='adic-icon-area' style='background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/168151-800-auto-JMyt9er87HRM28yx.webp);background-position:center 40%;' onclick='event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/168151-800-auto-JMyt9er87HRM28yx.webp')'>
           <div class='adic-img-title'>Bistrôs</div>
           <div class='adic-check'><svg class='adic-check-svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='#fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></div>
         </div>
@@ -1551,7 +1551,7 @@ let aboutFotos=[
 function renderFotos(){
   document.getElementById('photo-list').innerHTML=fotos.map((u,i)=>`
     <div class='photo-item'>
-      <img class='photo-thumb' src='${u}' onerror='this.style.background=&#39;#333&#39;;this.src=&#39;&#39;'>
+      <img class='photo-thumb' src='${u}' onerror='this.style.background='#333';this.src='''>
       <span class='photo-name'>${u.split('/').pop()}</span>
       <button class='photo-del' onclick='delFoto(${i})'>✕</button>
     </div>`).join('');
@@ -1559,7 +1559,7 @@ function renderFotos(){
 function renderAboutFotos(){
   document.getElementById('about-list').innerHTML=aboutFotos.map((u,i)=>`
     <div class='photo-item'>
-      <img class='photo-thumb' src='${u}' onerror='this.style.background=&#39;#333&#39;;this.src=&#39;&#39;'>
+      <img class='photo-thumb' src='${u}' onerror='this.style.background='#333';this.src='''>
       <span class='photo-name'>${u.split('/').pop()}</span>
       <button class='photo-del' onclick='delAboutFoto(${i})'>✕</button>
     </div>`).join('');
@@ -1962,7 +1962,7 @@ function _atualizarAdicChosen(names){
       let totalCents = 0;
       let rows = names.map(n => {
         const pStr = precos[n] || '';
-        // Extrair número do preço (ex: 'R$ 350,00' → 350.00)
+        // Extrair número do preço (ex: R$ 350,00 → 350.00)
         const pNum = parseFloat(pStr.replace(/[^0-9,]/g,'').replace(',','.')) || 0;
         totalCents += pNum;
         const pDisplay = pStr || '—';
@@ -2104,7 +2104,7 @@ function _renderCartaGrid(selMode){
   const CHECK=`<svg viewBox='0 0 12 12' fill='none' stroke='#060c18' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='2 6 5 9 10 3'/></svg>`;
   document.getElementById('carta-grid').innerHTML=data.drinks.map((d,i)=>{
     const picked=_cartaSel.has(i);
-    return `<div class='drink-card${selMode?&#39; sel&#39;:&#39;&#39;}${picked?&#39; picked&#39;:&#39;&#39;}' ${selMode?`onclick='_pick(${i})'`:''}><div class='drink-check'>${CHECK}</div><div class='drink-nome'>${d.n}</div><div class='drink-base'>${d.b}</div><div class='drink-vessel'>${d.v}</div></div>`;
+    return `<div class='drink-card${selMode?' sel':''}${picked?' picked':''}' ${selMode?`onclick='_pick(${i})'`:''}><div class='drink-check'>${CHECK}</div><div class='drink-nome'>${d.n}</div><div class='drink-base'>${d.b}</div><div class='drink-vessel'>${d.v}</div></div>`;
   }).join('');
 }
 
@@ -2359,9 +2359,9 @@ function buildPacotes(){
       `<div class='drinks-chosen confirmed'>
         <div class='drinks-chosen-t'>✦ Drinks confirmados para sua celebração</div>
         <div class='drinks-chosen-list'>${chosenNames.join(' · ')}</div>
-        <button class='btn-alterar' onclick='openCarta(&#39;${mainKey}&#39;)'>✎ Ver ou alterar seleção</button>
+        <button class='btn-alterar' onclick='openCarta('${mainKey}')'>✎ Ver ou alterar seleção</button>
       </div>`:
-      `<button class='btn-carta' onclick='openCarta(&#39;${mainKey}&#39;)'><svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3'/><path d='M9 13h6M12 10v6'/></svg>🍹 Montar minha carta de drinks</button>`
+      `<button class='btn-carta' onclick='openCarta('${mainKey}')'><svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3'/><path d='M9 13h6M12 10v6'/></svg>🍹 Montar minha carta de drinks</button>`
     }
     ${_buildAdicSection(parseBRL(mt))}
     ${showUpgrade?'<div class='pkg-base-note'>Quer elevar ainda mais a experiência? Veja abaixo ↓</div>':''}
@@ -2606,23 +2606,5 @@ tick();setInterval(tick,1000);
   }
 })();
 </script>
-<script>(function(){
-  var s=function(i,v){var e=document.getElementById(i);if(e&&'value' in e)e.value=v;};
-  s('a-nome','{{1.nome_cliente}}');
-  s('a-tipo','{{1.tipo_evento}}');
-  s('a-conv','{{1.numero_convidados}}');
-  s('a-data','{{1.data_evento}}');
-  s('a-horas','{{1.horas_bar}}');
-  s('a-local','{{1.localizacao_evento}}');
-  s('a-bar','{{2.num_barmans}}');
-  s('a-back','{{2.num_barbacks}}');
-  s('a-main-pkg','{{2.pacote_principal}}');
-  s('mp-t','{{2.total_principal}}');
-  s('mp-p','{{2.parcela_principal}}');
-  s('mp-av','{{2.avista_principal}}');
-  s('up-t','{{2.total_upgrade}}');
-  s('up-p','{{2.parcela_upgrade}}');
-  s('up-av','{{2.avista_upgrade}}');
-  if(typeof aplicar==='function')aplicar();
-})();</script></body>
+</body>
 </html>
