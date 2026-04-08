@@ -984,7 +984,7 @@ body{font-size:16px;line-height:1.6}
     <div class="adm-sec-t">📋 Resumo do Atendimento</div>
     <div id="adm-resumo-content" style="font-size:.68rem;color:var(--muted)"><div class="adm-resumo">
     <div class="adm-resumo-t">Resumo — Brunno</div>
-    <div class="adm-resumo-item"><span>Pacote</span><span>premium</span></div><div class="adm-resumo-item"><span>Adicionais</span><span style="color:var(--muted)">Nenhum selecionado ainda</span></div></div></div>
+    <div class="adm-resumo-item"><span>Pacote</span><span>premium</span></div><div class="adm-resumo-item"><span>Torre de Taças</span><span>100</span></div><div class="adm-resumo-item"><span>Drinks Personalizados</span><span>200</span></div><div class="adm-resumo-item" style="border-top:.5px solid rgba(201,169,110,.2);margin-top:.4rem;padding-top:.5rem;color:rgba(255,255,255,.9)"><span><strong>Total adicionais</strong></span><span style="color:var(--gold)">R$&nbsp;300,00</span></div></div></div>
   </div>
 
   <button class="adm-apply" onclick="aplicar()">✅ Aplicar alterações</button>
@@ -1128,7 +1128,28 @@ body{font-size:16px;line-height:1.6}
       </div>
     </div>
     <button class="btn-carta" onclick="openCarta('premium')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3"></path><path d="M9 13h6M12 10v6"></path></svg>🍹 Montar minha carta de drinks</button>
+    <div class="pac-adicionais">
+    <div class="pac-adic-header">✦ Adicionais selecionados</div>
+    <div class="pac-adic-row">
+      <span class="pac-adic-row-name">Torre de Taças</span>
+      <span class="pac-adic-dots"></span>
+      <span class="pac-adic-price">+ 100</span>
+    </div><div class="pac-adic-row">
+      <span class="pac-adic-row-name">Drinks Personalizados</span>
+      <span class="pac-adic-dots"></span>
+      <span class="pac-adic-price">+ 200</span>
+    </div>
     
+      <div class="pac-adic-subtotal">
+        <span class="pac-adic-subtotal-lbl">Subtotal adicionais</span>
+        <span class="pac-adic-subtotal-val">+ R$&nbsp;300,00</span>
+      </div>
+      <div class="pac-adic-total-row">
+        <span class="pac-adic-total-lbl">Investimento total do evento</span>
+        <span class="pac-adic-total-val">R$&nbsp;7.860,00</span>
+      </div>
+    <button class="pac-adic-edit" onclick="openAdic()">✎ Alterar seleção</button>
+  </div>
     <div class="pkg-base-note">Quer elevar ainda mais a experiência? Veja abaixo ↓</div>
   </div><div class="sec fade-up visible">
         <div class="sec-head"><span class="sec-t">Referência de mercado</span><div class="sec-line"></div></div>
@@ -1164,9 +1185,20 @@ body{font-size:16px;line-height:1.6}
   </button>
 </div>
 <!-- ADICIONAIS CHOSEN -->
-<div class="adic-chosen" id="adic-chosen">
+<div class="adic-chosen show integrated" id="adic-chosen">
   <div class="adic-chosen-t">✦ Adicionais selecionados para o seu evento</div>
-  <div class="adic-chosen-list" id="adic-chosen-list"></div>
+  <div class="adic-chosen-list" id="adic-chosen-list"><div class="adic-chosen-item-row">
+          <span class="adic-chosen-item-name">Torre de Taças</span>
+          <span class="adic-chosen-item-dots"></span>
+          <span class="adic-chosen-item-price">100</span>
+        </div><div class="adic-chosen-item-row">
+          <span class="adic-chosen-item-name">Drinks Personalizados</span>
+          <span class="adic-chosen-item-dots"></span>
+          <span class="adic-chosen-item-price">200</span>
+        </div><div class="adic-chosen-total-row">
+          <span class="adic-chosen-total-lbl">Total adicionais</span>
+          <span class="adic-chosen-total-val">R$&nbsp;300,00</span>
+        </div></div>
   <button class="adic-chosen-edit" onclick="openAdic()">✎ Ver ou alterar seleção</button>
 </div>
 
@@ -1366,9 +1398,9 @@ body{font-size:16px;line-height:1.6}
       <span class="cb-sep">:</span>
       <div class="cb"><span class="cb-n" id="cd-h">23</span><span class="cb-l">horas</span></div>
       <span class="cb-sep">:</span>
-      <div class="cb"><span class="cb-n" id="cd-m">52</span><span class="cb-l">min</span></div>
+      <div class="cb"><span class="cb-n" id="cd-m">51</span><span class="cb-l">min</span></div>
       <span class="cb-sep">:</span>
-      <div class="cb"><span class="cb-n" id="cd-s">17</span><span class="cb-l">seg</span></div>
+      <div class="cb"><span class="cb-n" id="cd-s">13</span><span class="cb-l">seg</span></div>
     </div>
   </div>
 </div>
@@ -1465,9 +1497,9 @@ body{font-size:16px;line-height:1.6}
       <button class="adic-modal-close" onclick="closeAdic()">✕</button>
     </div>
     <div class="adic-modal-body" id="adic-modal-body">
-      <div class="adic-grid" id="adic-grid">
+      <div class="adic-grid" id="adic-grid" style="display: none;">
         <!-- Torre de Taças -->
-        <div class="adic-card selectable" data-name="Torre de Taças" onclick="toggleAdicCard(this)">
+        <div class="adic-card selectable selected" data-name="Torre de Taças" onclick="toggleAdicCard(this)">
           <div class="adic-icon-area" style="background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg);background-position:center 20%;" onclick="event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg')">
           <div class="adic-img-title">Torre de Taças</div>
           <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
@@ -1479,7 +1511,7 @@ body{font-size:16px;line-height:1.6}
         </div>
 
         <!-- Drinks Personalizados -->
-        <div class="adic-card selectable" data-name="Drinks Personalizados" onclick="toggleAdicCard(this)">
+        <div class="adic-card selectable selected" data-name="Drinks Personalizados" onclick="toggleAdicCard(this)">
           <div class="adic-icon-area" style="background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/25-anos-BtYS8y6yUVhPU0I9.jpg);background-position:center 40%;" onclick="event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/25-anos-BtYS8y6yUVhPU0I9.jpg')">
           <div class="adic-img-title">Drinks Personalizados</div>
           <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
@@ -1540,14 +1572,14 @@ body{font-size:16px;line-height:1.6}
 
       </div>
       <!-- Tela de confirmação -->
-      <div class="adic-conf-screen" id="adic-conf-screen">
+      <div class="adic-conf-screen show" id="adic-conf-screen">
         <div class="adic-conf-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
         </div>
         <div class="adic-conf-title">Adicionais confirmados!</div>
         <div class="adic-conf-sub">Salvos nesta proposta · prontos para enviar</div>
-        <div class="adic-conf-list" id="adic-conf-list"></div>
-        <a class="adic-conf-wa" id="adic-conf-wa" href="#" target="_blank" rel="noopener">
+        <div class="adic-conf-list" id="adic-conf-list"><div class="adic-conf-item">Torre de Taças</div><div class="adic-conf-item">Drinks Personalizados</div></div>
+        <a class="adic-conf-wa" id="adic-conf-wa" href="https://wa.me/5562995001598?text=Ol%C3%A1!%20Sou%20Brunno%20e%20gostaria%20de%20incluir%20os%20seguintes%20adicionais%20na%20minha%20proposta%3A%0A%0ATorre%20de%20Ta%C3%A7as%2C%20Drinks%20Personalizados%0A%0APode%20confirmar%20os%20valores%3F" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
           Enviar lista pelo WhatsApp
         </a>
@@ -1555,9 +1587,9 @@ body{font-size:16px;line-height:1.6}
       </div>
     </div><!-- adic-modal-body -->
     <!-- Barra fixa inferior -->
-    <div class="adic-modal-footer" id="adic-modal-footer">
-      <div class="adic-sel-count"><span id="adic-count">0</span> selecionado(s)</div>
-      <button class="adic-btn-confirmar-adic" id="adic-btn-confirmar" onclick="confirmarAdicionais()">✓ Confirmar seleção</button>
+    <div class="adic-modal-footer" id="adic-modal-footer" style="display: none;">
+      <div class="adic-sel-count"><span id="adic-count">2</span> selecionado(s)</div>
+      <button class="adic-btn-confirmar-adic ready" id="adic-btn-confirmar" onclick="confirmarAdicionais()">✓ Confirmar seleção</button>
     </div>
   </div>
 </div>
