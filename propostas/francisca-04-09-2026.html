@@ -934,12 +934,12 @@ body{font-size:16px;line-height:1.6}
       <div class='hero-eyebrow-line'><span>Aloha Drinks</span></div>
       <div class='hero-eyebrow-tagline'>Um brinde à vida.</div>
     </div>
-    <h1 class='hero-name'>Uma proposta<br>feita para<br><em id='h-nome'>Maria Silva</em></h1>
+    <h1 class='hero-name'>Uma proposta<br>feita para<br><em id='h-nome'>{{1.nome_cliente}}</em></h1>
     <p class='hero-desc' id='h-desc'>Drinks sofisticados, bartenders impecáveis e uma noite que seus convidados vão lembrar para sempre — tudo cuidado por quem entende de celebrações.</p>
     <div class='hero-pills'>
-      <span class='pill'><strong id='h-data'>20/07/2026</strong></span>
-      <span class='pill'><strong id='h-conv'>120</strong> convidados</span>
-      <span class='pill'><strong id='h-horas'>6</strong>h open bar</span>
+      <span class='pill'><strong id='h-data'>{{1.data_evento}}</strong></span>
+      <span class='pill'><strong id='h-conv'>{{1.numero_convidados}}</strong> convidados</span>
+      <span class='pill'><strong id='h-horas'>{{1.horas_bar}}</strong>h open bar</span>
     </div>
   </div>
 </div>
@@ -954,12 +954,12 @@ body{font-size:16px;line-height:1.6}
 <!-- DADOS -->
 <div class='sec fade-up'>
   <div class='sec-head'><span class='sec-t'>Sua celebração</span><div class='sec-line'></div></div>
-  <div class='info-row'><span class='ik'>Cliente</span><span class='iv' id='i-nome'>Maria Silva</span></div>
-  <div class='info-row'><span class='ik'>Tipo</span><span class='iv' id='i-tipo'>Casamento</span></div>
-  <div class='info-row'><span class='ik'>Data</span><span class='iv' id='i-data'>20/07/2026</span></div>
-  <div class='info-row'><span class='ik'>Local</span><span class='iv' id='i-local'>Espaço Nobre — Goiânia</span></div>
-  <div class='info-row'><span class='ik'>Convidados</span><span class='iv'><span id='i-conv'>120</span> pessoas</span></div>
-  <div class='info-row'><span class='ik'>Open bar</span><span class='iv'><span id='i-horas'>6</span> horas</span></div>
+  <div class='info-row'><span class='ik'>Cliente</span><span class='iv' id='i-nome'>{{1.nome_cliente}}</span></div>
+  <div class='info-row'><span class='ik'>Tipo</span><span class='iv' id='i-tipo'>{{1.tipo_evento}}</span></div>
+  <div class='info-row'><span class='ik'>Data</span><span class='iv' id='i-data'>{{1.data_evento}}</span></div>
+  <div class='info-row'><span class='ik'>Local</span><span class='iv' id='i-local'>{{1.localizacao_evento}}</span></div>
+  <div class='info-row'><span class='ik'>Convidados</span><span class='iv'><span id='i-conv'>{{1.numero_convidados}}</span> pessoas</span></div>
+  <div class='info-row'><span class='ik'>Open bar</span><span class='iv'><span id='i-horas'>{{1.horas_bar}}</span> horas</span></div>
 </div>
 
 <!-- QUEM SOMOS -->
@@ -1021,8 +1021,8 @@ body{font-size:16px;line-height:1.6}
 <div class='sec fade-up'>
   <div class='sec-head'><span class='sec-t'>Equipe do seu evento</span><div class='sec-line'></div></div>
   <div class='team-grid'>
-    <div class='team-card'><div class='team-n' id='i-bar'>3</div><div class='team-l'>Bartenders</div></div>
-    <div class='team-card'><div class='team-n' id='i-back'>1</div><div class='team-l'>Barbacks</div></div>
+    <div class='team-card'><div class='team-n' id='i-bar'>{{2.num_barmans}}</div><div class='team-l'>Bartenders</div></div>
+    <div class='team-card'><div class='team-n' id='i-back'>{{2.num_barbacks}}</div><div class='team-l'>Barbacks</div></div>
   </div>
 </div>
 
@@ -1224,7 +1224,7 @@ body{font-size:16px;line-height:1.6}
 </div>
 
 <div class='val-bar'>
-  <span class='vb'>Gerada em <strong id='v-gerada'>31/03/2026</strong></span>
+  <span class='vb'>Gerada em <strong id='v-gerada'>{{2.data_proposta}}</strong></span>
   <span class='vb'>Válida por <strong>7 dias</strong></span>
 </div>
 
