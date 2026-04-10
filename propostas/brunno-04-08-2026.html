@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<html lang="pt-BR"><head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -14,8 +13,8 @@
   <meta property="og:type" content="website">
 <title>Proposta — Aloha Drinks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;family=DM+Sans:wght@300;400;500&amp;family=Dancing+Script:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   --gold:#c9a96e;--gold2:#f0d896;--gold3:rgba(201,169,110,.12);
@@ -779,34 +778,34 @@ body{font-size:16px;line-height:1.6}
 }
 </style>
 </head>
-<body>
+<body style="overflow: hidden;">
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <div class="lb-close" onclick="closeLightbox()">✕</div>
   <div class="lb-nav lb-prev" onclick="lbNav(-1);event.stopPropagation()">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
   </div>
   <img id="lb-img" src="" alt="">
   <div class="lb-nav lb-next" onclick="lbNav(1);event.stopPropagation()">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
   </div>
 </div>
 
 <!-- ADMIN LOCK -->
-<div id="admin-lock">
+<div id="admin-lock" class="">
   <div class="lock-box">
     <div class="lock-title">🔐 Área restrita</div>
     <div class="lock-sub">Digite a senha para editar esta proposta</div>
     <input class="lock-input" id="lock-inp" type="password" maxlength="20" placeholder="••••••" onkeydown="if(event.key==='Enter')checkSenha()">
     <button class="lock-btn" onclick="checkSenha()">Entrar</button>
-    <div class="lock-err" id="lock-err">Senha incorreta</div>
+    <div class="lock-err" id="lock-err" style="display: none;">Senha incorreta</div>
     <button class="lock-close" onclick="fecharLock()">Cancelar</button>
   </div>
 </div>
 
 <!-- ADMIN PANEL -->
-<div id="admin-panel">
+<div id="admin-panel" class="show">
   <div class="adm-header">
     <div class="adm-title">⚙️ Editar proposta</div>
     <button class="adm-close" onclick="fecharAdmin()">✕</button>
@@ -850,17 +849,17 @@ body{font-size:16px;line-height:1.6}
     <div class="adm-row full" style="margin-bottom:.5rem">
       <div class="adm-lbl">Pacote principal</div>
       <select class="adm-inp" id="a-main-pkg" onchange="syncUpgradeOptions()">
-        <option value="gold" selected>Gold</option>
-        <option value="premium" >Premium</option>
-        <option value="essence" >Essence</option>
-        <option value="soft" >Soft Drinks</option>
+        <option value="gold" selected="">Gold</option>
+        <option value="premium">Premium</option>
+        <option value="essence">Essence</option>
+        <option value="soft">Soft Drinks</option>
       </select>
     </div>
     <div class="adm-row">
-      <div><div class="adm-lbl">Total (R$)</div><input class="adm-inp" id="mp-t" value="7980"></div>
-      <div><div class="adm-lbl">5x sem juros (R$)</div><input class="adm-inp" id="mp-p" value="1596"></div>
+      <div><div class="adm-lbl">Total (R$)</div><input class="adm-inp" id="mp-t" value="7.350,00"></div>
+      <div><div class="adm-lbl">5x sem juros (R$)</div><input class="adm-inp" id="mp-p" value="1837,50"></div>
     </div>
-    <div class="adm-row full"><div class="adm-lbl">Pix à vista (R$)</div><input class="adm-inp" id="mp-av" value="7581"></div>
+    <div class="adm-row full"><div class="adm-lbl">Pix à vista (R$)</div><input class="adm-inp" id="mp-av" value="6000"></div>
     <div style="font-size:.58rem;color:rgba(201,169,110,.5);margin-top:.3rem;line-height:1.4">💡 Quando o evento tiver mais de 4h, o comparativo base × hora extra é calculado automaticamente</div>
 
 <!-- Upgrade — exibição automática baseada no pacote + preço -->
@@ -870,7 +869,7 @@ body{font-size:16px;line-height:1.6}
       <div class="pkg-vals-t" style="margin-top:.3rem">Upgrade — configuração</div>
       <div class="adm-row full" style="margin-bottom:.5rem">
         <div class="adm-lbl">Tipo de upgrade</div>
-        <select class="adm-inp" id="a-upgrade-pkg"></select>
+        <select class="adm-inp" id="a-upgrade-pkg"><option value="premium" selected="">Premium — evolução natural</option></select>
       </div>
       <div class="adm-row">
         <div><div class="adm-lbl">Total (R$)</div><input class="adm-inp" id="up-t" value="9450"></div>
@@ -883,9 +882,59 @@ body{font-size:16px;line-height:1.6}
   <!-- Fotos galeria -->
   <div class="adm-sec">
     <div class="adm-sec-t">📸 Galeria de eventos</div>
-    <div class="photo-list" id="photo-list"></div>
+    <div class="photo-list" id="photo-list">
+    <div class="photo-item">
+      <img class="photo-thumb" src="" onerror="this.style.background='#333';this.src=''" style="background: rgb(51, 51, 51);">
+      <span class="photo-name">bsl-jr-147-AHwol5cxySPL413y.jpg</span>
+      <button class="photo-del" onclick="delFoto(0)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg</span>
+      <button class="photo-del" onclick="delFoto(1)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-j-r-147-AHwol5cxySPL413y.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">bsl-j-r-147-AHwol5cxySPL413y.jpg</span>
+      <button class="photo-del" onclick="delFoto(2)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-j-r-151-KuntWC35HLjWcLWB.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">bsl-j-r-151-KuntWC35HLjWcLWB.jpg</span>
+      <button class="photo-del" onclick="delFoto(3)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-j-r-311-msr6vaoLuhxu0rMA.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">bsl-j-r-311-msr6vaoLuhxu0rMA.jpg</span>
+      <button class="photo-del" onclick="delFoto(4)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/2222-LZA68iZ0Kbb2PvKL.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">2222-LZA68iZ0Kbb2PvKL.jpg</span>
+      <button class="photo-del" onclick="delFoto(5)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img_3537-iP1gtErrtgYO1yaY.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">img_3537-iP1gtErrtgYO1yaY.jpg</span>
+      <button class="photo-del" onclick="delFoto(6)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img_3618-us3ybjFBq3LVDvRi.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">img_3618-us3ybjFBq3LVDvRi.jpg</span>
+      <button class="photo-del" onclick="delFoto(7)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/5e9cb8fc-bb84-48c4-a447-9a1efab7f3bb-6ex0epwlzC8kxYzB.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">5e9cb8fc-bb84-48c4-a447-9a1efab7f3bb-6ex0epwlzC8kxYzB.jpg</span>
+      <button class="photo-del" onclick="delFoto(8)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-c-b-966-VdlHOeTwEo0iBlKK.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">bsl-c-b-966-VdlHOeTwEo0iBlKK.jpg</span>
+      <button class="photo-del" onclick="delFoto(9)">✕</button>
+    </div></div>
     <div class="add-photo-row">
-      <input class="adm-inp" id="new-url" placeholder="Cole o link da foto">
+      <input class="adm-inp" id="new-url" placeholder="Cole o link da foto" value="">
       <button onclick="addFoto()">+ Add</button>
     </div>
   </div>
@@ -893,9 +942,24 @@ body{font-size:16px;line-height:1.6}
   <!-- Fotos "Quem somos" -->
   <div class="adm-sec">
     <div class="adm-sec-t">🖼️ Fotos "Quem somos"</div>
-    <div class="photo-list" id="about-list"></div>
+    <div class="photo-list" id="about-list">
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-j-r-147-AHwol5cxySPL413y.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">bsl-j-r-147-AHwol5cxySPL413y.jpg</span>
+      <button class="photo-del" onclick="delAboutFoto(0)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg</span>
+      <button class="photo-del" onclick="delAboutFoto(1)">✕</button>
+    </div>
+    <div class="photo-item">
+      <img class="photo-thumb" src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img_6646-BVpG0S2pSZWZpn4p.jpg" onerror="this.style.background='#333';this.src=''">
+      <span class="photo-name">img_6646-BVpG0S2pSZWZpn4p.jpg</span>
+      <button class="photo-del" onclick="delAboutFoto(2)">✕</button>
+    </div></div>
     <div class="add-photo-row">
-      <input class="adm-inp" id="new-about-url" placeholder="Cole o link da foto">
+      <input class="adm-inp" id="new-about-url" placeholder="Cole o link da foto" value="">
       <button onclick="addAboutFoto()">+ Add</button>
     </div>
   </div>
@@ -921,11 +985,13 @@ body{font-size:16px;line-height:1.6}
 
   <div class="adm-sec">
     <div class="adm-sec-t">📋 Resumo do Atendimento</div>
-    <div id="adm-resumo-content" style="font-size:.68rem;color:var(--muted)">Clique em "Aplicar" para gerar o resumo.</div>
+    <div id="adm-resumo-content" style="font-size:.68rem;color:var(--muted)"><div class="adm-resumo">
+    <div class="adm-resumo-t">Resumo — Brunno</div>
+    <div class="adm-resumo-item"><span>Pacote</span><span>gold</span></div><div class="adm-resumo-item"><span>Adicionais</span><span style="color:var(--muted)">Nenhum selecionado ainda</span></div></div></div>
   </div>
 
   <button class="adm-apply" onclick="aplicar()">✅ Aplicar alterações</button>
-  <button id="btn-salvar-github" class="adm-apply" style="background:linear-gradient(135deg,rgba(201,169,110,.2),rgba(201,169,110,.08));border:.5px solid rgba(201,169,110,.45);color:var(--gold);margin-top:.5rem;display:none" onclick="salvarNoGithub()">☁️ Salvar alterações para o cliente</button>
+  <button id="btn-salvar-github" class="adm-apply" style="background: linear-gradient(135deg, rgba(201, 169, 110, 0.2), rgba(201, 169, 110, 0.08)); border: 0.5px solid rgba(201, 169, 110, 0.45); color: var(--gold); margin-top: 0.5rem; display: block;" onclick="salvarNoGithub()" disabled="">⏳ Salvando...</button>
   <button class="adm-apply" style="background:linear-gradient(135deg,rgba(74,222,128,.12),rgba(74,222,128,.04));border:.5px solid rgba(74,222,128,.35);color:#4ade80;margin-top:.5rem" onclick="baixarProposta()">⬇️ Baixar proposta (uso manual)</button>
   <button class="adm-apply" style="background:rgba(255,255,255,.08);margin-top:.5rem" onclick="resetarAdmin()">🔄 Resetar para original</button>
 </div>
@@ -939,10 +1005,8 @@ body{font-size:16px;line-height:1.6}
 
 <!-- HERO -->
 <div class="hero">
-  <video preload="none" id="hero-video" class="hero-video active" autoplay muted loop playsinline src="https://res.cloudinary.com/dacunbkd2/video/upload/q_auto:low,w_720/copy_6E547F7B-E479-4E2F-A95E-EF63B302383B_oxnqkf.mp4"></video>
-  <img id="hero-bg" class="hero-bg" style="opacity:0"
-    src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/PgdbW9JmuFQxbVnj/duquesa-zpMfeNpvCWP33Z5I.jpeg"
-    alt="">
+  <video preload="none" id="hero-video" class="hero-video active" autoplay="" muted="" loop="" playsinline="" src="https://res.cloudinary.com/dacunbkd2/video/upload/q_auto:low,w_720/copy_6E547F7B-E479-4E2F-A95E-EF63B302383B_oxnqkf.mp4"></video>
+  <img id="hero-bg" class="hero-bg" style="opacity:0" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/PgdbW9JmuFQxbVnj/duquesa-zpMfeNpvCWP33Z5I.jpeg" alt="">
   <div class="hero-grad"></div>
   <div class="hero-body">
     <div class="hero-eyebrow">
@@ -960,14 +1024,14 @@ body{font-size:16px;line-height:1.6}
 </div>
 
 <!-- PROOF -->
-<div class="proof fade-up">
+<div class="proof fade-up visible">
   <div class="proof-item"><span class="proof-n">300+</span><span class="proof-l">Eventos realizados</span></div>
   <div class="proof-item"><span class="proof-n">5.000+</span><span class="proof-l">Convidados felizes</span></div>
   <div class="proof-item"><span class="proof-n">5★</span><span class="proof-l">Avaliação média</span></div>
 </div>
 
 <!-- DADOS -->
-<div class="sec fade-up">
+<div class="sec fade-up visible">
   <div class="sec-head"><span class="sec-t">Sua celebração</span><div class="sec-line"></div></div>
   <div class="info-row"><span class="ik">Cliente</span><span class="iv" id="i-nome">Brunno</span></div>
   <div class="info-row"><span class="ik">Tipo</span><span class="iv" id="i-tipo">Aniversario</span></div>
@@ -978,25 +1042,25 @@ body{font-size:16px;line-height:1.6}
 </div>
 
 <!-- QUEM SOMOS -->
-<div class="sec fade-up">
+<div class="sec fade-up visible">
   <div class="sec-head"><span class="sec-t">Quem somos</span><div class="sec-line"></div></div>
   <div class="about-car-wrap">
     <button class="about-arrow prev" id="about-prev" aria-label="Anterior">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
     </button>
-    <div class="about-car" id="about-car"></div>
+    <div class="about-car" id="about-car"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-j-r-147-AHwol5cxySPL413y.jpg" alt=""><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg" alt=""><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img_6646-BVpG0S2pSZWZpn4p.jpg" alt=""></div>
     <button class="about-arrow next" id="about-next" aria-label="Próximo">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
     </button>
-    <div class="about-dots" id="about-dots"></div>
+    <div class="about-dots" id="about-dots"><div class="about-dot"></div><div class="about-dot on"></div><div class="about-dot"></div></div>
   </div>
   <p class="about-p" id="about-p1">Somos especialistas em coquetelaria para eventos em Goiás e Brasília. Com mais de 2 anos de atuação e mais de 300 celebrações realizadas, atendemos desde comemorações intimistas até grandes eventos com 1.200+ convidados — sempre com a mesma dedicação e atenção a cada detalhe.</p>
-  <p class="about-p" id="about-p2" style="margin-top:.7rem">Já tivemos o prazer de atender artistas como <strong style="color:rgba(201,169,110,.8)">Murilo Huff, Zé Felipe, Virgínia Fonseca, Jorge &amp; Mateus e Henrique &amp; Juliano</strong>, além de grandes marcas como Toyota, Sicoob, JBS e Grupo Mauá — reforçando nosso compromisso com qualidade e profissionalismo.</p>
+  <p class="about-p" id="about-p2" style="margin-top:.7rem">Já tivemos o prazer de atender artistas como Murilo Huff, Zé Felipe, Virgínia Fonseca, Jorge &amp; Mateus e Henrique &amp; Juliano, além de grandes marcas como Toyota, Sicoob, JBS e Grupo Mauá — reforçando nosso compromisso com qualidade e profissionalismo.</p>
   <p class="about-p" style="margin-top:.7rem">Estrutura 100% móvel, equipe uniformizada e treinada, destilados originais e processo organizado — para você aproveitar sua celebração do início ao fim sem nenhuma preocupação. <em style="color:rgba(201,169,110,.65)">Você aproveita. A gente cuida de tudo.</em></p>
 </div>
 
 <!-- EQUIPE -->
-<div class="sec fade-up">
+<div class="sec fade-up visible">
   <div class="sec-head"><span class="sec-t">Como funciona</span><div class="sec-line"></div></div>
   <div class="steps">
     <div class="step">
@@ -1033,23 +1097,71 @@ body{font-size:16px;line-height:1.6}
   </div>
 </div>
 
-<div class="sec fade-up">
+<div class="sec fade-up visible">
   <div class="sec-head"><span class="sec-t">Equipe do seu evento</span><div class="sec-line"></div></div>
   <div class="team-grid">
     <div class="team-card"><div class="team-n" id="i-bar">3</div><div class="team-l">Bartenders</div></div>
-    <div class="team-card"><div class="team-n" id="i-back">1</div><div class="team-l">Barbacks</div></div>
+    <div class="team-card"><div class="team-n" id="i-back">2</div><div class="team-l">Barbacks</div></div>
   </div>
 </div>
 
 <!-- PACOTES -->
 
-<div id="pacotes-block"></div>
+<div id="pacotes-block"><div class="sec fade-up visible">
+    <div class="sec-head"><span class="sec-t">Proposta Gold</span><div class="sec-line"></div></div>
+    <div class="pacote">
+      <div class="pac-top">
+        
+        <div class="pac-badge">Pacote selecionado para você</div>
+        <div class="pac-nome">Gold</div>
+        <div class="pac-desc">Até 6 opções de drinks com e sem álcool · Destilados nacionais selecionados · Copos e taças de vidro · Balcão Freijó incluso</div>
+      </div>
+      <div class="pac-bot">
+        <div class="val-lbl">Investimento total · 6 horas</div>
+        <div class="val-num"><sup>R$</sup>7.350,00</div>
+        <div class="val-row">
+          <div class="val-mini"><div class="vm-l">4x sem juros</div><div class="vm-v">R$ 1.837,50</div></div>
+          <div class="val-mini"><div class="vm-l">Pix (5% off)</div><div class="vm-v">R$ 6.000,00</div></div>
+        </div>
+        
+    <div class="val-horas-break">
+      <div class="vhb-row"><span class="vhb-lbl">Pacote base · 4 horas</span><span class="vhb-val">R$ 5.250,00</span></div>
+      <div class="vhb-row"><span class="vhb-lbl" style="font-size:.53rem;color:rgba(255,255,255,.28)">R$ 1.312,50/h</span></div>
+      <div class="vhb-row extra"><span class="vhb-lbl">Hora adicional<span class="vhb-badge">20% off</span></span><span class="vhb-val">R$ 1.050,00/h</span></div>
+    </div>
+      </div>
+    </div>
+    <button class="btn-carta" onclick="openCarta('gold')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3"></path><path d="M9 13h6M12 10v6"></path></svg>🍹 Montar minha carta de drinks</button>
+    
+    <div class="pkg-base-note">Quer elevar ainda mais a experiência? Veja abaixo ↓</div>
+  </div><div class="sec fade-up visible">
+        <div class="sec-head"><span class="sec-t">Evolução recomendada</span><div class="sec-line"></div></div>
+        <div class="pkg-upgrade">
+          <div class="pkg-upg-top">
+            <div class="pkg-upg-badge">✦ Evolução recomendada</div>
+            <div class="pkg-upg-nome">Premium</div>
+            <div class="pkg-upg-tag">Eleve a experiência ao nível mais alto.</div>
+          </div>
+          <div class="pkg-upg-delta">
+            <div class="pkg-upg-d-t">O que você ganha a mais</div>
+            <ul class="pkg-upg-list"><li>Até 8 drinks — 2 opções exclusivas a mais</li><li>Destilados importados premium (whisky, gin, vodka top shelf)</li><li>Experiência sensorialmente superior para seus convidados</li><li>🎁 Cortesia: papel de arroz ou shots</li></ul>
+          </div>
+          <div class="pkg-upg-price">
+            <div class="pkg-upg-por">diferença de investimento</div>
+          <div class="pkg-upg-diff"><sup>+R$</sup>2.100,00</div>
+          <div class="pkg-upg-ou">ou +R$525,00/mês em 4x sem juros · Total Premium: R$9.450,00</div>
+            <a class="pkg-upg-cta" href="https://wa.me/5562995001598?text=Ol%C3%A1!%20Recebi%20a%20proposta%20Gold%20e%20gostaria%20de%20entender%20o%20upgrade%20para%20o%20Premium.%20Pode%20me%20ajudar%3F">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg> Fazer o upgrade
+            </a>
+          </div>
+        </div>
+      </div></div>
 
 <!-- ADICIONAIS TRIGGER -->
 <div style="padding:.2rem 1.5rem 1.6rem">
   <button class="btn-adic" onclick="openAdic()">
     <div class="btn-adic-row">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
       ✨ Adicionais e upgrades para o seu evento
     </div>
     <div class="btn-adic-sub">Torre de Taças · Drinks Personalizados · Welcome Drinks · Shots · Bistrôs</div>
@@ -1077,7 +1189,7 @@ body{font-size:16px;line-height:1.6}
       <div class="deg-title">Agende sua<br>degustação</div>
       <p class="deg-p" id="deg-txt">Antes de fechar sua celebração, agende uma degustação no conforto da sua casa. Você e até 5 pessoas recebem nossa equipe por cerca de 1 hora — de segunda a quinta — para experimentar os drinks e afinar cada detalhe. Taxa única: R$ 300,00. Uma experiência que transforma a decisão em certeza.</p>
       <a class="deg-cta" href="https://wa.me/5562995001598?text=Ol%C3%A1!%20Quero%20agendar%20uma%20degusta%C3%A7%C3%A3o!">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
         Agendar pelo WhatsApp
       </a>
     </div>
@@ -1092,7 +1204,7 @@ body{font-size:16px;line-height:1.6}
       <div class="deg-title">Venha nos<br>conhecer</div>
       <p class="deg-p">Uma vez por mês abrimos espaço para degustações presenciais. Experimente nossos drinks, conheça os bartenders e tire todas as suas dúvidas ao vivo. Uma forma de sentir a energia Aloha Drinks antes do grande dia.<br><br><strong>Local:</strong> Casa Hum — Espaço para eventos · <strong>Frequência:</strong> 1x por mês · <strong>Taxa:</strong> R$ 120,00 por casal · <strong>Data:</strong> sob consulta</p>
       <a class="deg-cta" href="https://wa.me/5562995001598?text=Ol%C3%A1!%20Quero%20agendar%20uma%20degusta%C3%A7%C3%A3o%20presencial!">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
         Consultar datas disponíveis
       </a>
     </div>
@@ -1105,14 +1217,14 @@ body{font-size:16px;line-height:1.6}
   <div class="sec-head"><span class="sec-t">Nossos eventos</span><div class="sec-line"></div></div>
   <div class="carousel-wrap">
     <button class="car-arrow prev" id="car-prev" aria-label="Anterior">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
     </button>
-    <div class="carousel" id="carousel"></div>
+    <div class="carousel" id="carousel"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-jr-147-AHwol5cxySPL413y.jpg" alt="" style="cursor: pointer; display: none;"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg" alt="" style="cursor: pointer;"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-j-r-147-AHwol5cxySPL413y.jpg" alt="" style="cursor: pointer;"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-j-r-151-KuntWC35HLjWcLWB.jpg" alt="" style="cursor: pointer;"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-j-r-311-msr6vaoLuhxu0rMA.jpg" alt="" style="cursor: pointer;"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/2222-LZA68iZ0Kbb2PvKL.jpg" alt="" style="cursor: pointer;"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img_3537-iP1gtErrtgYO1yaY.jpg" alt="" style="cursor: pointer;"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img_3618-us3ybjFBq3LVDvRi.jpg" alt="" style="cursor: pointer;"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/5e9cb8fc-bb84-48c4-a447-9a1efab7f3bb-6ex0epwlzC8kxYzB.jpg" alt="" style="cursor: pointer;"><img src="https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/bsl-c-b-966-VdlHOeTwEo0iBlKK.jpg" alt="" style="cursor: pointer;"></div>
     <button class="car-arrow next" id="car-next" aria-label="Próximo">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
     </button>
   </div>
-  <div class="car-dots" id="car-dots"></div>
+  <div class="car-dots" id="car-dots"><div class="car-dot"></div><div class="car-dot"></div><div class="car-dot"></div><div class="car-dot"></div><div class="car-dot on"></div><div class="car-dot"></div><div class="car-dot"></div><div class="car-dot"></div><div class="car-dot"></div><div class="car-dot"></div></div>
 </div>
 
 <!-- LOGOS -->
@@ -1120,6 +1232,24 @@ body{font-size:16px;line-height:1.6}
   <div class="sec-head"><span class="sec-t">Quem já confiou em nós</span><div class="sec-line"></div></div>
   <div class="logos-wrap">
     <div class="logos-track" id="logos-track">
+      <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-sicoob-SICCoe5zDjTZsTx2.PNG" alt="Sicoob" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Sicoob'}))"></div>
+      <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-clinica-vitta-Yg8oJdTyCJuteuxo.PNG" alt="Clínica Vittá" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Clínica Vittá'}))"></div>
+      <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-lince-toyota-qTLPkT2q2o7SNrhg.PNG" alt="Toyota" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Lince Toyota'}))"></div>
+      <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-jbs-xFfO6O1MQqS1Ontx.PNG" alt="JBS" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'JBS'}))"></div>
+      <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-grupo-maua-h7yqlSwZUfsSePoG.PNG" alt="Grupo Mauá" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Grupo Mauá'}))"></div>
+      <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-umuarama-concessionarias-o74afyb40wRLCgOc.PNG" alt="Umuarama" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Umuarama'}))"></div>
+      <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-policia-militar-IVU3Ze8On7WIPeV6.PNG" alt="PM" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Pol. Militar'}))"></div>
+      <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-unicamps-dQ06LDq5DNZNCgRZ.PNG" alt="Unicamps" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Unicamps'}))"></div>
+    
+      <div class="logo-card" aria-hidden="true"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-sicoob-SICCoe5zDjTZsTx2.PNG" alt="Sicoob" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Sicoob'}))"></div>
+      <div class="logo-card" aria-hidden="true"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-clinica-vitta-Yg8oJdTyCJuteuxo.PNG" alt="Clínica Vittá" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Clínica Vittá'}))"></div>
+      <div class="logo-card" aria-hidden="true"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-lince-toyota-qTLPkT2q2o7SNrhg.PNG" alt="Toyota" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Lince Toyota'}))"></div>
+      <div class="logo-card" aria-hidden="true"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-jbs-xFfO6O1MQqS1Ontx.PNG" alt="JBS" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'JBS'}))"></div>
+      <div class="logo-card" aria-hidden="true"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-grupo-maua-h7yqlSwZUfsSePoG.PNG" alt="Grupo Mauá" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Grupo Mauá'}))"></div>
+      <div class="logo-card" aria-hidden="true"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-umuarama-concessionarias-o74afyb40wRLCgOc.PNG" alt="Umuarama" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Umuarama'}))"></div>
+      <div class="logo-card" aria-hidden="true"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-policia-militar-IVU3Ze8On7WIPeV6.PNG" alt="PM" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Pol. Militar'}))"></div>
+      <div class="logo-card" aria-hidden="true"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-unicamps-dQ06LDq5DNZNCgRZ.PNG" alt="Unicamps" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Unicamps'}))"></div>
+    
       <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-sicoob-SICCoe5zDjTZsTx2.PNG" alt="Sicoob" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Sicoob'}))"></div>
       <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-clinica-vitta-Yg8oJdTyCJuteuxo.PNG" alt="Clínica Vittá" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Clínica Vittá'}))"></div>
       <div class="logo-card"><img loading="lazy" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=200,fit=crop/PgdbW9JmuFQxbVnj/logo-lince-toyota-qTLPkT2q2o7SNrhg.PNG" alt="Toyota" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'Lince Toyota'}))"></div>
@@ -1154,27 +1284,27 @@ body{font-size:16px;line-height:1.6}
   <div class="garantias">
 
     <div class="g-item fade-up d1">
-      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3"/><path d="M9 13h6M12 10v6"/></svg></span>
+      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M8.5 3L7 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2L15.5 3"></path><path d="M9 13h6M12 10v6"></path></svg></span>
       <div class="g-text"><div class="g-title">Destilados 100% originais</div><div class="g-sub">Parceiros homologados. Qualidade rastreável, sem atalhos.</div></div>
     </div>
 
     <div class="g-item fade-up d2">
-      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-3 8H11L8 3z"/><path d="M11 11v10M13 11v10M7 21h10"/><line x1="9" y1="7" x2="15" y2="7"/></svg></span>
+      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-3 8H11L8 3z"></path><path d="M11 11v10M13 11v10M7 21h10"></path><line x1="9" y1="7" x2="15" y2="7"></line></svg></span>
       <div class="g-text"><div class="g-title">Copos e taças de vidro</div><div class="g-sub">Canudos biodegradáveis inclusos. Nenhum descartável no seu evento.</div></div>
     </div>
 
     <div class="g-item fade-up d3">
-      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-1a6 6 0 0 1 12 0v1"/><path d="M14 13.5l1 1.5-3 1-3-1 1-1.5"/></svg></span>
+      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"></circle><path d="M6 21v-1a6 6 0 0 1 12 0v1"></path><path d="M14 13.5l1 1.5-3 1-3-1 1-1.5"></path></svg></span>
       <div class="g-text"><div class="g-title">Equipe uniformizada e treinada</div><div class="g-sub">Profissionais pontuais, apresentados e com experiência comprovada.</div></div>
     </div>
 
     <div class="g-item fade-up d4">
-      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg></span>
       <div class="g-text"><div class="g-title">Você não paga por quebras</div><div class="g-sub">Seguro contra perdas de copos e taças incluso em todos os pacotes.</div></div>
     </div>
 
     <div class="g-item fade-up">
-      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l4 8h6l4-8H5z"/><line x1="3" y1="8" x2="21" y2="8"/><line x1="12" y1="12" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg></span>
+      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l4 8h6l4-8H5z"></path><line x1="3" y1="8" x2="21" y2="8"></line><line x1="12" y1="12" x2="12" y2="21"></line><line x1="8" y1="21" x2="16" y2="21"></line></svg></span>
       <div class="g-text">
         <div class="g-title">Balcão Freijó incluso</div>
         <div class="g-sub">Sem taxa extra de locação. O balcão já faz parte do pacote.</div>
@@ -1186,7 +1316,7 @@ body{font-size:16px;line-height:1.6}
     </div>
 
     <div class="g-item fade-up">
-      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+      <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span>
       <div class="g-text"><div class="g-title">Compromisso com a sua felicidade</div><div class="g-sub">Se algo não sair como planejado, nossa equipe resolve na hora. Você não se preocupa com nada.</div></div>
     </div>
 
@@ -1200,28 +1330,28 @@ body{font-size:16px;line-height:1.6}
   <div class="pgto">
     <div class="pgto-item">
       <div class="pgto-left">
-        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 12.5L10.5 14.5L15.5 9.5"/><path d="M12 2L2 7V12C2 16.4 6.4 20.5 12 22C17.6 20.5 22 16.4 22 12V7L12 2Z"/></svg>
+        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 12.5L10.5 14.5L15.5 9.5"></path><path d="M12 2L2 7V12C2 16.4 6.4 20.5 12 22C17.6 20.5 22 16.4 22 12V7L12 2Z"></path></svg>
         <div><div class="pgto-name">Pix à vista</div><div class="pgto-sub">Pagamento integral · desconto especial</div></div>
       </div>
       <div class="pgto-badge gold">5% OFF</div>
     </div>
     <div class="pgto-item">
       <div class="pgto-left">
-        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
         <div><div class="pgto-name">Parcelamento próprio</div><div class="pgto-sub">Sem juros · Sem consulta Serasa · Até 5 dias antes</div></div>
       </div>
       <div class="pgto-badge">Até 5x</div>
     </div>
     <div class="pgto-item">
       <div class="pgto-left">
-        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line><line x1="6" y1="15" x2="10" y2="15"></line></svg>
         <div><div class="pgto-name">Cartão de crédito</div><div class="pgto-sub">Até 12x · máxima flexibilidade para você</div></div>
       </div>
       <div class="pgto-badge">Até 12x</div>
     </div>
     <div class="pgto-item">
       <div class="pgto-left">
-        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <svg class="pgto-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
         <div><div class="pgto-name">Entrada + saldo</div><div class="pgto-sub">80% até 1 dia antes da sua celebração</div></div>
       </div>
       <div class="pgto-badge">20% agora</div>
@@ -1236,19 +1366,19 @@ body{font-size:16px;line-height:1.6}
     <div class="urg-title">✨ Sua data está reservada por</div>
     <p class="urg-sub">Depois desse prazo, sua data fica disponível para outros clientes. Confirme agora e tenha seu evento garantido com esses valores.</p>
     <div class="countdown">
-      <div class="cb"><span class="cb-n" id="cd-d">07</span><span class="cb-l">dias</span></div>
+      <div class="cb"><span class="cb-n" id="cd-d">06</span><span class="cb-l">dias</span></div>
       <span class="cb-sep">:</span>
-      <div class="cb"><span class="cb-n" id="cd-h">00</span><span class="cb-l">horas</span></div>
+      <div class="cb"><span class="cb-n" id="cd-h">23</span><span class="cb-l">horas</span></div>
       <span class="cb-sep">:</span>
-      <div class="cb"><span class="cb-n" id="cd-m">00</span><span class="cb-l">min</span></div>
+      <div class="cb"><span class="cb-n" id="cd-m">58</span><span class="cb-l">min</span></div>
       <span class="cb-sep">:</span>
-      <div class="cb"><span class="cb-n" id="cd-s">00</span><span class="cb-l">seg</span></div>
+      <div class="cb"><span class="cb-n" id="cd-s">09</span><span class="cb-l">seg</span></div>
     </div>
   </div>
 </div>
 
 <div class="val-bar">
-  <span class="vb">Gerada em <strong id="v-gerada">31/03/2026</strong></span>
+  <span class="vb">Gerada em <strong id="v-gerada">10/04/2026</strong></span>
   <span class="vb">Válida por <strong>7 dias</strong></span>
 </div>
 
@@ -1286,15 +1416,15 @@ body{font-size:16px;line-height:1.6}
 
 <!-- CTA -->
 <div class="cta fade-up">
-  <h2 class="cta-title" id="cta-title">Sua data está<br>quase garantida ✨</h2>
-  <p class="cta-sub" id="cta-sub">Esta proposta foi preparada exclusivamente para você. Mais de 300 celebrações realizadas — e a próxima pode ser a mais especial de todas. Responda agora e bloqueie sua data.</p>
+  <h2 class="cta-title" id="cta-title">Pronta para fechar o negócio?</h2>
+  <p class="cta-sub" id="cta-sub">Fale agora com nossa equipe e garanta a data da sua celebração. Atendemos pelo WhatsApp!</p>
   <div class="cta-trust">
     <span>✓ Resposta em minutos</span>
     <span>✓ Data bloqueada para você</span>
     <span>✓ Sem burocracia</span>
   </div>
   <a class="btn-main" href="https://wa.me/5562995001598?text=Ol%C3%A1!%20Quero%20fechar%20minha%20proposta!">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
     Confirmar minha proposta agora
   </a>
   <a class="btn-sec" href="https://wa.me/5562995001598">Tenho algumas dúvidas antes...</a>
@@ -1305,17 +1435,17 @@ body{font-size:16px;line-height:1.6}
   <div class="social-label">Siga e conheça mais</div>
   <div class="social-btns">
     <a class="social-btn" href="https://www.instagram.com/alohadrinksgo" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
       Instagram
     </a>
     <a class="social-btn" href="https://wa.me/5562995001598" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       WhatsApp
     </a>
   </div>
   <div class="social-site-row">
     <a class="social-btn-site" href="https://alohadrinksgo.com.br" target="_blank" rel="noopener">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
       Conheça mais o site
     </a>
   </div>
@@ -1324,7 +1454,7 @@ body{font-size:16px;line-height:1.6}
 
 <!-- WhatsApp Flutuante -->
 <a class="wa-float" aria-label="Falar pelo WhatsApp" href="https://wa.me/5562995001598?text=Ol%C3%A1%21%20Vi%20a%20proposta%20e%20quero%20confirmar%20minha%20data%21" target="_blank" rel="noopener">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
   Falar agora
 </a>
 
@@ -1344,7 +1474,7 @@ body{font-size:16px;line-height:1.6}
         <div class="adic-card selectable" data-name="Torre de Taças" onclick="toggleAdicCard(this)">
           <div class="adic-icon-area" style="background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg);background-position:center 20%;" onclick="event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/img-20250723-wa0020-EEJWZdDvi2ZtO9eM.jpg')">
           <div class="adic-img-title">Torre de Taças</div>
-          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
         </div>
           <div class="adic-body">
             <div class="adic-desc">Entrada dos noivos com torre cintilante — o momento mais fotografado da festa</div>
@@ -1356,7 +1486,7 @@ body{font-size:16px;line-height:1.6}
         <div class="adic-card selectable" data-name="Drinks Personalizados" onclick="toggleAdicCard(this)">
           <div class="adic-icon-area" style="background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/25-anos-BtYS8y6yUVhPU0I9.jpg);background-position:center 40%;" onclick="event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/25-anos-BtYS8y6yUVhPU0I9.jpg')">
           <div class="adic-img-title">Drinks Personalizados</div>
-          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
         </div>
           <div class="adic-body">
             <div class="adic-desc">Drinks exclusivos com o nome e identidade visual do seu evento, em papel de arroz comestível</div>
@@ -1368,7 +1498,7 @@ body{font-size:16px;line-height:1.6}
         <div class="adic-card selectable" data-name="Chá Lingerie" onclick="toggleAdicCard(this)">
           <div class="adic-icon-area" style="background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-03-23-at-asd-pa7qOmFGiCOle9Pr.jpeg);background-position:center 25%;" onclick="event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/whatsapp-image-2026-03-23-at-asd-pa7qOmFGiCOle9Pr.jpeg')">
           <div class="adic-img-title">Chá Lingerie</div>
-          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
         </div>
           <div class="adic-body">
             <div class="adic-desc">Kit especial com drinks temáticos para a despedida de solteira perfeita</div>
@@ -1380,7 +1510,7 @@ body{font-size:16px;line-height:1.6}
         <div class="adic-card selectable" data-name="Welcome Drinks" onclick="toggleAdicCard(this)">
           <div class="adic-icon-area" style="background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/b5146134-76d0-42d0-868f-00b4c2c81087-tp9u6eC6GhWwNP68.jpg);background-position:center 30%;" onclick="event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/b5146134-76d0-42d0-868f-00b4c2c81087-tp9u6eC6GhWwNP68.jpg')">
           <div class="adic-img-title">Welcome Drinks</div>
-          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
         </div>
           <div class="adic-body">
             <div class="adic-desc">Recepcione seus convidados com champagne e drinks especiais na chegada — a primeira impressão é inesquecível</div>
@@ -1392,7 +1522,7 @@ body{font-size:16px;line-height:1.6}
         <div class="adic-card selectable" data-name="Shots" onclick="toggleAdicCard(this)">
           <div class="adic-icon-area" style="background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/3546c900-e587-4545-a5d7-57a29caa04f5-rc3rFeld8Xoqmmzy.jpg);background-position:center 18%;" onclick="event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/3546c900-e587-4545-a5d7-57a29caa04f5-rc3rFeld8Xoqmmzy.jpg')">
           <div class="adic-img-title">Shots</div>
-          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
         </div>
           <div class="adic-body">
             <div class="adic-desc">Régua de shots para animar a galera — celebração coletiva e inesquecível</div>
@@ -1404,7 +1534,7 @@ body{font-size:16px;line-height:1.6}
         <div class="adic-card selectable" data-name="Bistrôs" onclick="toggleAdicCard(this)">
           <div class="adic-icon-area" style="background-image:url(https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/168151-800-auto-JMyt9er87HRM28yx.webp);background-position:center 40%;" onclick="event.stopPropagation();openSLB('https://assets.zyrosite.com/PgdbW9JmuFQxbVnj/168151-800-auto-JMyt9er87HRM28yx.webp')">
           <div class="adic-img-title">Bistrôs</div>
-          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="adic-check"><svg class="adic-check-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
         </div>
           <div class="adic-body">
             <div class="adic-desc">Estações gourmet para petiscar com harmonizações especiais de drinks — sofisticação e sabor no seu evento</div>
@@ -1416,13 +1546,13 @@ body{font-size:16px;line-height:1.6}
       <!-- Tela de confirmação -->
       <div class="adic-conf-screen" id="adic-conf-screen">
         <div class="adic-conf-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
         </div>
         <div class="adic-conf-title">Adicionais confirmados!</div>
         <div class="adic-conf-sub">Salvos nesta proposta · prontos para enviar</div>
         <div class="adic-conf-list" id="adic-conf-list"></div>
         <a class="adic-conf-wa" id="adic-conf-wa" href="#" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
           Enviar lista pelo WhatsApp
         </a>
         <button class="adic-conf-alter" onclick="alterarAdicionais()">✎ Alterar seleção</button>
@@ -1453,15 +1583,15 @@ body{font-size:16px;line-height:1.6}
     <div class="foot-brand-sub">Coquetelaria para eventos</div>
   </div>
   <div class="foot-social">
-    <a class="foot-soc-link" href="https://instagram.com/alohadrinksgo" target="_blank" rel="noopener" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-    <a class="foot-soc-link" href="https://wa.me/5562995001598" target="_blank" rel="noopener" title="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <a class="foot-soc-link" href="https://instagram.com/alohadrinksgo" target="_blank" rel="noopener" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4.5"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+    <a class="foot-soc-link" href="https://wa.me/5562995001598" target="_blank" rel="noopener" title="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
     <a class="foot-soc-link" href="https://alohadrinksgo.com.br" target="_blank" rel="noopener" title="Site">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
     </a>
   </div>
   <div class="foot-divider"></div>
   <div class="foot-info">
-    BH Produções LTDA &middot; CNPJ: 65.057.227/0001-19<br>
+    BH Produções LTDA · CNPJ: 65.057.227/0001-19<br>
     Aparecida de Goiânia — GO<br>
     <a href="tel:+5562995001598" class="foot-tel">(62) 99500-1598</a>
   </div>
@@ -1499,7 +1629,7 @@ body{font-size:16px;line-height:1.6}
       <div class="carta-conf-sub">Salvos nesta proposta · prontos para enviar</div>
       <div class="carta-conf-list" id="carta-conf-list"></div>
       <a class="carta-conf-wa" id="carta-conf-wa" href="#" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
         Enviar lista pelo WhatsApp
       </a>
       <button class="carta-conf-alt" onclick="alterarSelecao()">✎ Alterar seleção</button>
@@ -2760,5 +2890,5 @@ function baixarProposta(){
   }
 })();
 </script>
-</body>
-</html>
+
+</body></html>
